@@ -1,0 +1,4 @@
+Реализовать изменение количества для одного и того же товара при повторном добавлении в корзину
+
+
+https://liblessons.ru/programming/article-in-mysql/normalize_db/
