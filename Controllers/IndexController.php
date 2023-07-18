@@ -1,5 +1,5 @@
 <?php 
-	require_once("Controller.php");
+	require_once("core/Controller.php");
 
 	require_once("Models/PagesModel.php");
 	require_once("Models/CategoriesModel.php");
@@ -92,7 +92,6 @@
 
 				Controller::render('cart', $data);
 			}
-
 			
 		}
 	}

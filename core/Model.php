@@ -3,6 +3,8 @@
 
 	class Model{
 
+	    protected $db;
+
 		protected function connect(){
 			$link = mysqli_connect(HOST, USER, PASSWORD, DB);
 
