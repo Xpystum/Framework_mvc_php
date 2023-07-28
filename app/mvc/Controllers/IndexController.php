@@ -9,8 +9,12 @@
 	require_once("Widgets/MenuWidget.php");
 
 	class IndexController extends Controller{
+
+		private $nameLayout = 'default'; // Стандартный шаблон (можно поменять)
+
 		public function pageAction(){
-			// обычная типовая страница
+			// обычная типовая страница	
+			$nameLayout = $this->nameLayout;
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
@@ -19,57 +23,62 @@
 				$data = $model->selectPageId($_GET['id']);
 	
 				if(count($data) == 0){
-					Controller::render('404');
+					Controller::generation('404',$nameLayout);
 					die();
 				}
 
-				Controller::render($data['alias'], $data);
+				Controller::generation($data['alias'], $data);
 			}
 			else{
-				Controller::render('404');
+				Controller::generation('404', $nameLayout);
 			}
 		}
 
 		public function indexAction(){
 			// главная страница
+			$nameLayout = 'index';
 			$model = new PagesModel();
 			$data = $model->selectPageId(4);
-			Controller::render('index', $data, 'index');
+			
+			Controller::generation('index', $nameLayout , $data);	
 		}
 
 
 		public function categoryAction(){
 			// категории товаров
-
+			$nameLayout = $this->nameLayout;
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
+				
 				$model = new CategoriesModel();
 				$data = $model->selectCategoryId($_GET['id']);
 				
 				if(count($data) == 0){
-					Controller::render('404');
+					Controller::generation('404',$nameLayout);
 					die();
 				}
 
 				$model = new ProductsModel();
 				$data['products'] = $model->selectProductsCategory($_GET['id']);
 
-				Controller::render('category', $data, 'default', ['здесь будут имена виджетов из базы данных']);
+				Controller::generation('category', $nameLayout ,$data, ['здесь будут имена виджетов из базы данных']);
 			}
 			else{
-				Controller::render('404');
+				Controller::generation('404',$nameLayout);
 			}
 		}
 
 		public function error404Action(){
 			// страница не найдена
-			Controller::render('404');
+			$nameLayout = $this->nameLayout;
+			Controller::generation('404',$nameLayout);
 		}
 
 
 		public function cartaddAction(){
 			// страница не найдена
+			$nameLayout = $this->nameLayout;
 
 			if(isset($_POST['id_product'])){
 				$model = new OrdersModel();
@@ -84,13 +93,14 @@
 		}
 
 		public function cartAction(){
+			$nameLayout = $this->nameLayout;
 
 			if(isset($_GET['order_id'])){
 				$data = null;
 				$model = new OrdersModel();
 				$data = $model->selectOrder($_GET['order_id']);
 
-				Controller::render('cart', $data);
+				Controller::generation('cart', $nameLayout  ,$data);
 			}
 			
 		}
