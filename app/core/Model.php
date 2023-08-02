@@ -1,6 +1,6 @@
 <?php 
 	require_once("config.php");
-	require_once("core/Interface/SingltoneInterface.php");
+	require_once("Interface/SingltoneInterface.php");
 
 	class Model implements SingltoneInterface{
 

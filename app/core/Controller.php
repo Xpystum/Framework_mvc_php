@@ -4,17 +4,17 @@ require_once("Model.php");
 
 	class Controller{
 
-		protected $model = null;
-		protected $view = null;
+		protected static $model = null;
+		protected static $view = null;
 
 
-		public function __construct()
-		{
-			$this->model = Model::instance();
-			$this->view = View::instance();
-		}
+		// public function __construct()
+		// {
+		// 	$this->model = Model::instance();
+		// 	$this->view = View::instance();
+		// }
  
-	    static function generation($pathFile, $nameLayout ,$data = [] , $widgets = null){
+	    function generation($pathFile, $nameLayout ,$data = [] , $widgets = null){
 
 			self::$view->render(pathFile:$pathFile, data:$data, nameLayout:$nameLayout, widgets:$widgets);
 

@@ -1,4 +1,5 @@
 <?php
+  require_once("Interface/SingltoneInterface.php");
 
   class View implements SingltoneInterface
   {
@@ -33,7 +34,6 @@
 
     public function render($pathFile, $data, $nameLayout, $widgets,)
     {
-      $data = $this->data;
         
       $page = 'Views/pages/' . $pathFile . '.php';
       include_once('Views/layouts/' . $nameLayout . '.php');

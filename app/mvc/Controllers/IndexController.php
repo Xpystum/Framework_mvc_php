@@ -1,16 +1,22 @@
 <?php 
-	require_once("core/Controller.php");
+	require_once("app/core/Controller.php");
 
-	require_once("Models/PagesModel.php");
-	require_once("Models/CategoriesModel.php");
-	require_once("Models/ProductsModel.php");
-	require_once("Models/OrdersModel.php");
+	require_once("app/mvc/Models/PagesModel.php");
+	require_once("app/mvc/Models/CategoriesModel.php");
+	require_once("app/mvc/Models/ProductsModel.php");
+	require_once("app/mvc/Models/OrdersModel.php");
 
-	require_once("Widgets/MenuWidget.php");
+	require_once("app/Widgets/MenuWidget.php");
 
 	class IndexController extends Controller{
 
 		private $nameLayout = 'default'; // Стандартный шаблон (можно поменять)
+
+		// function __construct()
+		// {
+		// 	self::$model = Model::instance();
+		// 	self::$view 
+		// }
 
 		public function pageAction(){
 			// обычная типовая страница	

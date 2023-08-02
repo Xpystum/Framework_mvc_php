@@ -1,5 +1,5 @@
 <?php 
-	require_once("Model.php");
+	require_once("app/core/Model.php");
 
 	class ProductsModel extends Model{
 		// почему метод мы делаем не статический?

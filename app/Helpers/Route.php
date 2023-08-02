@@ -1,6 +1,6 @@
 <?php 
 
-	require_once("Helpers/Error404.php");
+	require_once("app/Helpers/Error404.php");
 
 	class Route{
 
@@ -47,7 +47,7 @@
 			}
 			else{
 				// вызов главной страницы
-				require_once("Controllers/IndexController.php");
+				require_once("app/mvc/Controllers/IndexController.php");
 				$obj = new IndexController();
 				$obj->indexAction();
 			}
