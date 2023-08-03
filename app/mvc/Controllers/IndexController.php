@@ -83,9 +83,13 @@
 		
 			if(isset($_POST['id_product'])){
 				$model = new OrdersModel();
-				$order_id = $model->createOrder(1); //заглушка на пользователя (надо делать по сессиям)
-
-				if(!($model->addProductOrder($_POST['id_product'], $order_id))){
+				// $model->createOrder(1) //заглушка на пользователя (надо делать по сессиям)
+				if(!$model->createOrder(1)){
+					echo "Ошибка Создание Order";
+				}
+				
+				$order_id = $model->SelectOrderId(1); //заглушка на пользователя (надо делать по сессиям)
+				if(!$model->addProductOrder($_POST['id_product'], $order_id)){
 					echo "ошибка добавление";
 				}
 			}

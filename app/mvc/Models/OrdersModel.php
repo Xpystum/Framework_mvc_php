@@ -34,22 +34,32 @@
 		}
 
 		public function createOrder($user_id = null){
+			// использовать патттерн состоние для получение в случае ошибки создание
+			// и выводить пользователю сообщение об ошибки добавление Ордера или продукта.
 			$sql = "SELECT * FROM `orders` WHERE user_id = ".$user_id;
 			$data = $this->getData($sql);
 			if($data == null){
 				$sql = "INSERT INTO `orders` (user_id, date) VALUES(".$user_id.", NOW())";
-
 				if($this->statusRequest($sql)){
-					$sql = "SELECT * FROM `orders` WHERE user_id = ".$user_id;
-					$data = $this->getData($sql);
+					return True;
 				}
+				else{
+					return False;
+				}
+			}
+			return True;
+		}
 
-				return $data['id'];
+		public function SelectOrderId($user_id){
+			$sql = "SELECT * FROM `orders` WHERE user_id = ".$user_id;
+			$data = $this->getData($sql);
+
+			if($data == null){
+				return null;
 			}
 			else{
 				return $data['id'];
 			}
-			
 		}
 
 		public function addProductOrder($product_id = null, $order_id){

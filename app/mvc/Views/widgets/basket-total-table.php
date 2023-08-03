@@ -32,10 +32,9 @@
                 <strong>НДС (20%):</strong>
             </td>
             <td class="text-right">
-                
+
                 <?php  echo ($sum * 0.2)." Rub";   ?>
-
-
+                
             </td>
         </tr>
         <tr>
