@@ -1,42 +1,42 @@
 <?php
-  require_once("Interface/SingltoneInterface.php");
 
-  class View implements SingltoneInterface
+
+  class View
   {
     private $nameLayout = 'default'; //Общий шаблон по умолчанию
 
-    private static $instance = null; //SingleTon
+    // private static $instance = null; //SingleTon
 
 
-    #region (Magic Method)
-      public function __construct()
-      {
-        self::instance();
-      }
+    // #region (Magic Method)
+    //   public function __construct()
+    //   {
+    //     self::instance();
+    //   }
 
-    #endregion
+    // #endregion
  
     
-	  #region (SingleTon logic)
+	  // #region (SingleTon logic)
 
-      public static function instance()
-      {
-        if(self::$instance === null){
-          self::$instance = new self;
-        }
-        return self::$instance;
-      }
+    //   public static function instance()
+    //   {
+    //     if(self::$instance === null){
+    //       self::$instance = new self;
+    //     }
+    //     return self::$instance;
+    //   }
 
-    #endregion
+    // #endregion
 	
 	
     #region (View logic)
 
-    public function render($pathFile, $data, $nameLayout, $widgets,)
+    public function render($pathFile, $data, $nameLayout, $widgets)
     {
         
-      $page = 'Views/pages/' . $pathFile . '.php';
-      include_once('Views/layouts/' . $nameLayout . '.php');
+      $page = 'app/mvc/Views/pages/' . $pathFile . '.php';
+      include_once('app/mvc/Views/layouts/' . $nameLayout . '.php');
     }
 
     #endregion

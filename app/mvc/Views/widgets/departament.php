@@ -14,7 +14,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-6.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-6.png" alt="icon">
                             <strong>Fashion</strong>
                         </span>
                             
@@ -120,7 +120,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-1.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-1.png" alt="icon">
                             <strong>Computer</strong>
                         </span>
                             
@@ -131,7 +131,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-2.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-2.png" alt="icon">
                             <strong>Flower & Gift</strong>
                         </span>
                             
@@ -181,7 +181,7 @@
                                 <div class="col-md-6">
                                     <div class="row banner">
                                         <a href="#">
-                                            <img src="image/catalog/menu/megabanner/vbanner1.jpg" alt="banner1">
+                                            <img src="app/resources/image/catalog/menu/megabanner/vbanner1.jpg" alt="banner1">
                                         </a>
                                     </div>
                                 </div>
@@ -193,7 +193,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="image/catalog/menu/icons/icon-3.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-3.png" alt="icon">
                             <strong>Smartphone</strong>
                         </span>
                             
@@ -310,7 +310,7 @@
                                     <div class="col-md-12">
                                         <div class="row banner">
                                             <a href="#">
-                                                <img src="resources/image/catalog/menu/megabanner/menu_bg2.jpg" alt="banner1">
+                                                <img src="app/resources/image/catalog/menu/megabanner/menu_bg2.jpg" alt="banner1">
                                             </a>
                                         </div>
                                     </div>
@@ -324,7 +324,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-4.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-4.png" alt="icon">
                             <strong>Health & Beauty</strong>
                         </span>
                             
@@ -380,7 +380,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-5.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-5.png" alt="icon">
                             <strong>Sport Clothing</strong>
                         </span>
                             
@@ -391,7 +391,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-7.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-7.png" alt="icon">
                             <strong>Watch & Jewelry</strong>
                         </span>
                             
@@ -402,7 +402,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-8.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-8.png" alt="icon">
                             <strong>Kitchen</strong>
                         </span>
                             
@@ -413,7 +413,7 @@
                     <p class="close-menu"></p>
                     <a href="#" class="clearfix">
                         <span>
-                            <img src="resources/image/catalog/menu/icons/icon-9.png" alt="icon">
+                            <img src="app/resources/image/catalog/menu/icons/icon-9.png" alt="icon">
                             <strong>Accessories</strong>
                         </span>
                             

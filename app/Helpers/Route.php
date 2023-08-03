@@ -9,11 +9,12 @@
 
 			if(isset($_GET['route']) && !empty($_GET['route'])){
 				// вроде как есть параметры
-
+				
 				$routeParams = explode("/", $_GET['route']);
-
+				
 				if(count($routeParams) != 2){
 					// 404
+					
 					Error404::default();
 					return 0;
 				}
@@ -23,13 +24,13 @@
 
 				$controllerName = ucfirst($controllerName);
 
-				if(!file_exists("Controllers/".$controllerName."Controller.php")){
+				if(!file_exists("app/mvc/Controllers/".$controllerName."Controller.php")){
 					// 404
 					Error404::default();
 					return 0;
 				}
 
-				require_once("Controllers/".$controllerName."Controller.php");
+				require_once("app/mvc/Controllers/".$controllerName."Controller.php");
 
 
 				if(!method_exists($controllerName."Controller", $actionName."Action")){
@@ -37,6 +38,8 @@
 					Error404::default();
 					return 0;
 				}
+
+				
 
 				$class = $controllerName."Controller";
 				$obj = new $class();

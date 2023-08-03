@@ -13,7 +13,7 @@
                 
                         <div class="content-product-left class-honizol col-md-6 col-sm-12 col-xs-12">
                             <div class="large-image">
-                                <img itemprop="image" class="product-image-zoom" src="image/catalog/demo/product/electronic/600x600/3.jpg" data-zoom-image="image/catalog/demo/product/electronic/600x600/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                <img itemprop="image" class="product-image-zoom" src="app/resources/image/catalog/demo/product/electronic/600x600/3.jpg" data-zoom-image="image/catalog/demo/product/electronic/600x600/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                             </div>
                             <a class="thumb-video pull-left" href="https://www.youtube.com/watch?v=I3Lo4ysUf80"><i class="fa fa-youtube-play"></i></a>
                             
@@ -21,15 +21,15 @@
                                 
                                 
                             <div class="owl2-stage-outer"><div class="owl2-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 500px;"><div class="owl2-item active" style="width: 90px; margin-right: 10px;"><a data-index="0" class="img thumbnail  active" data-image="image/catalog/demo/product/electronic/600x600/3.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a></div><div class="owl2-item active" style="width: 90px; margin-right: 10px;"><a data-index="1" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/3-1.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/3-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/3-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a></div><div class="owl2-item active" style="width: 90px; margin-right: 10px;"><a data-index="2" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/3-2.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/3-2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/3-2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a></div><div class="owl2-item active" style="width: 90px; margin-right: 10px;"><a data-index="3" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/2-1.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/2-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/2-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a></div><div class="owl2-item" style="width: 90px; margin-right: 10px;"><a data-index="4" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/2.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a></div></div></div><div class="owl2-controls"><div class="owl2-nav"><div class="owl2-prev" style=""></div><div class="owl2-next" style=""></div></div><div class="owl2-dots" style="display: none;"></div></div></div>
                             
                         </div>
@@ -85,20 +85,20 @@
                                         <li class="radio">
                                             <label>
                                                 <input class="image_radio" type="radio" name="option[231]" value="33"> 
-                                                <img src="image/demo/colors/blue.jpg" data-original-title="blue +$12.00" class="img-thumbnail icon icon-color">             <i class="fa fa-check"></i>
+                                                <img src="app/resources/image/demo/colors/blue.jpg" data-original-title="blue +$12.00" class="img-thumbnail icon icon-color">             <i class="fa fa-check"></i>
                                                 <label> </label>
                                             </label>
                                         </li>
                                         <li class="radio">
                                             <label>
                                                 <input class="image_radio" type="radio" name="option[231]" value="34"> 
-                                                <img src="image/demo/colors/brown.jpg" data-original-title="brown -$12.00" class="img-thumbnail icon icon-color">               <i class="fa fa-check"></i>
+                                                <img src="app/resources/image/demo/colors/brown.jpg" data-original-title="brown -$12.00" class="img-thumbnail icon icon-color">               <i class="fa fa-check"></i>
                                                 <label> </label>
                                             </label>
                                         </li>
                                         <li class="radio">
                                             <label>
-                                                <input class="image_radio" type="radio" name="option[231]" value="35"> <img src="image/demo/colors/green.jpg" data-original-title="green +$12.00" class="img-thumbnail icon icon-color">                <i class="fa fa-check"></i>
+                                                <input class="image_radio" type="radio" name="option[231]" value="35"> <img src="app/resources/image/demo/colors/green.jpg" data-original-title="green +$12.00" class="img-thumbnail icon icon-color">                <i class="fa fa-check"></i>
                                                 <label> </label>
                                             </label>
                                         </li>
@@ -147,18 +147,18 @@
                     // Cart add remove functions
                     var cart = {
                         'add': function(product_id, quantity) {
-                            parent.addProductNotice('Product added to Cart', '<img src="image/demo/shop/product/e11.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
+                            parent.addProductNotice('Product added to Cart', '<img src="app/resources/image/demo/shop/product/e11.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
                         }
                     }
 
                     var wishlist = {
                         'add': function(product_id) {
-                            parent.addProductNotice('Product added to Wishlist', '<img src="image/demo/shop/product/e11.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
+                            parent.addProductNotice('Product added to Wishlist', '<img src="app/resources/image/demo/shop/product/e11.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
                         }
                     }
                     var compare = {
                         'add': function(product_id) {
-                            parent.addProductNotice('Product added to compare', '<img src="image/demo/shop/product/e11.jpg" alt="">', '<h3>Success: You have added <a href="#">Apple Cinema 30"</a> to your <a href="#">product comparison</a>!</h3>', 'success');
+                            parent.addProductNotice('Product added to compare', '<img src="app/resources/image/demo/shop/product/e11.jpg" alt="">', '<h3>Success: You have added <a href="#">Apple Cinema 30"</a> to your <a href="#">product comparison</a>!</h3>', 'success');
                         }
                     }
 
@@ -182,7 +182,7 @@
             <div class="col-sm-12">
                 <div class="banners">
                     <div>
-                        <a href="#"><img src="image/catalog/demo/category/img-cate1.png" alt="img cate"><br></a>
+                        <a href="#"><img src="app/resources/image/catalog/demo/category/img-cate1.png" alt="img cate"><br></a>
                     </div>
                 </div>
             
@@ -282,13 +282,16 @@
                                 <?php endif;?>
                             </div>
                             <div class="button-group so-quickview cartinfo--static">
-                                <button type="button" class="addToCart" title="Add to cart" onclick="cart.add('60 ');">  <i class="fa fa-shopping-basket"></i>
-                                    <span>Add to cart </span>   
-                                </button>
-                                <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i><span></span>
-                                </button>
-                                <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i><span></span>
-                                </button>
+                                <form action="?route=index/cartadd" method="POST">
+                                    <input type="hidden" value="<?php echo $product['id']?>" name="id_product">
+                                    <button type="submit" class="addToCart" title="Add to cart" onclick="cart.add('60 ');">  <i class="fa fa-shopping-basket"></i>
+                                        <span>Add to cart </span>   
+                                    </button>
+                                    <button type="button" class="wishlist btn-button" title="Add to Wish List" onclick="wishlist.add('60');"><i class="fa fa-heart"></i><span></span>
+                                    </button>
+                                    <button type="button" class="compare btn-button" title="Compare this Product " onclick="compare.add('60');"><i class="fa fa-refresh"></i><span></span>
+                                    </button>
+                                </form>
                             </div>       
                             <div class="description item-desc hidden">
                                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>

@@ -8,13 +8,14 @@ require_once("Model.php");
 		protected static $view = null;
 
 
-		// public function __construct()
-		// {
-		// 	$this->model = Model::instance();
-		// 	$this->view = View::instance();
-		// }
+		public function __construct()
+		{
+			self::$model = Model::instance();
+			self::$view = new View();
+
+		}
  
-	    function generation($pathFile, $nameLayout ,$data = [] , $widgets = null){
+	    static function generation($pathFile, $nameLayout , $data = [], $widgets = []){
 
 			self::$view->render(pathFile:$pathFile, data:$data, nameLayout:$nameLayout, widgets:$widgets);
 

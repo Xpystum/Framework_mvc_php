@@ -36,7 +36,7 @@
 		public function createOrder($user_id = null){
 			$sql = "SELECT * FROM `orders` WHERE user_id = ".$user_id;
 			$data = $this->getData($sql);
-			if(count($data) == 0){
+			if($data == null){
 				$sql = "INSERT INTO `orders` (user_id, date) VALUES(".$user_id.", NOW())";
 
 				if($this->statusRequest($sql)){
@@ -45,7 +45,6 @@
 				}
 
 				return $data['id'];
-
 			}
 			else{
 				return $data['id'];
@@ -62,12 +61,12 @@
 
 			
 			if($this->getData($sql_select) == null){
-				echo "Зашел в первый";
+				
 				$sql_insert = "INSERT INTO `order_products` (order_id,	product_id,	count) VALUES (".$order_id.", ".$product_id.", 1)";
 				return $this->statusRequest($sql_insert);
 			}
 			else{
-				echo "Зашел во второй";
+				
 				$sql = "SELECT order_id, product_id, count FROM `order_products`
 				WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
 

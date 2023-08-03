@@ -8,13 +8,13 @@
                                     <div class="module sohomepage-slider ">
                                         <div class="yt-content-slider"  data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1"  data-items_column3="1" data-items_column4="1" data-arrows="no" data-pagination="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
                                             <div class="yt-content-slide">
-                                                <a title="slide1" href="#"><img src="image/catalog/demo/slideshow/home1/slide1.jpg" alt="slide img" class="responsive"></a>
+                                                <a title="slide1" href="#"><img src="app/resources/image/catalog/demo/slideshow/home1/slide1.jpg" alt="slide img" class="responsive"></a>
                                             </div>
                                             <div class="yt-content-slide">
-                                                <a title="slide2" href="#"><img src="image/catalog/demo/slideshow/home1/slide2.jpg" alt="slide img" class="responsive"></a>
+                                                <a title="slide2" href="#"><img src="app/resources/image/catalog/demo/slideshow/home1/slide2.jpg" alt="slide img" class="responsive"></a>
                                             </div>
                                             <div class="yt-content-slide">
-                                                <a title="slide3" href="#"><img src="image/catalog/demo/slideshow/home1/slide3.jpg" alt="slide img" class="responsive"></a>
+                                                <a title="slide3" href="#"><img src="app/resources/image/catalog/demo/slideshow/home1/slide3.jpg" alt="slide img" class="responsive"></a>
                                             </div>
                                         </div>
                                         <div class="loadeding"></div>
@@ -24,9 +24,9 @@
                                     <div class="module">
                                         <div class="block-image-1">
                                             <ul class="static-image">
-                                                <li><a title="Static Image" href="#"><img src="image/catalog/demo/banners/home1/1.jpg" alt="Static Image"></a></li>
-                                                <li><a title="Static Image" href="#"><img src="image/catalog/demo/banners/home1/2.jpg" alt="Static Image"></a></li>
-                                                <li><a title="Static Image" href="#"><img src="image/catalog/demo/banners/home1/3.jpg" alt="Static Image"></a></li>
+                                                <li><a title="Static Image" href="#"><img src="app/resources/image/catalog/demo/banners/home1/1.jpg" alt="Static Image"></a></li>
+                                                <li><a title="Static Image" href="#"><img src="app/resources/image/catalog/demo/banners/home1/2.jpg" alt="Static Image"></a></li>
+                                                <li><a title="Static Image" href="#"><img src="app/resources/image/catalog/demo/banners/home1/3.jpg" alt="Static Image"></a></li>
                                             </ul>
                                         </div> 
                                     </div>
@@ -43,19 +43,19 @@
                             <h3 class="modtitle"><span>Featured Categories</span></h3>
                             <div class="yt-content-slider cate-content"  data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-items_column0="5" data-items_column1="4" data-items_column2="4"  data-items_column3="3" data-items_column4="2" data-arrows="no" data-pagination="yes" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
                                 <div class="cate cate1">
-                                    <div class="inner"><a href="#"><img src="image/catalog/demo/banners/home1/cate1.jpg" alt="Static Image"></a><a class="title-cate" href="#">Watches</a></div>
+                                    <div class="inner"><a href="#"><img src="app/resources/image/catalog/demo/banners/home1/cate1.jpg" alt="Static Image"></a><a class="title-cate" href="#">Watches</a></div>
                                 </div>
                                 <div class="cate cate2">
-                                <div class="inner"><a href="#"><img src="image/catalog/demo/banners/home1/cate2.jpg" alt="Static Image"></a><a class="title-cate" href="#">Bags</a></div>
+                                <div class="inner"><a href="#"><img src="app/resources/image/catalog/demo/banners/home1/cate2.jpg" alt="Static Image"></a><a class="title-cate" href="#">Bags</a></div>
                                 </div>
                                 <div class="cate cate3">
-                                <div class="inner"><a href="#"><img src="image/catalog/demo/banners/home1/cate3.jpg" alt="Static Image"></a><a class="title-cate" href="#">Swimwears</a></div>
+                                <div class="inner"><a href="#"><img src="app/resources/image/catalog/demo/banners/home1/cate3.jpg" alt="Static Image"></a><a class="title-cate" href="#">Swimwears</a></div>
                                 </div>
                                 <div class="cate cate4">
-                                <div class="inner"><a href="#"><img src="image/catalog/demo/banners/home1/cate4.jpg" alt="Static Image"></a><a class="title-cate" href="#">Shoes</a></div>
+                                <div class="inner"><a href="#"><img src="app/resources/image/catalog/demo/banners/home1/cate4.jpg" alt="Static Image"></a><a class="title-cate" href="#">Shoes</a></div>
                                 </div>
                                 <div class="cate cate5">
-                                <div class="inner"><a href="#"><img src="image/catalog/demo/banners/home1/cate5.jpg" alt="Static Image"></a><a class="title-cate" href="#">Fashion</a></div>
+                                <div class="inner"><a href="#"><img src="app/resources/image/catalog/demo/banners/home1/cate5.jpg" alt="Static Image"></a><a class="title-cate" href="#">Fashion</a></div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/1.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/1.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -116,7 +116,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/2.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/2.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                     
                                                                 </a>
                                                             </div>
@@ -160,7 +160,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/3.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/3.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -203,7 +203,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/4.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/4.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -246,7 +246,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/5.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/5.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -289,7 +289,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/6.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/6.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -332,7 +332,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Pastrami bacon">
-                                                                    <img src="image/catalog/demo/product/300/7.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/7.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -375,7 +375,7 @@
                                                         <div class="left-block">
                                                             <div class="product-image-container second_img">
                                                                 <a href="product.html" target="_self" title="Fession molliti">
-                                                                    <img src="image/catalog/demo/product/300/3.jpg" class="img-1 img-responsive" alt="Fession molliti">
+                                                                    <img src="app/resources/image/catalog/demo/product/300/3.jpg" class="img-1 img-responsive" alt="Fession molliti">
                                                                 </a>
                                                             </div>
                                                             <div class="box-label">
@@ -416,7 +416,7 @@
                                         <div class="slider slider-item slider-nav">
                                             <div class="item-slick" data-slick-index="1">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/1.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                    <img src="app/resources/image/catalog/demo/product/80/1.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-20%</span>
                                                     </div>
@@ -425,7 +425,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="2">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/2.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                    <img src="app/resources/image/catalog/demo/product/80/2.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-18%</span>
                                                     </div>
@@ -434,7 +434,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="3">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/3.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                    <img src="app/resources/image/catalog/demo/product/80/3.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-10%</span>
                                                     </div>
@@ -443,7 +443,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="4">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/4.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                    <img src="app/resources/image/catalog/demo/product/80/4.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-15%</span>
                                                     </div>
@@ -452,7 +452,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="5">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/5.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                    <img src="app/resources/image/catalog/demo/product/80/5.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-20%</span>
                                                     </div>
@@ -461,7 +461,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="6">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/6.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
+                                                    <img src="app/resources/image/catalog/demo/product/80/6.jpg" class="img-1 img-responsive" alt="Pastrami bacon">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-5%</span>
                                                     </div>
@@ -470,7 +470,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="7">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/7.jpg" class="img-1 img-responsive" alt="Pastrami mollitia">
+                                                    <img src="app/resources/image/catalog/demo/product/80/7.jpg" class="img-1 img-responsive" alt="Pastrami mollitia">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-12%</span>
                                                     </div>
@@ -479,7 +479,7 @@
                                             </div>
                                             <div class="item-slick" data-slick-index="8">
                                                 <div class="item-img">
-                                                    <img src="image/catalog/demo/product/80/8.jpg" class="img-1 img-responsive" alt="Fession molliti">
+                                                    <img src="app/resources/image/catalog/demo/product/80/8.jpg" class="img-1 img-responsive" alt="Fession molliti">
                                                     <div class="box-label">
                                                         <span class="label-product label-sale">-16%</span>
                                                     </div>
@@ -508,7 +508,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Mandouille short ">
-                                                                            <img src="image/catalog/demo/product/80/10.jpg" alt="Mandouille short">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/10.jpg" alt="Mandouille short">
                                                                             </a>
                                                                     </div>                                                             
                                                                 </div>
@@ -544,7 +544,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Xancetta bresao ">
-                                                                        <img src="image/catalog/demo/product/80/9.jpg" alt="Xancetta bresao">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/9.jpg" alt="Xancetta bresao">
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -584,7 +584,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Sausage cowbee ">
-                                                                                    <img src="image/catalog/demo/product/80/8.jpg" alt="Sausage cowbee">
+                                                                                    <img src="app/resources/image/catalog/demo/product/80/8.jpg" alt="Sausage cowbee">
                                                                                     </a>
                                                                     </div>
                                                                    
@@ -623,7 +623,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Chicken swinesha ">
-                                                                                        <img src="image/catalog/demo/product/80/4.jpg" alt="Chicken swinesha">
+                                                                                        <img src="app/resources/image/catalog/demo/product/80/4.jpg" alt="Chicken swinesha">
                                                                                         </a>
                                                                     </div>
                                                                    
@@ -673,7 +673,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Chicken swinesha ">
-                                                                                        <img src="image/catalog/demo/product/80/7.jpg" alt="Chicken swinesha">
+                                                                                        <img src="app/resources/image/catalog/demo/product/80/7.jpg" alt="Chicken swinesha">
                                                                                         </a>
                                                                     </div>
                                                                    
@@ -726,7 +726,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Qeserunt shortloin ">
-                                                                        <img src="image/catalog/demo/product/80/5.jpg" alt="Qeserunt shortloin">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/5.jpg" alt="Qeserunt shortloin">
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -771,7 +771,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Consecte quichuck ">
-                                                                        <img src="image/catalog/demo/product/80/6.jpg" alt="Consecte quichuck">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/6.jpg" alt="Consecte quichuck">
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -817,7 +817,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Neatball bresaola ">
-                                                                    <img src="image/catalog/demo/product/80/7.jpg" alt="Neatball bresaola">
+                                                                    <img src="app/resources/image/catalog/demo/product/80/7.jpg" alt="Neatball bresaola">
                                                                     </a>
                                                                     </div>
                                                                 </div>
@@ -864,7 +864,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Yutculpa ullamco ">
-                                                                        <img src="image/catalog/demo/product/80/8.jpg" alt="Yutculpa ullamco">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/8.jpg" alt="Yutculpa ullamco">
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -912,7 +912,7 @@
                                                                 <div class="item-image">
                                                                     <div class="item-img-info">
                                                                         <a href="#" target="_self" title="Mandouille short ">
-                                                                            <img src="image/catalog/demo/product/80/1.jpg" alt="Mandouille short">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/1.jpg" alt="Mandouille short">
                                                                             </a>
                                                                     </div>                                                             
                                                                 </div>
@@ -955,12 +955,12 @@
                             <div class="row banners">
                                 <div class="banner21 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <a href="#">
-                                        <img src="image/catalog/demo/banners/home1/4.jpg" alt="Image Client">
+                                        <img src="app/resources/image/catalog/demo/banners/home1/4.jpg" alt="Image Client">
                                     </a>
                                 </div>
                                 <div class="banner21 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <a href="#">
-                                        <img src="image/catalog/demo/banners/home1/5.jpg" alt="Image Client">
+                                        <img src="app/resources/image/catalog/demo/banners/home1/5.jpg" alt="Image Client">
                                     </a>
                                 </div>
                             </div>
@@ -993,7 +993,7 @@
                                             <div class="item-cat-image banners">
                                                 <div>
                                                     <a href="#" title="" target="_self">
-                                                        <img class="categories-loadimage" title="" alt="" src="image/catalog/demo/banners/home1/6-196x540.jpg">
+                                                        <img class="categories-loadimage" title="" alt="" src="app/resources/image/catalog/demo/banners/home1/6-196x540.jpg">
                                                         
                                                     </a>
                                                 </div>
@@ -1009,7 +1009,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a  href="product.html" target="_self" title="Cupim should">
-                                                                                <img src="image/catalog/demo/product/300/fashion/1.jpg"  class="img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/1.jpg"  class="img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         
@@ -1044,7 +1044,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Drutick lanaeger">
-                                                                                <img src="image/catalog/demo/product/300/fashion/7.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/7.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         
@@ -1078,7 +1078,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Drutick lanaeger">
-                                                                                <img src="image/catalog/demo/product/300/fashion/2.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/2.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                        
@@ -1111,7 +1111,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Fatback picanha">
-                                                                                <img src="image/catalog/demo/product/300/fashion/8.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/8.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -13% </span></div>
@@ -1146,13 +1146,13 @@
                                                                 <div class="product-item-container">
                                                                     <div class="left-block left-b">
                                                                         <div class="product-card__gallery product-card__left">
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/300/fashion/5-2.jpg"><img src="image/catalog/demo/product/80/fashion/5-2.jpg"  alt="image"></div>
-                                                                            <div class="item-img thumb-active" data-src="image/catalog/demo/product/300/fashion/5-3.jpg"><img src="image/catalog/demo/product/80/fashion/5-3.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/300/fashion/5-4.jpg"><img src="image/catalog/demo/product/80/fashion/5-4.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/300/fashion/5-2.jpg"><img src="app/resources/image/catalog/demo/product/80/fashion/5-2.jpg"  alt="image"></div>
+                                                                            <div class="item-img thumb-active" data-src="app/resources/image/catalog/demo/product/300/fashion/5-3.jpg"><img src="app/resources/image/catalog/demo/product/80/fashion/5-3.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/300/fashion/5-4.jpg"><img src="app/resources/image/catalog/demo/product/80/fashion/5-4.jpg"  alt="image"></div>
                                                                         </div>
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Chicken swinesha">
-                                                                                <img src="image/catalog/demo/product/300/fashion/5-2.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/5-2.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -16% </span></div>
@@ -1171,9 +1171,9 @@
                                                                     </div>
                                                                     <div class="right-block right-b">
                                                                          <ul class="colorswatch">
-                                                                            <li class="item-img" data-src="image/catalog/demo/product/300/fashion/5-3.jpg"><a href="javascript:void(0);" title="green"><img src="image/demo/colors/green.jpg"  alt="image"></a></li>
-                                                                            <li class="item-img active" data-src="image/catalog/demo/product/300/fashion/5-2.jpg"><a href="javascript:void(0);" title="red"><img src="image/demo/colors/red.jpg"  alt="image"></a></li>
-                                                                            <li class="item-img" data-src="image/catalog/demo/product/300/fashion/5-4.jpg"><a href="javascript:void(0);" title="gray"><img src="image/demo/colors/gray.jpg"  alt="image"></a></li>
+                                                                            <li class="item-img" data-src="app/resources/image/catalog/demo/product/300/fashion/5-3.jpg"><a href="javascript:void(0);" title="green"><img src="app/resources/image/demo/colors/green.jpg"  alt="image"></a></li>
+                                                                            <li class="item-img active" data-src="app/resources/image/catalog/demo/product/300/fashion/5-2.jpg"><a href="javascript:void(0);" title="red"><img src="app/resources/image/demo/colors/red.jpg"  alt="image"></a></li>
+                                                                            <li class="item-img" data-src="app/resources/image/catalog/demo/product/300/fashion/5-4.jpg"><a href="javascript:void(0);" title="gray"><img src="app/resources/image/demo/colors/gray.jpg"  alt="image"></a></li>
                                                                             
                                                                         </ul>
                                                                         <div class="caption">
@@ -1201,7 +1201,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Doenpuis consuat ">
-                                                                                <img src="image/catalog/demo/product/300/fashion/11.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/11.jpg" class="img-1 img-responsive" alt="image">
                                                                                 
                                                                             </a>
                                                                         </div>
@@ -1239,7 +1239,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Jalapeno dolore">
-                                                                                <img src="image/catalog/demo/product/300/fashion/3.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/3.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"><span class="label-product label-new"> New </span></div>
@@ -1272,7 +1272,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Pariatur porking">
-                                                                                <img src="image/catalog/demo/product/300/fashion/9.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/9.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <!--quickview-->                                                      
@@ -1307,7 +1307,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Ullamco occaeca">
-                                                                                <img src="image/catalog/demo/product/300/fashion/4.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/4.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="label-stock label label-success ">Free Order</div>
@@ -1344,7 +1344,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Doenpuis consuat">
-                                                                                <img src="image/catalog/demo/product/300/fashion/10.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/10.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -9% </span><span class="label-product label-new"> New </span></div>
@@ -1381,7 +1381,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="dolore Jalapeno">
-                                                                                <img src="image/catalog/demo/product/300/fashion/6.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/6.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <!--quickview-->                                                      
@@ -1413,7 +1413,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Mapicola incididuv">
-                                                                                <img src="image/catalog/demo/product/300/fashion/12.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/fashion/12.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"><span class="label-product label-new"> New </span></div>
@@ -1489,7 +1489,7 @@
                                             <div class="item-cat-image banners">
                                                 <div>
                                                     <a href="#" title="" target="_self">
-                                                        <img class="categories-loadimage" title="" alt="" src="image/catalog/demo/banners/home1/7-196x540.jpg">
+                                                        <img class="categories-loadimage" title="" alt="" src="app/resources/image/catalog/demo/banners/home1/7-196x540.jpg">
                                                         
                                                     </a>
                                                 </div>
@@ -1504,13 +1504,13 @@
                                                                 <div class="product-item-container">
                                                                     <div class="left-block left-b">
                                                                         <div class="product-card__gallery product-card__left">
-                                                                            <div class="item-img thumb-active" data-src="image/catalog/demo/product/electronic/600x600/1.jpg"><img src="image/catalog/demo/product/electronic/90x90/1.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/2-2.jpg"><img src="image/catalog/demo/product/electronic/90x90/2-2.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/2-1.jpg"><img src="image/catalog/demo/product/electronic/90x90/2-1.jpg"  alt="image"></div>
+                                                                            <div class="item-img thumb-active" data-src="app/resources/image/catalog/demo/product/electronic/600x600/1.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/1.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/2-2.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/2-2.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/2-1.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/2-1.jpg"  alt="image"></div>
                                                                         </div>
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Chicken swinesha">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/1.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/1.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -16% </span></div>
@@ -1553,7 +1553,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Doenpuis consuat ">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/21.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/21.jpg" class="img-1 img-responsive" alt="image">
                                                                                 
                                                                             </a>
                                                                         </div>
@@ -1589,13 +1589,13 @@
                                                                 <div class="product-item-container">
                                                                     <div class="left-block left-b">
                                                                         <div class="product-card__gallery product-card__left">
-                                                                            <div class="item-img thumb-active" data-src="image/catalog/demo/product/electronic/600x600/9.jpg"><img src="image/catalog/demo/product/electronic/90x90/9.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/10.jpg"><img src="image/catalog/demo/product/electronic/90x90/10.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/11.jpg"><img src="image/catalog/demo/product/electronic/90x90/11.jpg"  alt="image"></div>
+                                                                            <div class="item-img thumb-active" data-src="app/resources/image/catalog/demo/product/electronic/600x600/9.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/9.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/10.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/10.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/11.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/11.jpg"  alt="image"></div>
                                                                         </div>
                                                                         <div class="product-image-container">
                                                                             <a  href="product.html" target="_self" title="Cupim should">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/9.jpg"  class="img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/9.jpg"  class="img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         
@@ -1605,9 +1605,9 @@
                                                                     </div>
                                                                     <div class="right-block right-b">
                                                                         <ul class="colorswatch">
-                                                                            <li class="item-img active" data-src="image/catalog/demo/product/electronic/600x600/9.jpg"><a href="javascript:void(0);" title="gray"><img src="image/demo/colors/gray.jpg"  alt="image"></a></li>
-                                                                            <li class="item-img" data-src="image/catalog/demo/product/electronic/600x600/10.jpg"><a href="javascript:void(0);" title="pink"><img src="image/demo/colors/pink.jpg"  alt="image"></a></li>
-                                                                            <li class="item-img" data-src="image/catalog/demo/product/electronic/600x600/11.jpg"><a href="javascript:void(0);" title="black"><img src="image/demo/colors/black.jpg"  alt="image"></a></li>
+                                                                            <li class="item-img active" data-src="app/resources/image/catalog/demo/product/electronic/600x600/9.jpg"><a href="javascript:void(0);" title="gray"><img src="app/resources/image/demo/colors/gray.jpg"  alt="image"></a></li>
+                                                                            <li class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/10.jpg"><a href="javascript:void(0);" title="pink"><img src="app/resources/image/demo/colors/pink.jpg"  alt="image"></a></li>
+                                                                            <li class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/11.jpg"><a href="javascript:void(0);" title="black"><img src="app/resources/image/demo/colors/black.jpg"  alt="image"></a></li>
                                                                         </ul>
                                                                         <div class="caption">
                                                                             <h4><a href="product.html" title="Cupim should " target="_self">Cupim should </a></h4>
@@ -1634,7 +1634,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Drutick lanaeger">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/3.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/3.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         
@@ -1668,7 +1668,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Drutick lanaeger">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/4.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/4.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                        
@@ -1701,7 +1701,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Fatback picanha">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/5.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/5.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -13% </span></div>
@@ -1735,7 +1735,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Jalapeno dolore">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/6.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/6.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"><span class="label-product label-new"> New </span></div>
@@ -1766,13 +1766,13 @@
                                                                 <div class="product-item-container">
                                                                     <div class="left-block left-b">
                                                                         <div class="product-card__gallery product-card__left">
-                                                                            <div class="item-img thumb-active" data-src="image/catalog/demo/product/electronic/600x600/9.jpg"><img src="image/catalog/demo/product/electronic/90x90/9.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/13.jpg"><img src="image/catalog/demo/product/electronic/90x90/13.jpg"  alt="image"></div>
+                                                                            <div class="item-img thumb-active" data-src="app/resources/image/catalog/demo/product/electronic/600x600/9.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/9.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/13.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/13.jpg"  alt="image"></div>
                                                                             
                                                                         </div>
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Pariatur porking">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/12.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/12.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <!--quickview-->                                                      
@@ -1807,7 +1807,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Ullamco occaeca">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/11.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/11.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="label-stock label label-success ">Free Order</div>
@@ -1844,7 +1844,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Doenpuis consuat">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/18.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/18.jpg" class="img-1 img-responsive" alt="image">
                                                                                 
                                                                             </a>
                                                                         </div>
@@ -1881,13 +1881,13 @@
                                                                 <div class="product-item-container">
                                                                     <div class="left-block left-b">
                                                                         <div class="product-card__gallery product-card__left">
-                                                                            <div class="item-img thumb-active" data-src="image/catalog/demo/product/electronic/600x600/7-1.jpg"><img src="image/catalog/demo/product/electronic/90x90/7-1.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/7-2.jpg"><img src="image/catalog/demo/product/electronic/90x90/7-2.jpg"  alt="image"></div>
-                                                                            <div class="item-img" data-src="image/catalog/demo/product/electronic/600x600/7-3.jpg"><img src="image/catalog/demo/product/electronic/90x90/7-3.jpg"  alt="image"></div>
+                                                                            <div class="item-img thumb-active" data-src="app/resources/image/catalog/demo/product/electronic/600x600/7-1.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/7-1.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/7-2.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/7-2.jpg"  alt="image"></div>
+                                                                            <div class="item-img" data-src="app/resources/image/catalog/demo/product/electronic/600x600/7-3.jpg"><img src="app/resources/image/catalog/demo/product/electronic/90x90/7-3.jpg"  alt="image"></div>
                                                                         </div>
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="dolore Jalapeno">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/7.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/7.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <!--quickview-->                                                      
@@ -1919,7 +1919,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Mapicola incididuv">
-                                                                                <img src="image/catalog/demo/product/electronic/600x600/8.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/electronic/600x600/8.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"><span class="label-product label-new"> New </span></div>
@@ -1993,7 +1993,7 @@
                                             <div class="item-cat-image banners">
                                                 <div>
                                                     <a href="#" title="" target="_self">
-                                                        <img class="categories-loadimage" title="" alt="" src="image/catalog/demo/banners/home1/8-196x540.jpg">
+                                                        <img class="categories-loadimage" title="" alt="" src="app/resources/image/catalog/demo/banners/home1/8-196x540.jpg">
                                                     </a>
                                                 </div>
                                             </div>
@@ -2008,7 +2008,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Ullamco occaeca">
-                                                                                <img src="image/catalog/demo/product/300/sport/1.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/1.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="label-stock label label-success ">Free Order</div>
@@ -2045,7 +2045,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Doenpuis consuat">
-                                                                                <img src="image/catalog/demo/product/300/sport/7.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/7.jpg" class="img-1 img-responsive" alt="image">
                                                                                 
                                                                             </a>
                                                                         </div>
@@ -2084,7 +2084,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Drutick lanaeger">
-                                                                                <img src="image/catalog/demo/product/300/sport/2.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/2.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                        
@@ -2117,7 +2117,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Fatback picanha">
-                                                                                <img src="image/catalog/demo/product/300/sport/8.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/8.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -13% </span></div>
@@ -2151,7 +2151,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a  href="product.html" target="_self" title="Cupim should">
-                                                                                <img src="image/catalog/demo/product/300/sport/3.jpg"  class="img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/3.jpg"  class="img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         
@@ -2186,7 +2186,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Drutick lanaeger">
-                                                                                <img src="image/catalog/demo/product/300/sport/9.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/9.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         
@@ -2219,7 +2219,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Jalapeno dolore">
-                                                                                <img src="image/catalog/demo/product/300/sport/4.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/4.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"><span class="label-product label-new"> New </span></div>
@@ -2252,7 +2252,7 @@
                                                                        
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Pariatur porking">
-                                                                                <img src="image/catalog/demo/product/300/sport/10.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/10.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <!--quickview-->                                                      
@@ -2288,7 +2288,7 @@
                                                                        
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Chicken swinesha">
-                                                                                <img src="image/catalog/demo/product/300/sport/5.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/5.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"> <span class="label-product label-sale"> -16% </span></div>
@@ -2331,7 +2331,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Doenpuis consuat ">
-                                                                                <img src="image/catalog/demo/product/300/sport/11.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/11.jpg" class="img-1 img-responsive" alt="image">
                                                                                 
                                                                             </a>
                                                                         </div>
@@ -2370,7 +2370,7 @@
                                                                         
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="dolore Jalapeno">
-                                                                                <img src="image/catalog/demo/product/300/sport/6.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/6.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <!--quickview-->                                                      
@@ -2402,7 +2402,7 @@
                                                                     <div class="left-block left-b">
                                                                         <div class="product-image-container">
                                                                             <a href="product.html" target="_self" title="Mapicola incididuv">
-                                                                                <img src="image/catalog/demo/product/300/sport/12.jpg" class="img-1 img-responsive" alt="image">
+                                                                                <img src="app/resources/image/catalog/demo/product/300/sport/12.jpg" class="img-1 img-responsive" alt="image">
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-label"><span class="label-product label-new"> New </span></div>
@@ -2453,7 +2453,7 @@
                         <div class="banners">
                             <div>
                                <a href="#">
-                                 <img src="image/catalog/demo/banners/home1/9.jpg" alt="Image Client">
+                                 <img src="app/resources/image/catalog/demo/banners/home1/9.jpg" alt="Image Client">
                                </a>
                             </div>
                         </div>
@@ -2468,7 +2468,7 @@
                                             <div class="image-slide banners">
                                                 <div>
                                                     <a href="#" title="" target="_self">
-                                                        <img class="categories-loadimage" title="" alt="" src="image/catalog/demo/banners/home1/10.jpg">
+                                                        <img class="categories-loadimage" title="" alt="" src="app/resources/image/catalog/demo/banners/home1/10.jpg">
                                                     </a>
                                                 </div>
                                             </div>
@@ -2482,7 +2482,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Mandouille short ">
-                                                                                <img src="image/catalog/demo/product/80/fashion/1.jpg" alt="Mandouille short">
+                                                                                <img src="app/resources/image/catalog/demo/product/80/fashion/1.jpg" alt="Mandouille short">
                                                                                 </a>
                                                                         </div>                                                             
                                                                     </div>
@@ -2517,7 +2517,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Xancetta bresao ">
-                                                                            <img src="image/catalog/demo/product/80/fashion/2.jpg" alt="Xancetta bresao">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/fashion/2.jpg" alt="Xancetta bresao">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -2557,7 +2557,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Sausage cowbee ">
-                                                                            <img src="image/catalog/demo/product/80/fashion/3.jpg" alt="Sausage cowbee">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/fashion/3.jpg" alt="Sausage cowbee">
                                                                             </a>
                                                                         </div>
                                                                        
@@ -2598,7 +2598,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Qeserunt shortloin ">
-                                                                            <img src="image/catalog/demo/product/80/fashion/5-2.jpg" alt="Qeserunt shortloin">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/fashion/5-2.jpg" alt="Qeserunt shortloin">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -2643,7 +2643,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Consecte quichuck ">
-                                                                            <img src="image/catalog/demo/product/80/fashion/5-3.jpg" alt="Consecte quichuck">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/fashion/5-3.jpg" alt="Consecte quichuck">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -2689,7 +2689,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Neatball bresaola ">
-                                                                        <img src="image/catalog/demo/product/80/fashion/5-4.jpg" alt="Neatball bresaola">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/fashion/5-4.jpg" alt="Neatball bresaola">
                                                                         </a>
                                                                         </div>
                                                                     </div>
@@ -2746,7 +2746,7 @@
                                             <div class="image-slide banners">
                                                 <div>
                                                     <a href="#" title="" target="_self">
-                                                        <img class="categories-loadimage" title="" alt="" src="image/catalog/demo/banners/home1/11.jpg">
+                                                        <img class="categories-loadimage" title="" alt="" src="app/resources/image/catalog/demo/banners/home1/11.jpg">
                                                     </a>
                                                 </div>
                                             </div>
@@ -2760,7 +2760,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Mandouille short ">
-                                                                                <img src="image/catalog/demo/product/80/1.jpg" alt="Mandouille short">
+                                                                                <img src="app/resources/image/catalog/demo/product/80/1.jpg" alt="Mandouille short">
                                                                                 </a>
                                                                         </div>                                                             
                                                                     </div>
@@ -2796,7 +2796,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Xancetta bresao ">
-                                                                            <img src="image/catalog/demo/product/80/2.jpg" alt="Xancetta bresao">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/2.jpg" alt="Xancetta bresao">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -2832,7 +2832,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Sausage cowbee ">
-                                                                            <img src="image/catalog/demo/product/80/3.jpg" alt="Sausage cowbee">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/3.jpg" alt="Sausage cowbee">
                                                                             </a>
                                                                         </div>
                                                                        
@@ -2873,7 +2873,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Qeserunt shortloin ">
-                                                                            <img src="image/catalog/demo/product/80/5.jpg" alt="Qeserunt shortloin">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/5.jpg" alt="Qeserunt shortloin">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -2918,7 +2918,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Consecte quichuck ">
-                                                                            <img src="image/catalog/demo/product/80/6.jpg" alt="Consecte quichuck">
+                                                                            <img src="app/resources/image/catalog/demo/product/80/6.jpg" alt="Consecte quichuck">
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -2964,7 +2964,7 @@
                                                                     <div class="item-image">
                                                                         <div class="item-img-info">
                                                                             <a href="#" target="_self" title="Neatball bresaola ">
-                                                                        <img src="image/catalog/demo/product/80/7.jpg" alt="Neatball bresaola">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/7.jpg" alt="Neatball bresaola">
                                                                         </a>
                                                                         </div>
                                                                     </div>
@@ -3025,7 +3025,7 @@
                                             <div class="item">
                                                 <div class="content-img">
                                                     <a href="blog-detail.html" target="_self">
-                                                        <img src="image/catalog/blog/370x256/3.jpg" alt="Kire tuma feugiat" />
+                                                        <img src="app/resources/image/catalog/blog/370x256/3.jpg" alt="Kire tuma feugiat" />
                                                     </a>
                                                      <div class="entry-date font-ct">
                                                         <div class="day-time">14</div>
@@ -3053,7 +3053,7 @@
                                             <div class="item">
                                                 <div class="content-img">
                                                     <a href="blog-detail.html" target="_self">
-                                                        <img src="image/catalog/blog/370x256/4.jpg" alt="Kire tuma demons vel eum iriure" />
+                                                        <img src="app/resources/image/catalog/blog/370x256/4.jpg" alt="Kire tuma demons vel eum iriure" />
                                                     </a>
                                                      <div class="entry-date font-ct">
                                                         <div class="day-time">12</div>
@@ -3081,7 +3081,7 @@
                                             <div class="item">
                                                 <div class="content-img">
                                                     <a href="blog-detail.html" target="_self">
-                                                        <img src="image/catalog/blog/370x256/5.jpg" alt="minim veniam  justo duo dolores" />
+                                                        <img src="app/resources/image/catalog/blog/370x256/5.jpg" alt="minim veniam  justo duo dolores" />
                                                     </a>
                                                      <div class="entry-date font-ct">
                                                         <div class="day-time">10</div>
@@ -3110,7 +3110,7 @@
                                             <div class="item">
                                                 <div class="content-img">
                                                     <a href="blog-detail.html" target="_self">
-                                                        <img src="image/catalog/blog/370x256/6.jpg" alt="Duis autem vel eum tempor inviduntt" />
+                                                        <img src="app/resources/image/catalog/blog/370x256/6.jpg" alt="Duis autem vel eum tempor inviduntt" />
                                                     </a>
                                                      <div class="entry-date font-ct">
                                                         <div class="day-time">10</div>
@@ -3144,47 +3144,47 @@
                             <div class="top-brand arrow-default yt-content-slider contentslider" data-rtl="no" data-loop="yes" data-autoplay="no" data-autoheight="no" data-autowidth="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column0="6" data-items_column1="5" data-items_column2="3" data-items_column3="3" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-hoverpause="yes">
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b1.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b1.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b2.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b2.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b3.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b3.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b4.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b4.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b5.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b5.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b6.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b6.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b4.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b4.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b5.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b5.png" alt="brand">
                                     </a>
                                 </div>
                                 <div class="item">
                                     <a href="#">
-                                        <img src="image/catalog/demo/brand/b6.png" alt="brand">
+                                        <img src="app/resources/image/catalog/demo/brand/b6.png" alt="brand">
                                     </a>
                                 </div>
                             </div>

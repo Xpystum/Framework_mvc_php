@@ -68,25 +68,25 @@
 				
 						<div class="content-product-left class-honizol col-md-6 col-sm-12 col-xs-12">
                             <div class="large-image">
-                                <img itemprop="image" class="product-image-zoom" src="image/catalog/demo/product/electronic/600x600/3.jpg" data-zoom-image="image/catalog/demo/product/electronic/600x600/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                <img itemprop="image" class="product-image-zoom" src="app/resources/image/catalog/demo/product/electronic/600x600/3.jpg" data-zoom-image="image/catalog/demo/product/electronic/600x600/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                             </div>
                             <a class="thumb-video pull-left" href="https://www.youtube.com/watch?v=I3Lo4ysUf80"><i class="fa fa-youtube-play"></i></a>
                             
                             <div id="thumb-slider" class="yt-content-slider full_slider owl-drag" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="10" data-items_column0="4" data-items_column1="3" data-items_column2="4"  data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
                                 <a data-index="0" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/3.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/3.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a>
                                 <a data-index="1" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/3-1.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/3-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/3-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a>
                                 <a data-index="2" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/3-2.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/3-2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/3-2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a>
                                 <a data-index="3" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/2-1.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/2-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/2-1.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a>
                                 <a data-index="4" class="img thumbnail " data-image="image/catalog/demo/product/electronic/600x600/2.jpg" title="Chicken swinesha">
-                                    <img src="image/catalog/demo/product/electronic/90x90/2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
+                                    <img src="app/resources/image/catalog/demo/product/electronic/90x90/2.jpg" title="Chicken swinesha" alt="Chicken swinesha">
                                 </a>
                             </div>
                             
@@ -143,20 +143,20 @@
 										<li class="radio">
 											<label>
 												<input class="image_radio" type="radio" name="option[231]" value="33"> 
-												<img src="image/demo/colors/blue.jpg" data-original-title="blue +$12.00" class="img-thumbnail icon icon-color">				<i class="fa fa-check"></i>
+												<img src="app/resources/image/demo/colors/blue.jpg" data-original-title="blue +$12.00" class="img-thumbnail icon icon-color">				<i class="fa fa-check"></i>
 												<label> </label>
 											</label>
 										</li>
 										<li class="radio">
 											<label>
 												<input class="image_radio" type="radio" name="option[231]" value="34"> 
-												<img src="image/demo/colors/brown.jpg" data-original-title="brown -$12.00" class="img-thumbnail icon icon-color">				<i class="fa fa-check"></i>
+												<img src="app/resources/image/demo/colors/brown.jpg" data-original-title="brown -$12.00" class="img-thumbnail icon icon-color">				<i class="fa fa-check"></i>
 												<label> </label>
 											</label>
 										</li>
 										<li class="radio">
 											<label>
-												<input class="image_radio" type="radio" name="option[231]" value="35"> <img src="image/demo/colors/green.jpg"
+												<input class="image_radio" type="radio" name="option[231]" value="35"> <img src="app/resources/image/demo/colors/green.jpg"
 												data-original-title="green +$12.00" class="img-thumbnail icon icon-color">				<i class="fa fa-check"></i>
 												<label> </label>
 											</label>
@@ -209,18 +209,18 @@
 					// Cart add remove functions
 					var cart = {
 						'add': function(product_id, quantity) {
-							parent.addProductNotice('Product added to Cart', '<img src="image/demo/shop/product/e11.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
+							parent.addProductNotice('Product added to Cart', '<img src="app/resources/image/demo/shop/product/e11.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
 						}
 					}
 
 					var wishlist = {
 						'add': function(product_id) {
-							parent.addProductNotice('Product added to Wishlist', '<img src="image/demo/shop/product/e11.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
+							parent.addProductNotice('Product added to Wishlist', '<img src="app/resources/image/demo/shop/product/e11.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
 						}
 					}
 					var compare = {
 						'add': function(product_id) {
-							parent.addProductNotice('Product added to compare', '<img src="image/demo/shop/product/e11.jpg" alt="">', '<h3>Success: You have added <a href="#">Apple Cinema 30"</a> to your <a href="#">product comparison</a>!</h3>', 'success');
+							parent.addProductNotice('Product added to compare', '<img src="app/resources/image/demo/shop/product/e11.jpg" alt="">', '<h3>Success: You have added <a href="#">Apple Cinema 30"</a> to your <a href="#">product comparison</a>!</h3>', 'success');
 						}
 					}
 

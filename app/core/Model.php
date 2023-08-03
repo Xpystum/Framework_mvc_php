@@ -12,7 +12,7 @@
 
 		public function __construct()
 		{
-			$this->link = $this->connect();
+			self::$link = self::connect();
 		}
 
 		public function __clone()
@@ -65,12 +65,12 @@
 		}
 
 		protected function statusRequest($sql){
-			$result = mysqli_query($this->link, $sql);
+			$result = mysqli_query(self::$link, $sql);
 			return $result;
 		}
 
 		protected function getMultyData($sql){
-			$result = mysqli_query($this->link, $sql);
+			$result = mysqli_query(self::$link, $sql);
 			$data = [];
 
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

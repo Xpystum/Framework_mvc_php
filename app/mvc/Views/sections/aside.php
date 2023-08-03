@@ -184,7 +184,7 @@
                                         <div class="item-image">
                                             <div class="item-img-info">
                                                 <a href="#" target="_self" title="Mandouille short ">
-                                                    <img src="image/catalog/demo/product/80/8.jpg" alt="Mandouille short">
+                                                    <img src="app/resources/image/catalog/demo/product/80/8.jpg" alt="Mandouille short">
                                                     </a>
                                             </div>
                                             
@@ -221,7 +221,7 @@
                                         <div class="item-image">
                                             <div class="item-img-info">
                                                 <a href="#" target="_self" title="Xancetta bresao ">
-                                                    <img src="image/catalog/demo/product/80/7.jpg" alt="Xancetta bresao">
+                                                    <img src="app/resources/image/catalog/demo/product/80/7.jpg" alt="Xancetta bresao">
                                                 </a>
                                             </div>
                                             
@@ -262,7 +262,7 @@
                                         <div class="item-image">
                                             <div class="item-img-info">
                                                 <a href="#" target="_self" title="Sausage cowbee ">
-                                                <img src="image/catalog/demo/product/80/6.jpg" alt="Sausage cowbee">
+                                                <img src="app/resources/image/catalog/demo/product/80/6.jpg" alt="Sausage cowbee">
                                                 </a>
                                             </div>
                                         </div>
@@ -300,7 +300,7 @@
                                         <div class="item-image">
                                             <div class="item-img-info">
                                                 <a href="#" target="_self" title="Chicken swinesha ">
-                                                <img src="image/catalog/demo/product/80/5.jpg" alt="Chicken swinesha">
+                                                <img src="app/resources/image/catalog/demo/product/80/5.jpg" alt="Chicken swinesha">
                                                 </a>
                                             </div>
                                         </div>
@@ -340,7 +340,7 @@
     <div class="module banner-left">
         <div class="static-image-home-left banners">
             <div>
-                <a title="Static Image" href="#"><img src="image/catalog/demo/banners/image-left.jpg" alt="Static Image"></a>
+                <a title="Static Image" href="#"><img src="app/resources/image/catalog/demo/banners/image-left.jpg" alt="Static Image"></a>
             </div>
         </div>                                         
     </div>

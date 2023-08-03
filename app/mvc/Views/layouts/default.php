@@ -24,26 +24,26 @@
    
     <!-- Libs CSS
     ============================================ -->
-    <link rel="stylesheet" href="resources/css/bootstrap/css/bootstrap.min.css">
-    <link href="resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="resources/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="resources/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="resources/css/themecss/lib.css" rel="stylesheet">
-    <link href="resources/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-    <link href="resources/js/minicolors/miniColors.css" rel="stylesheet">
+    <link rel="stylesheet" href="app/resources/css/bootstrap/css/bootstrap.min.css">
+    <link href="app/resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="app/resources/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="app/resources/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="app/resources/css/themecss/lib.css" rel="stylesheet">
+    <link href="app/resources/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="app/resources/js/minicolors/miniColors.css" rel="stylesheet">
     
     <!-- Theme CSS
     ============================================ -->
-    <link href="resources/css/themecss/so_searchpro.css" rel="stylesheet">
-    <link href="resources/css/themecss/so_megamenu.css" rel="stylesheet">
-    <link href="resources/css/themecss/so-categories.css" rel="stylesheet">
-    <link href="resources/css/themecss/so-listing-tabs.css" rel="stylesheet">
-    <link href="resources/css/themecss/so-newletter-popup.css" rel="stylesheet">
+    <link href="app/resources/css/themecss/so_searchpro.css" rel="stylesheet">
+    <link href="app/resources/css/themecss/so_megamenu.css" rel="stylesheet">
+    <link href="app/resources/css/themecss/so-categories.css" rel="stylesheet">
+    <link href="app/resources/css/themecss/so-listing-tabs.css" rel="stylesheet">
+    <link href="app/resources/css/themecss/so-newletter-popup.css" rel="stylesheet">
 
-    <link href="resources/css/footer/footer1.css" rel="stylesheet">
-    <link href="resources/css/header/header1.css" rel="stylesheet">
-    <link id="color_scheme" href="resources/css/theme.css" rel="stylesheet"> 
-    <link href="resources/css/responsive.css" rel="stylesheet">
+    <link href="app/resources/css/footer/footer1.css" rel="stylesheet">
+    <link href="app/resources/css/header/header1.css" rel="stylesheet">
+    <link id="color_scheme" href="app/resources/css/theme.css" rel="stylesheet"> 
+    <link href="app/resources/css/responsive.css" rel="stylesheet">
 
     <!-- Google web fonts
     ============================================ -->
@@ -112,13 +112,13 @@
                                 <div class="btn-group languages-block ">
                                     <form action="index.html" method="post" enctype="multipart/form-data" id="bt-language">
                                         <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                            <img src="resources/image/catalog/flags/gb.png" alt="English" title="English">
+                                            <img src="app/resources/image/catalog/flags/gb.png" alt="English" title="English">
                                             <span class="">English</span>
                                             <span class="fa fa-angle-down"></span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="index.html"><img class="image_flag" src="resources/image/catalog/flags/gb.png" alt="English" title="English" /> English </a></li>
-                                            <li> <a href="index.html"> <img class="image_flag" src="resources/image/catalog/flags/ar.png" alt="Arabic" title="Arabic" /> Arabic </a> </li>
+                                            <li><a href="index.html"><img class="image_flag" src="app/resources/image/catalog/flags/gb.png" alt="English" title="English" /> English </a></li>
+                                            <li> <a href="index.html"> <img class="image_flag" src="app/resources/image/catalog/flags/ar.png" alt="Arabic" title="Arabic" /> Arabic </a> </li>
                                         </ul>
                                     </form>
                                 </div>
@@ -154,7 +154,7 @@
                 <div class="row">
                     <!-- Logo -->
                     <div class="navbar-logo col-md-2 col-sm-3 col-xs-10">
-                        <div class="logo"><a href="index.html"><img src="resources/image/catalog/logo.png" title="Your Store" alt="Your Store" /></a></div>
+                        <div class="logo"><a href="index.html"><img src="app/resources/image/catalog/logo.png" title="Your Store" alt="Your Store" /></a></div>
                     </div>
                     <!-- //end Logo -->
 
@@ -185,7 +185,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="index.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-1.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-1.jpg" alt="">
                                                                                     
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page - (Default)</h3> 
@@ -195,7 +195,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home2.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-2.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-2.jpg" alt="">
                                                                                    
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 2</h3> 
@@ -205,7 +205,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home3.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-3.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-3.jpg" alt="">
                                                                                    
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 3</h3> 
@@ -215,7 +215,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home4.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-4.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-4.jpg" alt="">
                                                                                     
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 4</h3> 
@@ -225,7 +225,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home4.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-5.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-5.jpg" alt="">
                                                                                     
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 5</h3> 
@@ -235,7 +235,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home4.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-6.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-6.jpg" alt="">
                                                                                     
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 6</h3> 
@@ -245,7 +245,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home4.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-7.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-7.jpg" alt="">
                                                                                     
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 7</h3> 
@@ -255,7 +255,7 @@
                                                                         <div class="col-md-3">
                                                                             <a href="home4.html" class="image-link"> 
                                                                                 <span class="thumbnail">
-                                                                                    <img class="img-responsive img-border" src="resources/image/catalog/menu/home-8.jpg" alt="">
+                                                                                    <img class="img-responsive img-border" src="app/resources/image/catalog/menu/home-8.jpg" alt="">
                                                                                     
                                                                                 </span> 
                                                                                 <h3 class="figcaption">Home page 8</h3> 
@@ -281,7 +281,7 @@
                                                             <p class="close-menu"></p>
                                                             <a href="#" class="clearfix">
                                                                 <strong>Features</strong>
-                                                                <img class="label-hot" src="resources/image/catalog/menu/new-icon.png" alt="icon items">
+                                                                <img class="label-hot" src="app/resources/image/catalog/menu/new-icon.png" alt="icon items">
                                                                 <b class="caret"></b>
                                                             </a>
                                                             <div class="sub-menu" style="width: 100%; right: auto;">
@@ -380,7 +380,7 @@
                                                             <p class="close-menu"></p>
                                                             <a href="#" class="clearfix">
                                                                 <strong>Categories</strong>
-                                                                <img class="label-hot" src="resources/image/catalog/menu/hot-icon.png" alt="icon items">
+                                                                <img class="label-hot" src="app/resources/image/catalog/menu/hot-icon.png" alt="icon items">
                                                       
                                                                 <b class="caret"></b>
                                                             </a>
@@ -390,16 +390,16 @@
                                                                         <div class="col-sm-12">
                                                                             <div class="row">
                                                                                 <div class="col-md-3 img img1">
-                                                                                    <a href="#"><img src="resources/image/catalog/menu/megabanner/image-1.jpg" alt="banner1"></a>
+                                                                                    <a href="#"><img src="app/resources/image/catalog/menu/megabanner/image-1.jpg" alt="banner1"></a>
                                                                                 </div>
                                                                                 <div class="col-md-3 img img2">
-                                                                                    <a href="#"><img src="resources/image/catalog/menu/megabanner/image-2.jpg" alt="banner2"></a>
+                                                                                    <a href="#"><img src="app/resources/image/catalog/menu/megabanner/image-2.jpg" alt="banner2"></a>
                                                                                 </div>
                                                                                 <div class="col-md-3 img img3">
-                                                                                    <a href="#"><img src="resources/image/catalog/menu/megabanner/image-3.jpg" alt="banner3"></a>
+                                                                                    <a href="#"><img src="app/resources/image/catalog/menu/megabanner/image-3.jpg" alt="banner3"></a>
                                                                                 </div>
                                                                                 <div class="col-md-3 img img4">
-                                                                                    <a href="#"><img src="resources/image/catalog/menu/megabanner/image-4.jpg" alt="banner4"></a>
+                                                                                    <a href="#"><img src="app/resources/image/catalog/menu/megabanner/image-4.jpg" alt="banner4"></a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -615,7 +615,7 @@
                                                             <tr>
                                                                 <td class="text-center" style="width:70px">
                                                                     <a href="product.html">
-                                                                        <img src="resources/image/catalog/demo/product/80/1.jpg" style="width:70px" alt="Yutculpa ullamcon" title="Yutculpa ullamco" class="preview">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/1.jpg" style="width:70px" alt="Yutculpa ullamcon" title="Yutculpa ullamco" class="preview">
                                                                     </a>
                                                                 </td>
                                                                 <td class="text-left"> <a class="cart_product_name" href="product.html">Yutculpa ullamco</a> 
@@ -632,7 +632,7 @@
                                                             <tr>
                                                                 <td class="text-center" style="width:70px">
                                                                     <a href="product.html">
-                                                                        <img src="resources/image/catalog/demo/product/80/2.jpg" style="width:70px" alt="Xancetta bresao" title="Xancetta bresao" class="preview">
+                                                                        <img src="app/resources/image/catalog/demo/product/80/2.jpg" style="width:70px" alt="Xancetta bresao" title="Xancetta bresao" class="preview">
                                                                     </a>
                                                                 </td>
                                                                 <td class="text-left"> <a class="cart_product_name" href="product.html">Xancetta bresao</a> 
@@ -681,8 +681,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-
-                                    </div>
+                                        </div>
                                 </div>
                                 <!--//cart-->
                                 <div class="header_custom_link">
@@ -712,19 +711,20 @@
 		
 		<div class="row">
 
-
             <?php 
                 if(count($widgets) > 0){
-                    include_once('Views/sections/aside.php');
+                    include_once('app/mvc/Views/sections/aside.php');
                 }
             ?>
 
 			<div id="content" class="<?php echo (count($widgets) > 0)? 'col-md-9': '';?> col-sm-12">
-				
+
                 <?php include_once($page)?>
 
 			</div>
+
 		</div>
+    </div>
 	</div>
 	<!-- //Main Container -->
 	
@@ -971,7 +971,7 @@
                         HTML Revo © 2017 - 2018. All Rights Reserved. Designed by <a href="http://www.opencartworks.com/" target="_blank">OpenCartWorks.Com  </a>
                     </div>
                     <div class="col-sm-12 payment">
-                        <img src="resources/image/catalog/demo/payment/payment.png" alt="imgpayment">
+                        <img src="app/resources/image/catalog/demo/payment/payment.png" alt="imgpayment">
                     </div>
                 </div>
             </div>
@@ -983,31 +983,32 @@
     <!-- //end Footer Container -->
 
     </div>
+
 	
 	
 	
 <!-- Include Libs & Plugins
 ============================================ -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="resources/js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="resources/js/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="resources/js/themejs/libs.js"></script>
-<script type="text/javascript" src="resources/js/unveil/jquery.unveil.js"></script>
-<script type="text/javascript" src="resources/js/countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="resources/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
-<script type="text/javascript" src="resources/js/datetimepicker/moment.js"></script>
-<script type="text/javascript" src="resources/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="resources/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="app/resources/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="app/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="app/resources/js/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="app/resources/js/themejs/libs.js"></script>
+<script type="text/javascript" src="app/resources/js/unveil/jquery.unveil.js"></script>
+<script type="text/javascript" src="app/resources/js/countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="app/resources/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
+<script type="text/javascript" src="app/resources/js/datetimepicker/moment.js"></script>
+<script type="text/javascript" src="app/resources/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="app/resources/js/jquery-ui/jquery-ui.min.js"></script>
 
 
 <!-- Theme files
 ============================================ -->
 
 
-<script type="text/javascript" src="resources/js/themejs/so_megamenu.js"></script>
-<script type="text/javascript" src="resources/js/themejs/addtocart.js"></script>
-<script type="text/javascript" src="resources/js/themejs/application.js"></script>
+<script type="text/javascript" src="app/resources/js/themejs/so_megamenu.js"></script>
+<script type="text/javascript" src="app/resources/js/themejs/addtocart.js"></script>
+<script type="text/javascript" src="app/resources/js/themejs/application.js"></script>
 	
 </body>
 </html>

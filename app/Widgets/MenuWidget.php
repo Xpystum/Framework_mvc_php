@@ -2,13 +2,11 @@
 
 	include_once("Widget.php");
 
-	include_once("Models/MenuModel.php");
+	include_once("app/mvc/Models/MenuModel.php");
 
 	class MenuWidget extends Widget{
 
-
 		static function render($alias, $menu_name = "menu"){
-
 
 			$model = new MenuModel();
 			

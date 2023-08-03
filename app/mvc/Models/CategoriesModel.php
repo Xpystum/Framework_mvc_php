@@ -8,7 +8,7 @@
 			$sql = "SELECT * FROM `categories` WHERE id = ".$id;
 
 			$data = $this->getData($sql);
-
+		
 			return $data;
 		}
 
