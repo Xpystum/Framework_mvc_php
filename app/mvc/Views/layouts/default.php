@@ -70,7 +70,6 @@
 
 <body class="res layout-1">
         
-
     <!-- Modal -->
     
     <div id="wrapper" class="wrapper-fluid banners-effect-5">

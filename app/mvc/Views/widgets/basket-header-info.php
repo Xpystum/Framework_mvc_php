@@ -48,7 +48,8 @@
     <li>    
         <div>
             <?php  echo BasketContentWidget::render_table_total($data['basket']) ?>
-            <p class="text-center total-carts"> <a class="btn view-cart" href="cart.html"><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
+            
+            <p class="text-center total-carts"> <a class="btn view-cart" href= <?php echo "http://localhost/diplom_framework_mvc_php/?route=index/cart&order_id=".$data['basket'][0]['order_id']?> ><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
             </p>
         </div>
     </li>
