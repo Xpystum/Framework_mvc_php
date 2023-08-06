@@ -47,6 +47,7 @@
 		public function categoryAction(){
 			// категории товаров
 			$nameLayout = $this->nameLayout;
+			
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
@@ -61,13 +62,14 @@
 				$model = new ProductsModel();
 				$data['products'] = $model->selectProductsCategory($_GET['id']);
 
-
+				
 				Controller::generation('category', $nameLayout , $data, ['имена виджетов тут']);
 			}
 			else{
 				$this->error404Action("404");
 				die();
 			}
+			
 		}
 
 		public function error404Action(){
@@ -106,6 +108,11 @@
 
 				$this->generation('cart', $nameLayout  ,$data);
 			}
+
+			// if($_GET['order_id'] == "false"){
+			// 	$this->generation('cart', $nameLayout  , null);
+			// }
+			
 			
 		}
 	}

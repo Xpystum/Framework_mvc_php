@@ -1,7 +1,7 @@
 <!-- для правильного расположение -->
 <?php 
-    if(isset($data['basket']['flag'])){
-        $class = ($data['basket']['flag'] == true) ? 'text-left': 'text-right';
+    if(isset($data['info']['flag'])){
+        $class = ($data['info']['flag'] == true) ? 'text-left': 'text-right';
     }
 ?>
 
@@ -15,7 +15,7 @@
             <td class="text-right">
                 <?php   
                     
-                    if(isset($data['basket']['flag'])){
+                    if(isset($data['info']['flag'])){
                         $sum = 0;
                         foreach ($data['basket'] as $info):
                             $sum += $info['price'];

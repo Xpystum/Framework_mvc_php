@@ -1,5 +1,7 @@
 
 
+
+
 <a data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
     <div class="shopcart">
         <span class="icon-c hidden">
@@ -11,7 +13,7 @@
             </p>
 
             <span class="total-shopping-cart cart-total-full">
-                    <span class="items_cart"><?php echo $data['count'];  ?></span><span class="items_cart2 hidden"> item(s)</span><span class="items_carts hidden"> - $162.00 </span>
+                    <span class="items_cart"><?php echo $data['info']['count'];  ?></span><span class="items_cart2 hidden"> item(s)</span><span class="items_carts hidden"> - $162.00 </span>
             </span>
         </div>
     </div>
@@ -47,9 +49,15 @@
     </li>
     <li>    
         <div>
-            <?php  echo BasketContentWidget::render_table_total($data['basket']) ?>
-            
-            <p class="text-center total-carts"> <a class="btn view-cart" href= <?php echo "http://localhost/diplom_framework_mvc_php/?route=index/cart&order_id=".$data['basket'][0]['order_id']?> ><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
+            <?php  echo BasketContentWidget::render_table_total($data) ?>
+            <?php 
+                // $order_id = $data['basket'][end($data)]['order_id'];
+                if(!empty($data['basket'])){
+                    $order_id = $data['basket'][count($data) - 1]['order_id'];
+                }
+                
+            ?>
+            <p class="text-center total-carts"> <a class="btn view-cart" href=<?php echo "http://localhost/diplom_framework_mvc_php/?route=index/cart&order_id=".$order_id?> ><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
             </p>
         </div>
     </li>
