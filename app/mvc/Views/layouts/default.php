@@ -64,6 +64,9 @@
         .right-block .caption h4, .price, .box-price {
             font-family: Raleway, sans-serif;
         }
+        .error_form_valid{
+            color: red;
+        }
     </style>
 
 </head>

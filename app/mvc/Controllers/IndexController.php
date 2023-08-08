@@ -51,6 +51,20 @@
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
+				
+				// $password = 123;
+				// $hash = password_hash($password, PASSWORD_DEFAULT);
+				// echo $hash;
+
+				// if(password_verify(123, $hash)){
+				// 	echo "Yes";
+				// }
+				// $password = 'Livasr';
+
+				// echo preg_match('/^[а-яА-Я]{30}|[a-zA-Z]{2}$/',$password, $matches);
+
+
+
 				$model = new CategoriesModel();
 				$data = $model->selectCategoryId($_GET['id']);
 				
@@ -81,7 +95,6 @@
 
 		public function cartaddAction(){
 
-			echo "зашёл";
 		
 			if(isset($_POST['id_product'])){
 				$model = new OrdersModel();
@@ -97,10 +110,12 @@
 			}
 
 			header("location:?route=index/cart&order_id=".$order_id);
+			die();
 		}
 
 		public function cartAction(){
 			$nameLayout = $this->nameLayout;
+			
 			if(isset($_GET['order_id'])){
 				$data = null;
 				$model = new OrdersModel();
@@ -108,11 +123,6 @@
 
 				$this->generation('cart', $nameLayout  ,$data);
 			}
-
-			// if($_GET['order_id'] == "false"){
-			// 	$this->generation('cart', $nameLayout  , null);
-			// }
-			
-			
 		}
+
 	}
