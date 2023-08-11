@@ -41,6 +41,7 @@
             $this->status['password'] = "false";
             $this->status['confirm'] = "false";
             $this->status['email'] = "false";
+            $this->status['agree'] = "false";
             return $this->status;
         }
 
@@ -65,11 +66,16 @@
         public function validate_register($post){
            
             try{
+                // получаем статусы проверок от значений введёным пользователем по полям
                 $this->status['firstname'] = $this->valid_name($post['firstname']);
                 $this->status['lastname'] = $this->valid_surname($post['lastname']);
                 $this->status['password'] = $this->valid_password($post['password']);
                 $this->status['confirm'] = $this->valid_passwordReapeat($post['password'],$post['confirm']);
                 $this->status['email'] = $this->valid_email($post['email']);
+                $this->status['agree'] = $this->valid_politic($post);
+
+
+                
                 return $this->status;
             }
             catch (Exception){
@@ -111,9 +117,14 @@
 
         }   
 
-        public function valid_email($value){
+        private function valid_email($value){
             $regX = '/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/';
             $flag = $this->filter_var_validator($value,$regX);
             return $flag? "true" : "false";
+        }
+
+        private function valid_politic($value){
+            // $value - Наш POST проверяем нажал ли пользователь на политику
+            return array_key_exists("agree", $value) ? 'true' : 'false';
         }
     }

@@ -10,6 +10,7 @@
 	require_once("app/mvc/Validator/Validator.php");
 	require_once("app/mvc/Validator/ValidatorRegister.php");
 	require_once("app/Exception/ValidatorException.php");
+	require_once("app/mvc/Models/RegisterModel.php");
     
     
 
@@ -17,6 +18,8 @@
 
         private $nameLayout = 'default'; // Стандартный шаблон (можно поменять)
 
+		
+		
 		public function rendergisterAction(){
 
 
@@ -26,35 +29,27 @@
         public function registerAction(){
 
             $validator = new ValidatorRegister();
-			$data = $validator->validate_register($_POST);
+			$data['status'] = $validator->validate_register($_POST);
+			$data['info'] = null;
+
+
+			foreach($_POST as $key => $value){	
+				if($key == 'password'){ continue; }
+				$data['info']["$key"] = $value;
+			}	
+
+			
 			$dataJson = json_encode($data);
-			echo $dataJson;
 
 			if($validator->get_status_valid()){
-				
-			}	
+				$a = new RegisterModel();
+				echo $a->addUser($_POST);
+			}		
 			else{
 				header("location:?route=auth/rendergister&valid=".$dataJson);
-				// header("location:?route=auth/rendergister&password=".$data["password"]."&firstname=".$data["firstname"]."&lastname=".$data["lastname"]."&confirm=".$data["confirm"]."&email=".$data["email"]);
+				die();
 			}
 		
-			// if(isset($_POST)){
-               
-			// 	$string = $_POST['firstname'];
-
-			// 	$a = filter_var($string, FILTER_VALIDATE_REGEXP,
-			// 	array("options"=>
-			// 	array("regexp"=>'/(?=.*[0-9])(?=.*[!@#$%^&.\\\\*\/"])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/')));
-			// 	$a = strip_tags($a);
-			// 	echo var_dump($a);
-
-
-			// 	// $this->generation('cart', $nameLayout  ,$data);
-			// }
-            // else{
-
-            // }
 		}
 
-		
     }

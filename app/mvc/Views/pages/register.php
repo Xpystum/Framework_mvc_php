@@ -3,14 +3,14 @@
     $dataJSON = null;
     if(isset($_GET['valid'])){
         $dataJSON = json_decode($_GET['valid'], true);
+        $ex = new ValidatorExceptionRegister();
+        $ex = $ex->get_error();
+        $GLOBALS['errors'] = $ex;
+        $GLOBALS['dataJSON'] = $dataJSON['status'];
+        $GLOBALS['dataINFO'] = $dataJSON['info'];
     }
 
-    $ex = new ValidatorExceptionRegister();
-    $ex = $ex->get_error();
-    $GLOBALS['errors'] = $ex;
-    $GLOBALS['dataJSON'] = $dataJSON;
-    
-
+    // Проверка на правильность ввода поля (валидация)
     function checkdata($get_name){
             if(isset($GLOBALS['dataJSON'][$get_name])){
                 if($GLOBALS['dataJSON'][$get_name] == 'false'){
@@ -18,6 +18,19 @@
                 }
             }
     }
+
+    // вернуть вводимое значение поле пользователем (кроме пароля)
+    function viewData($name_info){
+
+        if(isset($GLOBALS['dataINFO'][$name_info]))
+        { 
+            return $GLOBALS['dataINFO'][$name_info]; 
+        }   
+        else{
+            return "";
+        }
+    }
+
    
 ?>
 
@@ -41,16 +54,16 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-firstname">First Name</label>
                     <div class="col-sm-10">
-                        <input type="text" name="firstname" value="" placeholder="First Name" id="input-firstname" class="form-control">
-
-                        <?php checkdata('firstname') ?>
+                        <input type="text" name="firstname" value=" <?php echo viewData('firstname'); ?>" placeholder="First Name" id="input-firstname" class="form-control">
+                        
+                        <?php checkdata('firstname'); ?>
 
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-lastname">Last Name</label>
                     <div class="col-sm-10">
-                        <input type="text" name="lastname" value="" placeholder="Last Name" id="input-lastname" class="form-control">
+                        <input type="text" name="lastname" value="<?php echo viewData('lastname');?>" placeholder="Last Name" id="input-lastname" class="form-control">
 
                         <?php checkdata('lastname') ?>
 
@@ -59,7 +72,7 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
                     <div class="col-sm-10">
-                        <input type="email" name="email" value="" placeholder="E-Mail" id="input-email" class="form-control">
+                        <input type="email" name="email" value="<?php echo viewData('email');?>" placeholder="E-Mail" id="input-email" class="form-control">
                         
                         <?php checkdata('email') ?>
 
@@ -68,13 +81,13 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-telephone">Telephone</label>
                     <div class="col-sm-10">
-                        <input type="tel" name="telephone" value="" placeholder="Telephone" id="input-telephone" class="form-control">
+                        <input type="tel" name="telephone" value="<?php echo viewData('telephone');?>" placeholder="Telephone" id="input-telephone" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-fax">Fax</label>
                     <div class="col-sm-10">
-                        <input type="text" name="fax" value="" placeholder="Fax" id="input-fax" class="form-control">
+                        <input type="text" name="fax" value="<?php echo viewData('fax');?>" placeholder="Fax" id="input-fax" class="form-control">
                     </div>
                 </div>
             </fieldset>
@@ -83,31 +96,31 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-company">Company</label>
                     <div class="col-sm-10">
-                        <input type="text" name="company" value="" placeholder="Company" id="input-company" class="form-control">
+                        <input type="text" name="company" value="<?php echo viewData('company');?>" placeholder="Company" id="input-company" class="form-control">
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-address-1">Address 1</label>
                     <div class="col-sm-10">
-                        <input type="text" name="address_1" value="" placeholder="Address 1" id="input-address-1" class="form-control">
+                        <input type="text" name="address_1" value="<?php echo viewData('address_1');?>" placeholder="Address 1" id="input-address-1" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-address-2">Address 2</label>
                     <div class="col-sm-10">
-                        <input type="text" name="address_2" value="" placeholder="Address 2" id="input-address-2" class="form-control">
+                        <input type="text" name="address_2" value="<?php echo viewData('address_2');?>" placeholder="Address 2" id="input-address-2" class="form-control">
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-city">City</label>
                     <div class="col-sm-10">
-                        <input type="text" name="city" value="" placeholder="City" id="input-city" class="form-control">
+                        <input type="text" name="city" value="<?php echo viewData('city');?>" placeholder="City" id="input-city" class="form-control">
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-postcode">Post Code</label>
                     <div class="col-sm-10">
-                        <input type="text" name="postcode" value="" placeholder="Post Code" id="input-postcode" class="form-control">
+                        <input type="text" name="postcode" value="<?php echo viewData('postcode');?>" placeholder="Post Code" id="input-postcode" class="form-control">
                     </div>
                 </div>
                 <div class="form-group required">
@@ -178,6 +191,7 @@
             <div class="buttons">
                 <div class="pull-right">I have read and agree to the <a href="#" class="agree"><b>Pricing Tables</b></a>
                     <input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;
+                    <?php checkdata('agree') ?>
                     <input type="submit" value="Continue" class="btn btn-primary">
                 </div>
             </div>
