@@ -125,4 +125,18 @@
 			}
 		}
 
+		#region Служебные приватные методы
+
+		private function rederFromSession($pathFile, $string = null){
+
+			if(self::$session->my_session_get('user') === null){
+				$this->generation($pathFile, $this->nameLayout);
+			}else{
+				echo 'user != null';
+			}
+
+		}
+		
+		#endregion
+
 	}

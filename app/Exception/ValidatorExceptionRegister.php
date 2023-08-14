@@ -1,6 +1,6 @@
 <?php
 
-    class ValidatorExceptionRegister extends ValidatorException{
+    class ValidatorExceptionRegister extends Exception{
         private $error = []; //массив ошибок (по полям)
 
         public function __construct()

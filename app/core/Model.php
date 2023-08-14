@@ -3,7 +3,8 @@
 	require_once("Interface/SingltoneInterface.php");
 
 	class Model implements SingltoneInterface{
-
+		// *** ActiveRecord ***
+		// mysqli_real_escape_string() - потом нужно сделать экранирование + подготовку выражение
 	    private static $instance = null; //SingleTon
 		private static $link = null; // Переиспользование нашего подключение (статик нужно для того что бы задавать link прямо в instance() )
 

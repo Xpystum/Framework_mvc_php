@@ -1,10 +1,12 @@
 <?php 
     require_once("app/Exception/ValidatorExceptionRegister.php");
+    require_once("app/mvc/Security/SecurityRegister.php");
     $dataJSON = null;
     if(isset($_GET['valid'])){
         $dataJSON = json_decode($_GET['valid'], true);
         $ex = new ValidatorExceptionRegister();
         $ex = $ex->get_error();
+        // GLOBAL Лучше не использовать =)
         $GLOBALS['errors'] = $ex;
         $GLOBALS['dataJSON'] = $dataJSON['status'];
         $GLOBALS['dataINFO'] = $dataJSON['info'];
@@ -24,7 +26,7 @@
 
         if(isset($GLOBALS['dataINFO'][$name_info]))
         { 
-            return $GLOBALS['dataINFO'][$name_info]; 
+            return SecurityRegister::special_char_html($GLOBALS['dataINFO'][$name_info]); 
         }   
         else{
             return "";
@@ -54,7 +56,7 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-firstname">First Name</label>
                     <div class="col-sm-10">
-                        <input type="text" name="firstname" value=" <?php echo viewData('firstname'); ?>" placeholder="First Name" id="input-firstname" class="form-control">
+                        <input placeholder="First Name" type="text" name="firstname" value="<?php echo viewData('firstname'); ?>"  id="input-firstname" class="form-control">
                         
                         <?php checkdata('firstname'); ?>
 

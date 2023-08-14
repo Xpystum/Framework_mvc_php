@@ -1,5 +1,7 @@
-
-
+<?php 
+	require_once("app/Helpers/Session.php");
+	$session = new Session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,10 +73,9 @@
 
 </head>
 
-<body class="common-home res layout-1">
-    
+<body class="common-home res layout-1" style="padding-right: 5px;">
+
     <div id="wrapper" class="wrapper-fluid banners-effect-7">
-    
     <!-- Header Container  -->
     <header id="header" class=" typeheader-1">
         <!-- Header Top -->
@@ -94,7 +95,7 @@
                     </div>
                     <div class="header-top-right collapsed-block col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <ul class="top-link list-inline">
-                            <li class="log login"><a class="link-lg" href="login.html">Login </a></li>
+                            <li class="log login"><a class="link-lg" href="?route=auth/login">Login </a></li>
                             <li class="account" id="my_account">
                             <a href="my-account.html" title="My Account " class="btn-xs dropdown-toggle" data-toggle="dropdown"> <span class="hidden-xs">My Account </span> <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu ">
@@ -1129,8 +1130,10 @@
         </div>
     </header>
     <!-- //Header Container  -->
-    
-       
+
+
+
+
     <!-- Main Container  -->
     <div class="main-container">
         <?php include_once($page)?>
@@ -1389,7 +1392,8 @@
     <!-- //end Footer Container -->
 
     </div>
-    <div class="model-popup">
+    
+    <!-- <div class="model-popup">
         <div id="container-module-newletter" class="hidden-md hidden-sm hidden-xs">
             <div class="so_newletter_custom_popup_bg popup_bg"></div> 
             <div class="module main-newsleter-popup so_newletter_custom_popup so_newletter_oca_popup" id="so_newletter_custom_popup"> <div class="so-custom-popup so-custom-oca-popup" style="width: 850px; background: url('image/catalog/banners/newletter-bg.jpg') no-repeat white;  "> 
@@ -1401,12 +1405,37 @@
                         </form> 
                         <label class="hidden-popup"> <input type="checkbox" value="1" name="hidden-popup"> <span class="inline">&nbsp;&nbsp;Don't show this popup again</span> </label> </div> 
                     </div> 
-                </div> <!--/.modcontent--> 
+                </div> 
                 <button title="Close" type="button" class="popup-close">×</button> </div> 
             </div> 
         </div>
-    </div>   
+    </div>    -->
 
+  
+
+    <!-- Modal Status register or login -->
+    <?php 
+    if($_SESSION['_flash'] != null){
+
+        include_once("app/Widgets/AlertStatusWidget.php");
+        if(array_key_exists('warning', $_SESSION['_flash'])){
+            echo AlertStatusWidget::renderStatusWarningModal($session->my_session_flash_get('warning'));
+        }
+
+        if(array_key_exists('succes', $_SESSION['_flash'])){
+            echo AlertStatusWidget::renderStatusSuccesModal($session->my_session_flash_get('succes'));
+        }
+    }
+    ?>
+    
+
+   
+<!-- Modal alert Logic -->
+<script>
+    document.addEventListener('DOMContentLoaded', function(e){ // ждем окончание загрузки
+        var myElement = document.querySelector('.modal_okno_active  ') // ищем нужный элемент
+        myElement.click()})
+</script>
 
 
 <!-- Include Libs & Plugins

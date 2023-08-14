@@ -127,4 +127,6 @@
             // $value - Наш POST проверяем нажал ли пользователь на политику
             return array_key_exists("agree", $value) ? 'true' : 'false';
         }
+
+        
     }

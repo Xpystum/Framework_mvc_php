@@ -1,4 +1,6 @@
-
+<?php 
+    $session = new Session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,11 +74,8 @@
 </head>
 
 <body class="res layout-1">
-        
+
     <!-- Modal -->
-    
-    <div id="wrapper" class="wrapper-fluid banners-effect-5">
-    
 
     <!-- Header Container  -->
     <header id="header" class=" typeheader-1">
@@ -97,7 +96,7 @@
                     </div>
                     <div class="header-top-right collapsed-block col-lg-6 col-md-6 col-sm-7 col-xs-12">
                         <ul class="top-link list-inline">
-                            <li class="log login"><a class="link-lg" href="login.html">Login </a></li>
+                            <li class="log login"><a class="link-lg" href="?route=auth/login">Login </a></li>
                             <li class="account" id="my_account">
                             <a href="my-account.html" title="My Account " class="btn-xs dropdown-toggle" data-toggle="dropdown"> <span class="hidden-xs">My Account </span> <span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu ">
@@ -905,10 +904,29 @@
     <!-- //end Footer Container -->
 
     </div>
+    
+    <!-- Modal Status register or login -->
+    
+    <?php 
+        if($_SESSION['_flash'] != null){
+            include_once("app/Widgets/AlertStatusWidget.php");
+            if(array_key_exists('warning', $_SESSION['_flash'])){
+                echo AlertStatusWidget::renderStatusWarningModal($session->my_session_flash_get('warning'));
+            }
 
+            if(array_key_exists('succes', $_SESSION['_flash'])){
+                echo AlertStatusWidget::renderStatusSuccesModal($session->my_session_flash_get('succes'));
+            }
+        }
+    ?>
 	
-	
-	
+
+<!-- Modal alert Logic -->
+<script>
+    document.addEventListener('DOMContentLoaded', function(e){ // ждем окончание загрузки
+        var myElement = document.querySelector('.modal_okno_active  ') // ищем нужный элемент
+        myElement.click()})
+</script>
 <!-- Include Libs & Plugins
 ============================================ -->
 <!-- Placed at the end of the document so the pages load faster -->

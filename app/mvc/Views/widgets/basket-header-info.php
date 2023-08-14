@@ -1,7 +1,4 @@
 
-
-
-
 <a data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
     <div class="shopcart">
         <span class="icon-c hidden">
