@@ -8,31 +8,31 @@
     <!--Middle Part Start-->
     <div class="col-sm-9" id="content">
         <h2 class="title">My Account</h2>
-        <p class="lead">Hello, <strong>Jhone Cary!</strong> - To update your account information.</p>
-        <form>
+        <p class="lead">Hello, <strong><?php echo $data['name'].' '.$data['surname'] ?></strong> - To update your account information.</p>
+        <form action="?route=auth/updateAccount" method="POST">
             <div class="row">
                 <div class="col-sm-6">
                     <fieldset id="personal-details">
                         <legend>Personal Details</legend>
                         <div class="form-group required">
                             <label for="input-firstname" class="control-label">First Name</label>
-                            <input type="text" class="form-control" id="input-firstname" placeholder="First Name" value="" name="firstname">
+                            <input type="text" class="form-control" id="input-firstname" placeholder="First Name" value="<?php echo $data['name']?>" name="firstname">
                         </div>
                         <div class="form-group required">
                             <label for="input-lastname" class="control-label">Last Name</label>
-                            <input type="text" class="form-control" id="input-lastname" placeholder="Last Name" value="" name="lastname">
+                            <input type="text" class="form-control" id="input-lastname" placeholder="Last Name" value="<?php echo $data['surname']?>" name="lastname">
                         </div>
                         <div class="form-group required">
                             <label for="input-email" class="control-label">E-Mail</label>
-                            <input type="email" class="form-control" id="input-email" placeholder="E-Mail" value="" name="email">
+                            <input type="email" class="form-control" id="input-email" placeholder="E-Mail" value="<?php echo $data['email']?>" name="email">
                         </div>
                         <div class="form-group required">
                             <label for="input-telephone" class="control-label">Telephone</label>
-                            <input type="tel" class="form-control" id="input-telephone" placeholder="Telephone" value="" name="telephone">
+                            <input type="tel" class="form-control" id="input-telephone" placeholder="Telephone" value="<?php echo $data['telephone']?>" name="telephone">
                         </div>
                         <div class="form-group">
                             <label for="input-fax" class="control-label">Fax</label>
-                            <input type="text" class="form-control" id="input-fax" placeholder="Fax" value="" name="fax">
+                            <input type="text" class="form-control" id="input-fax" placeholder="Fax" value="<?php echo $data['fax']?>" name="fax">
                         </div>
                     </fieldset>
                     <br>
@@ -76,20 +76,20 @@
                         <div class="form-group">
                             <label for="input-company" class="control-label">Company</label>
 
-                            <input type="text" class="form-control"  placeholder="Company" value="" name="company">
+                            <input type="text" class="form-control"  placeholder="Company" value="<?php echo $data['company']?>" name="company">
 
                         </div>
                         <div class="form-group required">
                             <label for="input-address-1" class="control-label">Address 1</label>
-                            <input type="text" class="form-control"  placeholder="Address 1" value="" name="address_1">
+                            <input type="text" class="form-control"  placeholder="Address 1" value="<?php echo $data['adress_1']?>" name="address_1">
                         </div>
                         <div class="form-group required">
                             <label for="input-city" class="control-label">City</label>
-                            <input type="text" class="form-control" placeholder="City" value="" name="city">
+                            <input type="text" class="form-control" placeholder="City" value="<?php echo $data['city']?>" name="city">
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
-                            <input type="text" class="form-control"  placeholder="Post Code" value="" name="postcode">
+                            <input type="text" class="form-control"  placeholder="Post Code" value="<?php echo $data['post_code']?>" name="postcode">
                         </div>
                         <div class="form-group required">
                             <label for="input-country" class="control-label">Country</label>
@@ -108,7 +108,6 @@
                                 <option value="10">Argentina</option>
                                 <option value="11">Armenia</option>
                                 <option value="12">Aruba</option>
-                            
                             </select>
                         </div>
                         <div class="form-group required">

@@ -42,32 +42,27 @@
 			$this->renderFromSessionInput('myaccountsystem','Ошибка входа в аккаунт');
 		}	
 
+		//служебный метод для обработки аккаунта
 		public function myaccountsystemAction(){
 
 				$user = new UserModel();
-				$data = $user->selectUserId($session->my_session_get('user'));
+				$data = $user->selectUserId(self::$session->my_session_get('user'));
+				
 				if(isset($data)){
-					$pass = new ValidatorPasswordUser;
-					if($pass->checkPasswordUser($_POST['password'], $data)){
-						
-						self::$session->my_session_set('user', $data['id']);
-						self::$session->my_session_flash_set('succes','Вы Успешно Вошли');
-						header("location:?route=index/index");
-						die();
-					}else{
-						// self::$session->my_session_flash_set('warning','Ошибка Логина или Пароля');
-						header("location:?route=auth/login&succes=0");
-						die();
-					}
+					$this->generation("account", $this->nameLayout, $data);
 				}
 				else{
-					// self::$session->my_session_flash_set('warning','Ошибка Логина или Пароля');
-					header("location:?route=auth/login&succes=0");
+					$this->renderFromSessionInput('login','Ошибка входа в аккаунт');
 					die();
 				}
-			}
-			
 		}	
+
+		//отправка POST запроса для обновление данных из аккаунта
+		public function updateAccountAction(){
+
+			var_dump($_POST);
+			die();
+		}
 
 		// служебный метод для обработки входа
 		public function inputloginAction(){
@@ -178,5 +173,4 @@
 			
 		#endregion
 
-    }
-}
+	}

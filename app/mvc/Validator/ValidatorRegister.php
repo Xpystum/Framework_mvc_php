@@ -42,6 +42,10 @@
             $this->status['confirm'] = "false";
             $this->status['email'] = "false";
             $this->status['agree'] = "false";
+            $this->status['company'] = "false";
+            $this->status['adress'] = "false";
+            $this->status['city'] = "false";
+            $this->status['country'] = "false";
             return $this->status;
         }
 
