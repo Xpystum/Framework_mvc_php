@@ -1427,15 +1427,13 @@
         }
     }
     ?>
-    
-
    
-<!-- Modal alert Logic -->
-<script>
-    document.addEventListener('DOMContentLoaded', function(e){ // ждем окончание загрузки
-        var myElement = document.querySelector('.modal_okno_active  ') // ищем нужный элемент
-        myElement.click()})
-</script>
+    <!-- Modal alert Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e){ // ждем окончание загрузки
+            var myElement = document.querySelector('.modal_okno_active  ') // ищем нужный элемент
+            myElement.click()})
+    </script>
 
 
 <!-- Include Libs & Plugins

@@ -46,7 +46,18 @@
 		public function myaccountsystemAction(){
 
 				$user = new UserModel();
-				$data = $user->selectUserId(self::$session->my_session_get('user'));
+				$data['user'] = $user->SelectUsersAndUsersInput(self::$session->my_session_get('user'));
+				// [0] - нужен для получение массива, *либо будет массив в массиве
+				
+				$data['address_payment'] = $user->SelectAdressTypeUser(self::$session->my_session_get('user'), 1);
+				if(!empty($data['address_payment'])) $data['address_payment'] = $data['address_payment'][0];
+				$data['address_shipping'] = $user->SelectAdressTypeUser(self::$session->my_session_get('user'), 2);
+				if(!empty($data['address_shipping'])) $data['address_shipping'] = $data['address_shipping'][0];
+				// $data['country'] = $user->SelectCountry();
+				// $data['region'] = $user->SelectRegion();
+				die();
+
+				// echo var_dump($data['region']);
 				
 				if(isset($data)){
 					$this->generation("account", $this->nameLayout, $data);
@@ -73,6 +84,7 @@
 					$pass = new ValidatorPasswordUser;
 					if($pass->checkPasswordUser($_POST['password'], $data)){
 						
+						$data = $user->SelectUsersFromInput($data['id']);
 						self::$session->my_session_set('user', $data['id']);
 						self::$session->my_session_flash_set('succes','Вы Успешно Вошли');
 						header("location:?route=index/index");
@@ -96,6 +108,7 @@
 
 			if(isset($_POST)){
 				$validator = new ValidatorRegister();
+			
 				$data['status'] = $validator->validate_register($_POST);
 				$data['info'] = null;
 				
@@ -105,7 +118,7 @@
 					$data['info']["$key"] = $value;
 				}	
 				
-				//преобразование небозопасных html символов
+				// //преобразование небозопасных html символов
 				foreach($data['info'] as $key => $value){	
 					$data['info'][$key] = SecurityRegister::strip_tags_html($value);
 				}	
@@ -117,7 +130,7 @@
 					$a = new RegisterModel();
 					if($a->addUser($_POST)){
 						// передать flash сообщение через сессию что добавилось успешно
-						self::$session->my_session_flash_set('warning','Вы Успешно Зарегистрировались');
+						self::$session->my_session_flash_set('succes','Вы Успешно Зарегистрировались');
 						header("location:?route=index/index");
 						die();
 					}
@@ -126,7 +139,6 @@
 						self::$session->my_session_flash_set('warning','Ошибка Регистрации');
 						header("location:?route=index/index");
 						die();
-
 					}
 				}		
 				else{

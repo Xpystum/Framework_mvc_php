@@ -80,6 +80,19 @@
 			return $data;
 		}
 
+		protected function getLastId(){
+			$sql = "SELECT LAST_INSERT_ID()";
+			$result = mysqli_query(self::$link, $sql);
+			$data = null;
+	
+			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				$data = $row;
+			}
+			$data = $data['LAST_INSERT_ID()'];
+		
+			return $data;
+		}
+
 		#endregion
 
 	

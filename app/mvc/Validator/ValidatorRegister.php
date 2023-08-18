@@ -40,12 +40,12 @@
             $this->status['lastname'] = "false";
             $this->status['password'] = "false";
             $this->status['confirm'] = "false";
-            $this->status['email'] = "false";
+            $this->status['email'] = "false";   
             $this->status['agree'] = "false";
             $this->status['company'] = "false";
-            $this->status['adress'] = "false";
+            $this->status['address_1'] = "false";
             $this->status['city'] = "false";
-            $this->status['country'] = "false";
+            $this->status['country_id'] = "false";
             return $this->status;
         }
 
@@ -77,8 +77,10 @@
                 $this->status['confirm'] = $this->valid_passwordReapeat($post['password'],$post['confirm']);
                 $this->status['email'] = $this->valid_email($post['email']);
                 $this->status['agree'] = $this->valid_politic($post);
-
-
+                $this->status['company'] = $this->valid_empty($post['company']);  
+                $this->status['address_1'] = $this->valid_empty($post['address_1']);
+                $this->status['city'] = $this->valid_empty($post['city']);
+                $this->status['country_id'] = $this->valid_empty($post['country_id']); 
                 
                 return $this->status;
             }
@@ -130,6 +132,11 @@
         private function valid_politic($value){
             // $value - Наш POST проверяем нажал ли пользователь на политику
             return array_key_exists("agree", $value) ? 'true' : 'false';
+        }
+
+        // если пустой возвращаем false (сделано для нашей логики)
+        private function valid_empty($value){
+            return empty($value)? 'false' : 'true';
         }
 
         

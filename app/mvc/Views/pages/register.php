@@ -99,24 +99,21 @@
                     <label class="col-sm-2 control-label" for="input-company">Company</label>
                     <div class="col-sm-10">
                         <input type="text" name="company" value="<?php echo viewData('company');?>" placeholder="Company" id="input-company" class="form-control">
+                        <?php checkdata('company'); ?>
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-address-1">Address 1</label>
                     <div class="col-sm-10">
                         <input type="text" name="address_1" value="<?php echo viewData('address_1');?>" placeholder="Address 1" id="input-address-1" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-address-2">Address 2</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="address_2" value="<?php echo viewData('address_2');?>" placeholder="Address 2" id="input-address-2" class="form-control">
+                        <?php checkdata('address_1'); ?>
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-city">City</label>
                     <div class="col-sm-10">
                         <input type="text" name="city" value="<?php echo viewData('city');?>" placeholder="City" id="input-city" class="form-control">
+                        <?php checkdata('city'); ?>
                     </div>
                 </div>
                 <div class="form-group required">
@@ -130,14 +127,17 @@
                     <div class="col-sm-10">
                         <select name="country_id" id="input-country" class="form-control">
                             <option value=""> --- Please Select --- </option>
-                            <option value="244">Aaland Islands</option>
-                            <option value="1">Afghanistan</option>
-                            <option value="2">Albania</option>
-                            <option value="3">Algeria</option>
-                            <option value="4">American Samoa</option>
-                            <option value="5">Andorra</option>
-                            <option value="6">Angola</option>
+                            <option value="1">Aaland Islands</option>
+                            <option value="2">Afghanistan</option>
+                            <option value="3"   >Albania</option>
+                            <option value="4">Algeria</option>
+                            <option value="5">American Samoa</option>
+                            <option value="6">Andorra</option>
+                            <option value="7">Angola</option>
                         </select>
+
+                        <?php checkdata('country_id'); ?>
+
                     </div>
                 </div>
                 <div class="form-group required">
