@@ -4,43 +4,65 @@
         //$name массива адреса Payment или Shipping
         try{
             if(!empty($massDataAddress)){
-                ?> <?php echo $massDataAddress[$name] ?> <?php
+                ?><?php 
+
+                $str = str_replace(" ", "", $massDataAddress[$name]);
+                echo $str;
+                return;
+                ?><?php
             }
-            return "";
+            echo "";
+            
         }
         catch(Exception $e){
             ?> <?php "" ?> <?php
         }
         
-    }
+    }   
 
 
     function renderCount($data, $nameAdress){
+        $flag = true;
         foreach($data['country'] as $key => $value){
-            ?> <?php $key = $key + 1;
-            if($key == $data[$nameAdress]['country_id']){
-                echo "<option selected value=".$key.">".$value['country']."</option>" ;
-            }else{
-                echo "<option value=".$key.">".$value['country']."</option>" ;
+            ?> <?php 
+            if(!empty($data[$nameAdress]['country_id'])){
+                if($value['id'] == $data[$nameAdress]['country_id']){
+                    echo "<option selected value=".$value['id'].">".$value['country']."</option>" ;
+                }else{
+                    echo "<option value=".$value['id'].">".$value['country']."</option>";
+                }
             }
+            else{
+                if($flag) { echo "<option value="."> --- Please Select --- </option>"; $flag = false; }
+                echo "<option value=".$value['id'].">".$value['country']."</option>";
+            }
+            
             
             ?> <?php
         }
     }
-
 
     function renderRegion($data, $nameAdress){
-        foreach($data['region_id'] as $key => $value){
-            ?> <?php $key = $key + 1;
-            if($key == $data[$nameAdress]['region_id']){
-                echo "<option selected value=".$key.">".$value['region_id']."</option>" ;
-            }else{
-                echo "<option value=".$key.">".$value['region_id']."</option>" ;
+        $flag = true;
+        foreach($data['region'] as $key => $value){
+        ?> <?php 
+            if(!empty($data[$nameAdress]['region_id'])){
+
+                if($value['id'] == $data[$nameAdress]['region_id']){
+                    echo "<option selected value=".$value['id'].">".$value['region']."</option>" ;
+                }else{
+                    echo "<option value=".$value['id'].">".$value['region']."</option>";
+                }
+
             }
-            
-            ?> <?php
+            else{
+
+                if($flag) { echo "<option value="."> --- Please Select --- </option>"; $flag = false; }
+                echo "<option value=".$value['id'].">".$value['region']."</option>";
+            }
+        ?> <?php
         }
-    }
+    }   
 
 ?>
 
@@ -63,7 +85,7 @@
                         <legend>Personal Details</legend>
                         <div class="form-group required">
                             <label for="input-firstname" class="control-label">First Name</label>
-                            <input type="text" class="form-control" id="input-firstname" placeholder="First Name" value="<?php renderDataAddress($data['user'], 'name') ?>" name="firstname">
+                            <input type="text" class="form-control" id="input-firstname" placeholder="First Name" value="<?php renderDataAddress($data['user'], 'name'); ?>" name="firstname">
                         </div>
                         <div class="form-group required">
                             <label for="input-lastname" class="control-label">Last Name</label>
@@ -89,15 +111,15 @@
                         <legend>Change Password</legend>
                         <div class="form-group required">
                             <label for="input-password" class="control-label">Old Password</label>
-                            <input type="password" class="form-control"  placeholder="Old Password" value="" name="old-password">
+                            <input type="password" class="form-control"  placeholder="Old Password" value="" name="password">
                         </div>
                         <div class="form-group required">
                             <label for="input-password" class="control-label">New Password</label>
-                            <input type="password" class="form-control"  placeholder="New Password" value="" name="new-password">
+                            <input type="password" class="form-control"  placeholder="New Password" value="" name="new_password">
                         </div>
                         <div class="form-group required">
                             <label for="input-confirm" class="control-label">New Password Confirm</label>
-                            <input type="password" class="form-control" id="input-confirm" placeholder="New Password Confirm" value="" name="new-confirm">
+                            <input type="password" class="form-control" id="input-confirm" placeholder="New Password Confirm" value="" name="confirm_password">
                         </div>
                     </fieldset>
                     <fieldset>
@@ -136,13 +158,11 @@
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
-                            <input type="text" class="form-control"  placeholder="Post Code" value=" <?php renderDataAddress($data['address_payment'], 'post_code') ?>" name="postcode">
+                            <input type="text" class="form-control"  placeholder="Post Code" value="<?php renderDataAddress($data['address_payment'], 'post_code') ?>" name="postcode">
                         </div>
                         <div class="form-group required">
                             <label for="input-country" class="control-label">Country</label>
                             <select class="form-control" name="country_id">
-                                
-                                <option value=""> --- Please Select --- </option>
                                 <?php renderCount($data, 'address_payment'); ?>
                                 <!-- <option value="1">Aaland Islands</option>
                                 <option value="2">Afghanistan</option>
@@ -163,7 +183,6 @@
                         <div class="form-group required">
                             <label for="input-zone" class="control-label">Region / State</label>
                             <select class="form-control" name="zone_id">
-                                <option value=""> --- Please Select --- </option>
                                 <?php renderRegion($data, 'address_payment'); ?>
                                 <!-- <option value="3513">Aberdeen</option>
                                 <option value="3514">Aberdeenshire</option>
@@ -181,25 +200,25 @@
                         <legend>Shipping Address</legend>
                         <div class="form-group">
                             <label for="input-company" class="control-label">Company</label>
-                            <input type="text" class="form-control" id="input-company" placeholder="Company" value=" <?php renderDataAddress($data['address_shipping'], 'company') ?>" name="company">
+                            <input type="text" class="form-control" id="input-company" placeholder="Company" value="<?php renderDataAddress($data['address_shipping'], 'company') ?>" name="company_2">
                         </div>
                         <div class="form-group required">
                             <label for="input-address-1" class="control-label">Address 1</label>
-                            <input type="text" class="form-control" id="input-address-1" placeholder="Address 1" value=" <?php renderDataAddress($data['address_shipping'], 'address') ?> " name="address_1">
+                            <input type="text" class="form-control" id="input-address-1" placeholder="Address 1" value="<?php renderDataAddress($data['address_shipping'], 'address') ?>" name="address_2">
                         </div>
                         <div class="form-group required">
                             <label for="input-city" class="control-label">City</label>
-                            <input type="text" class="form-control" id="input-city" placeholder="City" value="<?php renderDataAddress($data['address_shipping'], 'city') ?>" name="city">
+                            <input type="text" class="form-control" id="input-city" placeholder="City" value="<?php renderDataAddress($data['address_shipping'], 'city') ?>" name="city_2">
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
-                            <input type="text" class="form-control" id="input-postcode" placeholder="Post Code" value="<?php renderDataAddress($data['address_shipping'], 'postcode') ?>" name="postcode">
+                            <input type="text" class="form-control" id="input-postcode" placeholder="Post Code" value="<?php renderDataAddress($data['address_shipping'], 'postcode') ?>" name="postcode_2">
                         </div>
                         <div class="form-group required">
                             <label for="input-country" class="control-label">Country</label>
-                            <select class="form-control" id="input-country" name="country_id">
-                                <option value=""> --- Please Select --- </option>
-                                <option value="244">Aaland Islands</option>
+                            <select class="form-control" id="input-country" name="country_id_2">
+                                <?php renderCount($data, 'address_shipping'); ?>
+                                <!-- <option value="244">Aaland Islands</option>
                                 <option value="1">Afghanistan</option>
                                 <option value="2">Albania</option>
                                 <option value="3">Algeria</option>
@@ -211,21 +230,21 @@
                                 <option value="9">Antigua and Barbuda</option>
                                 <option value="10">Argentina</option>
                                 <option value="11">Armenia</option>
-                                <option value="12">Aruba</option>
+                                <option value="12">Aruba</option> -->
                             
                             </select>
                         </div>
                         <div class="form-group required">
                             <label for="input-zone" class="control-label">Region / State</label>
-                            <select class="form-control" id="input-zone" name="zone_id">
-                                <option value=""> --- Please Select --- </option>
-                                <option value="3513">Aberdeen</option>
+                            <select class="form-control" id="input-zone" name="zone_id_2">
+                                <?php renderRegion($data, 'address_shipping'); ?>
+                                <!-- <option value="3513">Aberdeen</option>
                                 <option value="3514">Aberdeenshire</option>
                                 <option value="3515">Anglesey</option>
                                 <option value="3516">Angus</option>
                                 <option value="3517">Argyll and Bute</option>
                                 <option value="3518">Bedfordshire</option>
-                                <option value="3519">Berkshire</option>
+                                <option value="3519">Berkshire</option> -->
                                 
                             </select>
                         </div>

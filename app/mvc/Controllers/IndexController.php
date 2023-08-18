@@ -12,10 +12,12 @@
 	class IndexController extends Controller{
 
 		private $nameLayout = 'default'; // Стандартный шаблон (можно поменять)
-
+		private $dataTitle = 'MySite'; // можно менять
+		
 		public function pageAction(){
 			// обычная типовая страница	
 			$nameLayout = $this->nameLayout;
+			
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
@@ -34,7 +36,7 @@
 				$this->error404Action("404");
 			}
 		}
-
+		
 		public function indexAction(){
 			// главная страница
 			$nameLayout = 'index';
@@ -51,19 +53,6 @@
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
-				
-				// $password = 123;
-				// $hash = password_hash($password, PASSWORD_DEFAULT);
-				// echo $hash;
-
-				// if(password_verify(123, $hash)){
-				// 	echo "Yes";
-				// }
-				// $password = 'Livasr';
-
-				// echo preg_match('/^[а-яА-Я]{30}|[a-zA-Z]{2}$/',$password, $matches);
-
-
 
 				$model = new CategoriesModel();
 				$data = $model->selectCategoryId($_GET['id']);

@@ -147,8 +147,6 @@
 		public function SelectRegion(){
 			$sql = "SELECT id, region FROM region";
 			$data = $this->getMultyData($sql);
-			echo var_dump($data);
 			return $data;
-
 		}
 	}

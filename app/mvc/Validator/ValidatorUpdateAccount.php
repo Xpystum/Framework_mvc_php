@@ -1,6 +1,7 @@
 <?php
-
-    class ValidatorRegister extends Validator{
+    require_once("Validator.php");
+    require_once("app/Helpers/AreaMyAccount.php");
+    class ValidatorUpdateAccount extends Validator{
 
         private $status = [];
         private $status_valid = false;
@@ -35,16 +36,39 @@
         }
 
         private function get_status_false(){
-            $this->status['firstname'] = "false";
-            $this->status['lastname'] = "false";
-            $this->status['password'] = "false";
-            $this->status['confirm'] = "false";
-            $this->status['email'] = "false";   
-            $this->status['agree'] = "false";
-            $this->status['company'] = "false";
-            $this->status['address_1'] = "false";
-            $this->status['city'] = "false";
-            $this->status['country_id'] = "false";
+            // new_password
+            // confirm_password
+
+
+            //Пользователь
+            $this->status['user']['firstname'] = 'false';
+            $this->status['user']['lastname'] = 'false';
+            $this->status['user']['password'] = 'false';
+            $this->status['user']['confirm'] = 'false';
+            $this->status['user']['email'] = 'false';
+
+            //Payment address
+            $this->status['address_payment']['company'] = "false";
+            $this->status['address_payment']['address_1'] = "false";
+            $this->status['address_payment']['city'] = "false";
+            $this->status['address_payment']['country_id'] = "false";
+
+            // shipping address
+            $this->status['address_shipping']['company'] = "false";
+            $this->status['address_shipping']['address_1'] = "false";
+            $this->status['address_shipping']['city'] = "false";
+            $this->status['address_shipping']['country_id'] = "false";
+
+
+            // $this->status['firstname'] = "false";
+            // $this->status['lastname'] = "false";
+            // $this->status['password'] = "false";
+            // $this->status['confirm'] = "false";
+            // $this->status['email'] = "false";   
+            // $this->status['company'] = "false";
+            // $this->status['address_1'] = "false";
+            // $this->status['city'] = "false";
+            // $this->status['country_id'] = "false";
             return $this->status;
         }
 
@@ -69,18 +93,31 @@
         public function validate_register($post){
            
             try{
+                // var_dump($post);
+                $AreaMyAccount = new AreaMyAccount($post);
+                $dataArea = $AreaMyAccount->getAreaData();
+                echo print_r($dataArea['user']);
+                die();
+                
                 // получаем статусы проверок от значений введёным пользователем по полям
                 $this->status['firstname'] = $this->valid_name($post['firstname']);
                 $this->status['lastname'] = $this->valid_surname($post['lastname']);
-                $this->status['password'] = $this->valid_password($post['password']);
-                $this->status['confirm'] = $this->valid_passwordReapeat($post['password'], $post['confirm']);
+                $this->status['new_password'] = $this->valid_password($post['new_password']);
+                $this->status['confirm_password'] = $this->valid_passwordReapeat($post['new_password'], $post['confirm_password']);
                 $this->status['email'] = $this->valid_email($post['email']);
-                $this->status['agree'] = $this->valid_politic($post);
+                // $this->status['agree'] = $this->valid_politic($post);
+
+                // adress payments
                 $this->status['company'] = $this->valid_empty($post['company']);  
                 $this->status['address_1'] = $this->valid_empty($post['address_1']);
                 $this->status['city'] = $this->valid_empty($post['city']);
                 $this->status['country_id'] = $this->valid_empty($post['country_id']); 
-                
+
+                // adress shipping
+                $this->status['company_2'] = $this->valid_empty($post['company']);  
+                $this->status['address__2'] = $this->valid_empty($post['address_1']);
+                $this->status['city_2'] = $this->valid_empty($post['city']);
+                $this->status['country_id_2'] = $this->valid_empty($post['country_id_2']); 
                 return $this->status;
             }
             catch (Exception){
