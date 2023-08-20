@@ -39,8 +39,8 @@
             // new_password
             // confirm_password
 
-
             //Пользователь
+            $this->status['user']['status'] = "false";
             $this->status['user']['firstname'] = 'false';
             $this->status['user']['lastname'] = 'false';
             $this->status['user']['password'] = 'false';
@@ -48,41 +48,38 @@
             $this->status['user']['email'] = 'false';
 
             //Payment address
+            $this->status['address_payment']['status'] = "false";
             $this->status['address_payment']['company'] = "false";
             $this->status['address_payment']['address_1'] = "false";
             $this->status['address_payment']['city'] = "false";
             $this->status['address_payment']['country_id'] = "false";
 
             // shipping address
+            $this->status['address_shipping']['status'] = "false";
             $this->status['address_shipping']['company'] = "false";
             $this->status['address_shipping']['address_1'] = "false";
             $this->status['address_shipping']['city'] = "false";
             $this->status['address_shipping']['country_id'] = "false";
 
-
-            // $this->status['firstname'] = "false";
-            // $this->status['lastname'] = "false";
-            // $this->status['password'] = "false";
-            // $this->status['confirm'] = "false";
-            // $this->status['email'] = "false";   
-            // $this->status['company'] = "false";
-            // $this->status['address_1'] = "false";
-            // $this->status['city'] = "false";
-            // $this->status['country_id'] = "false";
             return $this->status;
         }
 
         public function get_status_valid(){
+           
             if(!empty($this->status)){
-                
-                foreach($this->status as $iteration){
-                    if($iteration == 'false'){
 
-                        return false;
-
+                $arr = ['address_payment','user','address_shipping'];
+                foreach($arr as $name){
+                    foreach($this->status[$name] as $key => $iteration){
+                        if(($iteration == 'false')){
+                            if(!($key == 'status')) 
+                            { 
+                                return false;
+                            }
+                        }
                     }
                 }
-                return true;
+                
             }
             else{
                 $this->status_valid = false;
@@ -96,28 +93,11 @@
                 // var_dump($post);
                 $AreaMyAccount = new AreaMyAccount($post);
                 $dataArea = $AreaMyAccount->getAreaData();
-                echo print_r($dataArea['user']);
-                die();
-                
-                // получаем статусы проверок от значений введёным пользователем по полям
-                $this->status['firstname'] = $this->valid_name($post['firstname']);
-                $this->status['lastname'] = $this->valid_surname($post['lastname']);
-                $this->status['new_password'] = $this->valid_password($post['new_password']);
-                $this->status['confirm_password'] = $this->valid_passwordReapeat($post['new_password'], $post['confirm_password']);
-                $this->status['email'] = $this->valid_email($post['email']);
-                // $this->status['agree'] = $this->valid_politic($post);
 
-                // adress payments
-                $this->status['company'] = $this->valid_empty($post['company']);  
-                $this->status['address_1'] = $this->valid_empty($post['address_1']);
-                $this->status['city'] = $this->valid_empty($post['city']);
-                $this->status['country_id'] = $this->valid_empty($post['country_id']); 
-
-                // adress shipping
-                $this->status['company_2'] = $this->valid_empty($post['company']);  
-                $this->status['address__2'] = $this->valid_empty($post['address_1']);
-                $this->status['city_2'] = $this->valid_empty($post['city']);
-                $this->status['country_id_2'] = $this->valid_empty($post['country_id_2']); 
+                //Делаем проверки по полям (и выдаём статус изменение [status] (по которому будем) понимать обнорвлять ли данные)
+                $this->valid_area_address_shipping($dataArea['address_shipping']);
+                $this->valid_area_address_payment($dataArea['address_payment']);
+                $this->valid_area_user($dataArea['user']);
                 return $this->status;
             }
             catch (Exception){
@@ -125,22 +105,84 @@
             }
         }
 
+        private function private_get_status_valid(){
+
+        }
+
+        private function valid_area_user($dataAreaUser){
+            //$dataAreaUser прислать юзера из AreaMyAcount <- helper
+            foreach($dataAreaUser as $value){
+                if(!empty($value)){
+                    $dataAreaUser['user']['status'] = 'true';
+                    break;
+                }
+                $dataAreaUser['user']['status'] = 'false';
+            }
+
+            if($dataAreaUser['user']['status']){
+                $this->status['user']['status'] = 'true';
+                $this->status['user']['firstname'] = $this->valid_name($dataAreaUser['firstname']);
+                $this->status['user']['lastname'] = $this->valid_surname($dataAreaUser['lastname']);
+                $this->status['user']['new_password'] = $this->valid_password($dataAreaUser['new_password']);
+                $this->status['user']['confirm_password'] = $this->valid_passwordReapeat($dataAreaUser['new_password'], $dataAreaUser['confirm_password']);
+                $this->status['user']['email'] = $this->valid_email($dataAreaUser['email']);
+            }
+        }
+
+        private function valid_area_address_shipping($dataAreaAddressShipping){
+             //$dataAreaAddressShipping прислать данные адресс шипинга из AreaMyAcount <- helper
+             foreach($dataAreaAddressShipping as $value){
+                if(!empty($value)){
+                    $dataAreaAddressShipping['address_shipping']['status'] = 'true';
+                    break;
+                }
+                $dataAreaAddressShipping['address_shipping']['status'] = 'false';
+            }
+
+            if($dataAreaAddressShipping['address_shipping']['status']){
+                $this->status['address_shipping']['status'] = $dataAreaAddressShipping['address_shipping']['status'];
+                $this->status['address_shipping']['company_2'] = $this->valid_empty($dataAreaAddressShipping['company_2']);  
+                $this->status['address_shipping']['address_2'] = $this->valid_empty($dataAreaAddressShipping['address_2']);
+                $this->status['address_shipping']['city_2'] = $this->valid_empty($dataAreaAddressShipping['city_2']);
+                $this->status['address_shipping']['country_id_2'] = $this->valid_empty($dataAreaAddressShipping['country_id_2']); 
+            }
+        }
+
+        private function valid_area_address_payment($dataAreaAddressPayment){
+            //$dataAreaAddressPayment прислать данные адресс payment из AreaMyAcount <- helper
+            foreach($dataAreaAddressPayment as $value){
+               if(!empty($value)){
+                   $dataAreaAddressPayment['address_payment']['status'] = 'true';
+                   break;
+               }
+               $dataAreaAddressPayment['address_payment']['status'] = 'false';
+           }
+
+           if($dataAreaAddressPayment['address_payment']['status']){
+               $this->status['address_payment']['status'] = $dataAreaAddressPayment['address_payment']['status'];
+               $this->status['address_payment']['company'] = $this->valid_empty($dataAreaAddressPayment['company']);  
+               $this->status['address_payment']['address_1'] = $this->valid_empty($dataAreaAddressPayment['address_1']);
+               $this->status['address_payment']['city'] = $this->valid_empty($dataAreaAddressPayment['city']);
+               $this->status['address_payment']['country_id'] = $this->valid_empty($dataAreaAddressPayment['country_id']); 
+           }
+       }
+
         private function valid_name($value){
             $regX = '/^[a-zа-яё]{1,30}$/ui';
-            $flag = $this->filter_var_validator($value,$regX);
+            $flag = $this->filter_var_validator($value, $regX);
             return $flag? "true" : "false";
         }
 
         private function valid_surname($value){
             $regX = '/^[a-zа-яё]{1,30}$/ui';
-            $flag = $this->filter_var_validator($value,$regX);
+            $flag = $this->filter_var_validator($value, $regX);
             return $flag? "true" : "false";
         }
 
         private function valid_password($value){
 
             $regX = '/(?=.*[0-9])(?=.*[!@#$%^&.\\\\*\/"])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/';
-            $flag = $this->filter_var_validator($value,$regX);
+            $flag = $this->filter_var_validator($value, $regX);
             return $flag? "true" : "false";
         }
 

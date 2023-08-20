@@ -19,7 +19,7 @@
             $dataUser = null;
             $arr = ['firstname', 'lastname', 'new_password' , 'confirm_password', 'email'];
             foreach($arr as $value){
-                $dataUser[] = $POST[$value];
+                $dataUser[$value] = $POST[$value];
             }
             $this->data['user'] = $dataUser;
         }
@@ -30,9 +30,9 @@
             $arr = ['company', 'address_1', 'city' , 'country_id'];
             foreach($arr as $value){
                 if(empty($POST[$value])){
-                    $dataUser[] = 'null';
+                    $dataUser[$value] = ""; 
                 }
-                $dataUser[] = $POST[$value];
+                $dataUser[$value] = $POST[$value];
             }
             $this->data['address_payment'] = $dataUser;
         }
@@ -43,9 +43,9 @@
             $arr = ['company_2', 'address_2', 'city_2' , 'country_id_2'];
             foreach($arr as $value){
                 if(empty($POST[$value])){
-                    $dataUser[] = 'null';
+                    $dataUser[$value] = "";
                 }
-                $dataUser[] = $POST[$value];
+                $dataUser[$value] = $POST[$value];
             }
             $this->data['address_shipping'] = $dataUser;
         }

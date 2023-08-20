@@ -1,5 +1,42 @@
 <?php 
 
+    require_once("app/Exception/ValidatorExceptionMyAccount.php");
+    require_once("app/mvc/Security/SecurityRegister.php");
+    $dataJSON = null;
+    if(isset($_GET['valid'])){
+        $dataJSON = json_decode($_GET['valid'], true);
+        
+        $ex = new ValidatorExceptionMyAccount();
+        $ex = $ex->get_error();
+        // GLOBAL Лучше не использовать =)
+        $GLOBALS['errors'] = $ex;
+        $GLOBALS['dataJSON'] = $dataJSON['status'];
+    }
+
+
+    // Проверка на правильность ввода поля (валидация)
+    function checkdata($get_area, $get_name){
+        if(isset($GLOBALS['dataJSON'][$get_area][$get_name]) && $GLOBALS['dataJSON'][$get_area]['status'] == 'true'){
+            if($GLOBALS['dataJSON'][$get_area][$get_name] == 'false'){
+                    ?> <div class="error_form_valid"> <?php echo $GLOBALS['errors'][$get_name]; ?> </div> <?php
+            }
+        }
+    }
+
+
+    // вернуть вводимое значение поле пользователем (кроме пароля)
+    function viewData($name_info){
+
+        if(isset($GLOBALS['dataINFO'][$name_info]))
+        { 
+            return SecurityRegister::special_char_html($GLOBALS['dataINFO'][$name_info]); 
+        }   
+        else{
+            return "";
+        }
+    }
+
+
     function renderDataAddress($massDataAddress, $name){
         //$name массива адреса Payment или Shipping
         try{
@@ -86,22 +123,27 @@
                         <div class="form-group required">
                             <label for="input-firstname" class="control-label">First Name</label>
                             <input type="text" class="form-control" id="input-firstname" placeholder="First Name" value="<?php renderDataAddress($data['user'], 'name'); ?>" name="firstname">
+                            <?php checkdata('user','firstname') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-lastname" class="control-label">Last Name</label>
                             <input type="text" class="form-control" id="input-lastname" placeholder="Last Name" value="<?php renderDataAddress($data['user'], 'surname') ?>" name="lastname">
+                            <?php checkdata('user','lastname') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-email" class="control-label">E-Mail</label>
                             <input type="email" class="form-control" id="input-email" placeholder="E-Mail" value="<?php renderDataAddress($data['user'], 'email') ?>" name="email">
+                            <?php checkdata('user','email') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-telephone" class="control-label">Telephone</label>
                             <input type="tel" class="form-control" id="input-telephone" placeholder="Telephone" value="<?php renderDataAddress($data['user'], 'telephone') ?>" name="telephone">
+                            <?php checkdata('user','telephone') ?>
                         </div>
                         <div class="form-group">
                             <label for="input-fax" class="control-label">Fax</label>
                             <input type="text" class="form-control" id="input-fax" placeholder="Fax" value="<?php renderDataAddress($data['user'], 'fax') ?>" name="fax">
+                            <?php checkdata('user','fax') ?>
                         </div>
                     </fieldset>
                     <br>
@@ -112,14 +154,17 @@
                         <div class="form-group required">
                             <label for="input-password" class="control-label">Old Password</label>
                             <input type="password" class="form-control"  placeholder="Old Password" value="" name="password">
+                            <?php checkdata('user','password') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-password" class="control-label">New Password</label>
                             <input type="password" class="form-control"  placeholder="New Password" value="" name="new_password">
+                            <?php checkdata('user','new_password') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-confirm" class="control-label">New Password Confirm</label>
                             <input type="password" class="form-control" id="input-confirm" placeholder="New Password Confirm" value="" name="confirm_password">
+                            <?php checkdata('user','confirm_password') ?>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -146,19 +191,22 @@
                             <label for="input-company" class="control-label">Company</label>
 
                             <input type="text" class="form-control"  placeholder="Company" value="<?php renderDataAddress($data['address_payment'], 'company') ?>" name="company">
-
+                            <?php checkdata('address_payment','company') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-address-1" class="control-label">Address 1</label>
                             <input type="text" class="form-control"  placeholder="Address 1" value="<?php renderDataAddress($data['address_payment'], 'address') ?>" name="address_1">
+                            <?php checkdata('address_payment','address_1') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-city" class="control-label">City</label>
                             <input type="text" class="form-control" placeholder="City" value="<?php renderDataAddress($data['address_payment'], 'city') ?>" name="city">
+                            <?php checkdata('address_payment','city') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
                             <input type="text" class="form-control"  placeholder="Post Code" value="<?php renderDataAddress($data['address_payment'], 'post_code') ?>" name="postcode">
+                            <?php checkdata('address_payment','postcode') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-country" class="control-label">Country</label>
@@ -179,6 +227,7 @@
                                 <option value="13">Aruba</option> -->
 
                             </select>
+                            <?php checkdata('address_payment','country_id') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-zone" class="control-label">Region / State</label>
@@ -201,18 +250,23 @@
                         <div class="form-group">
                             <label for="input-company" class="control-label">Company</label>
                             <input type="text" class="form-control" id="input-company" placeholder="Company" value="<?php renderDataAddress($data['address_shipping'], 'company') ?>" name="company_2">
+                            <?php checkdata('address_shipping','company_2') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-address-1" class="control-label">Address 1</label>
                             <input type="text" class="form-control" id="input-address-1" placeholder="Address 1" value="<?php renderDataAddress($data['address_shipping'], 'address') ?>" name="address_2">
+                            <?php checkdata('address_shipping','address_2') ?>
                         </div>
+                        
                         <div class="form-group required">
                             <label for="input-city" class="control-label">City</label>
                             <input type="text" class="form-control" id="input-city" placeholder="City" value="<?php renderDataAddress($data['address_shipping'], 'city') ?>" name="city_2">
+                            <?php checkdata('address_shipping','city_2') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
                             <input type="text" class="form-control" id="input-postcode" placeholder="Post Code" value="<?php renderDataAddress($data['address_shipping'], 'postcode') ?>" name="postcode_2">
+                            <?php checkdata('address_shipping','postcode_2') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-country" class="control-label">Country</label>
@@ -233,6 +287,7 @@
                                 <option value="12">Aruba</option> -->
                             
                             </select>
+                            <?php checkdata('address_shipping','country_id_2') ?>
                         </div>
                         <div class="form-group required">
                             <label for="input-zone" class="control-label">Region / State</label>

@@ -71,50 +71,28 @@
 
 				$validator = new ValidatorUpdateAccount();
 				$data['status'] = $validator->validate_register($_POST);
-				$data['info'] = null;
+				$validator->get_status_valid();
+
+				$user = new UserModel();
+				$email = $user->selectUserEmail($_POST['email']);
+
+				$pass = new ValidatorPasswordUser;
 				
-				var_dump($_POST);
-				// var_dump($data['status']);
 
-				die();
-
-				// запись значение для их вывода при ошибки (что бы пользователь не вводил по много раз данные при обновлении)
-				foreach($_POST as $key => $value){	
-					if($key == 'password'){ continue; }
-					$data['info']["$key"] = $value;
-				}
-				
-				// //преобразование небозопасных html символов
-				foreach($data['info'] as $key => $value){	
-					$data['info'][$key] = SecurityRegister::strip_tags_html($value);
-				}
-
-				
-				$dataJson = json_encode($data); 	
-	
-				if($validator->get_status_valid()){
-					$a = new RegisterModel();
-					if($a->addUser($_POST)){
-						// передать flash сообщение через сессию что добавилось успешно
-
-						self::$session->my_session_flash_set('succes','Вы Успешно Зарегистрировались');
-						header("location:?route=index/index");
-						die();
-					}
-					else{
-						//оповещение об ошибки добавление
-
-						self::$session->my_session_flash_set('warning','Ошибка Регистрации');
-						header("location:?route=index/index");
-						die();
-					}
-				}		
-				else{
-					// Ошибка прохождение валидации (reg выражение) -> возврат к регистрации
-					header("location:?route=auth/rendergister&valid=".$dataJson);
+				if($pass->checkPasswordUser($_POST['password'], $email) && $validator->get_status()){
+					
+					self::$session->my_session_flash_set('succes','Данные успешно обновлены');
+					header("location:?route=auth/myaccountsystem");
+					die();
+				}else{
+					
+					$data['status']['user']['password'] = 'false';
+					self::$session->my_session_flash_set('warning','Ошибка Обновление');
+					$dataJson = json_encode($data); 
+					header("location:?route=auth/myaccountsystem&valid=".$dataJson);
 					die();
 				}
-				
+
 			}
 
 		}
