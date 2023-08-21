@@ -22,6 +22,8 @@
 
 
 	require_once("app/mvc/Models/UserModel.php");
+
+	require_once("app/Helpers/AreaMyAccount.php");
     
 
 	class AuthController extends Controller{
@@ -67,6 +69,8 @@
 		//отправка POST запроса для обновление данных из аккаунта
 		public function updateAccountAction(){
 
+
+			// POST надо приниматиь через xmlhttprequest (доделать потом)
 			if(isset($_POST)){
 
 				$validator = new ValidatorUpdateAccount();
@@ -75,15 +79,21 @@
 
 				$user = new UserModel();
 				$email = $user->selectUserEmail($_POST['email']);
-
 				$pass = new ValidatorPasswordUser;
-				
 
 				if($pass->checkPasswordUser($_POST['password'], $email) && $validator->get_status()){
 					
-					self::$session->my_session_flash_set('succes','Данные успешно обновлены');
-					header("location:?route=auth/myaccountsystem");
+					$Model = new UserModel();
+					$dataArea = (new AreaMyAccount($_POST))->getAreaData();
+					$userId = (new Session)->my_session_get('user');
+					var_dump($Model->UpdateUser($dataArea['user'], $userId));
+					var_dump($Model->UpdateUserInput($dataArea['user'], $userId));
+					var_dump($Model->UpdateAddress($dataArea['address_payment'], $userId, 1));	
+					
 					die();
+					// self::$session->my_session_flash_set('succes','Данные успешно обновлены');
+					// header("location:?route=auth/myaccountsystem");
+					// die();
 				}else{
 					
 					$data['status']['user']['password'] = 'false';
@@ -105,7 +115,7 @@
 				if(isset($data)){
 					$pass = new ValidatorPasswordUser;
 					if($pass->checkPasswordUser($_POST['password'], $data)){
-						
+
 						$data = $user->SelectUsersFromInput($data['id']);
 						self::$session->my_session_set('user', $data['id']);
 						self::$session->my_session_flash_set('succes','Вы Успешно Вошли');

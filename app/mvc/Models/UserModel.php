@@ -3,27 +3,27 @@
 
 	class UserModel extends Model{
 		
-		public function selectUserId($id){
-			$sql = "SELECT 
-			id, 
-			email, 
-			`name`,
-			surname,
-			telephone,
-			fax,
-			company,
-			adress_1,
-			adress_2,
-			city,
-			post_code,
-			country,
-			region_state
-			FROM  `users` 
-			WHERE id = '$id' ";
+		// public function selectUserId($id){
+		// 	$sql = "SELECT 
+		// 	id, 
+		// 	email, 
+		// 	`name`,
+		// 	surname,
+		// 	telephone,
+		// 	fax,
+		// 	company,
+		// 	adress_1,
+		// 	adress_2,
+		// 	city,
+		// 	post_code,
+		// 	country,
+		// 	region_state
+		// 	FROM  `users` 
+		// 	WHERE id = '$id' ";
 			
-            $data = $this->getData($sql);
-            return $data;
-		}
+        //     $data = $this->getData($sql);
+        //     return $data;
+		// }
 
 		public function selectUserEmail($email){
 			$sql = "SELECT id, email, `password` FROM  `users_input` WHERE email = '$email' ";
@@ -85,11 +85,11 @@
 		//2 - shipping
 
 		//получение Adress в зависимости от Payment или shipping через id user, 
-		public function SelectAdressTypeUser($value_id, $type_id){	
-			// $value_id - id юзера
+		public function SelectAdressTypeUser($userId, $type_id){	
+			//$userId - id юзера
 			//$type_id - тип таблицы
 
-			$sql =  "SELECT adress_union_id FROM users_table WHERE users_id = '$value_id'";
+			$sql =  "SELECT adress_union_id FROM users_table WHERE users_id = '$userId'";
 
 			$data = $this->getMultyData($sql);
 			$dataMass = null; // получаем значение 
@@ -100,7 +100,7 @@
 			}
 
 			if(count($dataMass) <= 1){
-				//СТРАШНЫЙ ЗАПРОС
+				//СТРАШНЫЙ ЗАПРОС - переделать))
 				$sql = "SELECT 
 				company,
 				`address`,
@@ -114,7 +114,7 @@
 				WHERE add_union.adress_type_id = '$type_id')";
 			}
 			else{
-				//СТРАШНЫЙ ЗАПРОС
+				//СТРАШНЫЙ ЗАПРОС - переделать))
 				$sql = "SELECT 
 				company,
 				`address`,
@@ -128,6 +128,19 @@
 				WHERE add_union.adress_type_id = '$type_id')";
 			}
 
+			
+			// $sql = "SELECT 
+			// adress_user.id as id,
+			// company,
+			// `address`,
+			// city,
+			// country_id,
+			// region_id,
+			// post_code
+			
+			// FROM `adress_user` INNER JOIN adress_union ON adress_user.id = adress_union.adress_user_id
+			// INNER JOIN users_table ON adress_union.id = users_table.adress_union_id
+			// WHERE users_table.users_id = '$user'";
 				
 
 			$data = $this->getMultyData($sql);
@@ -149,4 +162,63 @@
 			$data = $this->getMultyData($sql);
 			return $data;
 		}
+
+		public function UpdateUser($value, $user){
+			//$value - значение user
+			//$user - id user "из сессии"
+			// можно по email находить (но могут быть ошибки лучше по id)
+
+			$name = $value['firstname'];
+			$surname = $value['lastname'];
+			$telephone = $value['telephone'];
+			$fax = $value['fax'];
+
+			$sql = "UPDATE `users` 
+			SET `name` = '$name ' , surname = '$surname', telephone = '$telephone', fax = '$fax' 
+			WHERE id = $user";
+			
+			return $this->statusRequest($sql);
+		}
+
+		public function UpdateUserInput($value, $user){
+			//$value - значение user
+			////$user - id user "из сессии"
+
+			$email = $value['email'];
+			$new_password = $value['new_password'];
+
+			$sql = "UPDATE `users_input` 
+			SET email = '$email' , `password` = '$new_password'
+			WHERE id = $user";
+
+			return $this->statusRequest($sql);
+		}
+
+		
+		public function UpdateAddress($value, $user, $type){
+			//$value - значение address
+			//$user - id user "из сессии"
+			//$type - тип Адресса 1 - payment, 2 - shipping
+			$company = $value['company'];
+			$address = $value['address'];
+			$city
+			$country_id
+			$post_code
+
+			$sql = "SELECT 
+			adress_user.id as id
+			FROM `adress_user` INNER JOIN adress_union ON adress_user.id = adress_union.adress_user_id
+			INNER JOIN users_table ON adress_union.id = users_table.adress_union_id
+			WHERE users_table.users_id = '$user' AND adress_union.adress_type_id = 1";
+
+			
+
+			$addressId = $this->getData($sql);
+
+			$sqk = "UPDATE `adress_user` 
+			SET email = '$email' , `password` = '$new_password'
+			WHERE id = $user"
+			
+		}
+		
 	}

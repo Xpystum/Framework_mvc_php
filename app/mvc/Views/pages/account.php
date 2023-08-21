@@ -74,7 +74,6 @@
                 echo "<option value=".$value['id'].">".$value['country']."</option>";
             }
             
-            
             ?> <?php
         }
     }
@@ -205,7 +204,7 @@
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
-                            <input type="text" class="form-control"  placeholder="Post Code" value="<?php renderDataAddress($data['address_payment'], 'post_code') ?>" name="postcode">
+                            <input type="text" class="form-control"  placeholder="Post Code" value="<?php renderDataAddress($data['address_payment'], 'post_code') ?>" name="post_code">
                             <?php checkdata('address_payment','postcode') ?>
                         </div>
                         <div class="form-group required">
@@ -265,7 +264,7 @@
                         </div>
                         <div class="form-group required">
                             <label for="input-postcode" class="control-label">Post Code</label>
-                            <input type="text" class="form-control" id="input-postcode" placeholder="Post Code" value="<?php renderDataAddress($data['address_shipping'], 'postcode') ?>" name="postcode_2">
+                            <input type="text" class="form-control" id="input-postcode" placeholder="Post Code" value="<?php renderDataAddress($data['address_shipping'], 'post_code') ?>" name="post_code_2">
                             <?php checkdata('address_shipping','postcode_2') ?>
                         </div>
                         <div class="form-group required">
