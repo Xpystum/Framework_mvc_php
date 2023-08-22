@@ -68,35 +68,48 @@
 
 		//отправка POST запроса для обновление данных из аккаунта
 		public function updateAccountAction(){
-
+			
 
 			// POST надо приниматиь через xmlhttprequest (доделать потом)
 			if(isset($_POST)){
 
+				$userId = (new Session)->my_session_get('user');
 				$validator = new ValidatorUpdateAccount();
-				$data['status'] = $validator->validate_register($_POST);
-				$validator->get_status_valid();
+				$data['status'] = $validator->validate_update($_POST);
+			
+				$userModel = new UserModel();
 
-				$user = new UserModel();
-				$email = $user->selectUserEmail($_POST['email']);
+				$UserInput = $userModel->SelectUsersInputId(($userModel->SelectUsersInputFromUser($userId)));
 				$pass = new ValidatorPasswordUser;
+				
 
-				if($pass->checkPasswordUser($_POST['password'], $email) && $validator->get_status()){
+				if($pass->checkPasswordUser($_POST['password'], $UserInput) && $validator->get_status_valid()){
 					
-					$Model = new UserModel();
+			
 					$dataArea = (new AreaMyAccount($_POST))->getAreaData();
-					$userId = (new Session)->my_session_get('user');
-					var_dump($Model->UpdateUser($dataArea['user'], $userId));
-					var_dump($Model->UpdateUserInput($dataArea['user'], $userId));
-					var_dump($Model->UpdateAddress($dataArea['address_payment'], $userId, 1));	
 					
+					$userModel->UpdateUserInput($dataArea['user'], $userId);
+					$userModel->UpdateUser($dataArea['user'], $userId);
+					$userModel->UpdateAddress($dataArea['address_payment'], $userId, 1);	
+					
+
+					if(empty($userModel->SelectAdressTypeUser($userId, 2))){
+						// insert
+						$userModel->insertAddressShipping($dataArea['address_shipping'], $userId);
+					}else{
+						//update
+						$userModel->UpdateAddress($dataArea['address_payment'], $userId, 2);
+					}
+
+
+					self::$session->my_session_flash_set('succes','Данные успешно обновлены');
+					header("location:?route=auth/myaccountsystem");
 					die();
-					// self::$session->my_session_flash_set('succes','Данные успешно обновлены');
-					// header("location:?route=auth/myaccountsystem");
-					// die();
 				}else{
 					
-					$data['status']['user']['password'] = 'false';
+					if(!$pass->checkPasswordUser($_POST['password'], $UserInput)){
+						$data['status']['user']['password'] = 'false';
+					}
 					self::$session->my_session_flash_set('warning','Ошибка Обновление');
 					$dataJson = json_encode($data); 
 					header("location:?route=auth/myaccountsystem&valid=".$dataJson);

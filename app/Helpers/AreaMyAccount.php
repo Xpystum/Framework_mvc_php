@@ -27,25 +27,41 @@
         private function splitAreaAddressPayment($POST){
 
             $dataPayment = null;
+            $i = 0;
+            $a = 0;
             $arr = ['company', 'address_1', 'city' , 'country_id', 'post_code', 'zone_id'];
+            $arr2 = ['company', 'address', 'city' , 'country_id', 'post_code', 'zone_id'];
+
             foreach($arr as $value){
-                if(empty($POST[$value])){
-                    $dataUser[$value] = ""; 
+                while($i == $a){
+                    if(empty($POST[$value])){
+                        $dataUser[$arr2[$i]] = ""; 
+                    }
+                    $dataUser[$arr2[$i]] = $POST[$value];
+                    $i++;
                 }
-                $dataUser[$value] = $POST[$value];
+                $a++;
             }
+
             $this->data['address_payment'] = $dataUser;
         }
 
         private function splitAreaAddressShipping($POST){
 
             $dataShipping = null;
+            $i = 0;
+            $a = 0;
             $arr = ['company_2', 'address_2', 'city_2' , 'country_id_2', 'post_code_2', 'zone_id_2'];
+            $arr2 = ['company', 'address', 'city' , 'country_id', 'post_code', 'zone_id'];
             foreach($arr as $value){
-                if(empty($POST[$value])){
-                    $dataUser[$value] = "";
+                while($i == $a){
+                    if(empty($POST[$value])){
+                        $dataUser[$arr2[$i]] = ""; 
+                    }
+                    $dataUser[$arr2[$i]] = $POST[$value];
+                    $i++;
                 }
-                $dataUser[$value] = $POST[$value];
+                $a++;
             }
             $this->data['address_shipping'] = $dataUser;
         }

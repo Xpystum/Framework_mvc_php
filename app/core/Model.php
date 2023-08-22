@@ -69,6 +69,18 @@
 			$result = mysqli_query(self::$link, $sql);
 			return $result;
 		}
+		
+		protected function statusRequestUpdate($sql){
+			
+			mysqli_query(self::$link, $sql);
+
+			$result = mysqli_affected_rows(self::$link);
+			if($result == 0){
+				return false;
+			}
+			return true;
+		}
+		
 
 		protected function getMultyData($sql){
 			$result = mysqli_query(self::$link, $sql);

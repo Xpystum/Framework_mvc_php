@@ -42,7 +42,7 @@
             $postcode = $func_strip($data_post['postcode']);
             $country_id = $func_strip($data_post['country_id']);
             $region_state = $func_strip($data_post['zone_id']);
-            $password = password_hash($func_strip($data_post['password']),PASSWORD_DEFAULT);
+            $password = password_hash($func_strip($data_post['password']), PASSWORD_DEFAULT);
 
             // запрос на добавление в таблицу users_input
             $sql_add = "INSERT INTO `users_input` 
