@@ -3,6 +3,8 @@
 	require_once("app/mvc/Security/SecurityRegister.php");
 
 	class UserModel extends Model{
+
+		//ошибка проектирование БД shipping - относится к заказу.
 		
 		// public function selectUserId($id){
 		// 	$sql = "SELECT 

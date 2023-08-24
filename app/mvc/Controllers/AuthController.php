@@ -69,7 +69,7 @@
 		//отправка POST запроса для обновление данных из аккаунта
 		public function updateAccountAction(){
 			
-
+			//ошибка проектирование БД shipping - относится к заказу.
 			// POST надо приниматиь через xmlhttprequest (доделать потом)
 			if(isset($_POST)){
 

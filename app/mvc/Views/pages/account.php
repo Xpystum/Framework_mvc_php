@@ -333,7 +333,7 @@
                 </li>
                 <li><a href="wishlist.html">Wish List</a>
                 </li>
-                <li><a href="#">Order History</a>
+                <li><a href="?route=index/orderAccount">Order History</a>
                 </li>
                 <li><a href="#">Downloads</a>
                 </li>

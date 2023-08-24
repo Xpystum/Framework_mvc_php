@@ -41,16 +41,17 @@
 			if($data == null){
 				$sql = "INSERT INTO `orders` (user_id, date) VALUES(".$user_id.", NOW())";
 				if($this->statusRequest($sql)){
-					return True;
+					return true;
 				}
 				else{
-					return False;
+					return false;
 				}
 			}
 			return True;
 		}
 
 		public function SelectOrderId($user_id){
+			//поиск заказа по юсеру
 			$sql = "SELECT * FROM `orders` WHERE user_id = ".$user_id;
 			$data = $this->getData($sql);
 

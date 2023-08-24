@@ -120,6 +120,7 @@
                 $this->status['user']['status'] = 'true';
                 $this->status['user']['firstname'] = $this->valid_name($dataAreaUser['firstname']);
                 $this->status['user']['lastname'] = $this->valid_surname($dataAreaUser['lastname']);
+                echo 1;
                 $this->status['user']['new_password'] = $this->valid_password($dataAreaUser['new_password']);
                 $this->status['user']['confirm_password'] = $this->valid_passwordReapeat($dataAreaUser['new_password'], $dataAreaUser['confirm_password']);
                 $this->status['user']['email'] = $this->valid_email($dataAreaUser['email']);
@@ -160,24 +161,34 @@
 
         private function valid_password($value){
 
-            $regX = '/(?=.*[0-9])(?=.*[!@#$%^&.\\\\*\/"])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/';
-            $flag = $this->filter_var_validator($value, $regX);
-            return $flag? "true" : "false";
+
+            if(empty($value)){
+                return 'true';
+            }else{
+                $regX = '/(?=.*[0-9])(?=.*[!@#$%^&.\\\\*\/"])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/';
+                $flag = $this->filter_var_validator($value, $regX);
+                return $flag? "true" : "false";
+            }
+           
         }
 
         private function valid_passwordReapeat($pass, $pass_confirm){
-            
-            if($pass != null){
 
-                if(!(strcmp($pass, $pass_confirm))){
-                    return 'true';
-                }
-                else{
-                    return 'false';
+            if(empty($pass_confirm) && empty($pass)){
+                return 'true';
+            }
+            elseif((!empty($pass_confirm)  &&  empty($pass)) || (empty($pass_confirm) &&  !empty($pass))){
+                if($pass != null){
+
+                    if(!(strcmp($pass, $pass_confirm))){
+                        return 'true';
+                    }
+                    else{
+                        return 'false';
+                    }
                 }
             }
             return 'false';
-
         }   
 
         private function valid_email($value){

@@ -8,6 +8,12 @@
 
 	require_once("app/Widgets/MenuWidget.php");
 
+	//session
+	require_once("app/Helpers/Session.php");
+
+	//helper
+	require_once("app/Helpers/dd.php");
+
 
 	class IndexController extends Controller{
 
@@ -88,7 +94,7 @@
 			if(isset($_POST['id_product'])){
 				$model = new OrdersModel();
 				// $model->createOrder(1) //заглушка на пользователя (надо делать по сессиям)
-				if(!$model->createOrder(1)){
+				if(!$model->createOrder(11)){
 					echo "Ошибка Создание Order";
 				}
 				
@@ -112,6 +118,16 @@
 
 				$this->generation('cart', $nameLayout  ,$data);
 			}
+		}
+
+		public function orderAccountAction(){
+			$nameLayout = $this->nameLayout;
+			$model = new OrdersModel();
+			$session = new Session();
+			// $data = $model->SelectOrderId($session->my_session_get('user'));
+			// new dd($data);
+
+			$this->generation('orderHistory', $nameLayout );
 		}
 
 		#region Служебные приватные методы

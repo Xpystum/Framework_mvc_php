@@ -37,7 +37,6 @@
             $fax = $func_strip($data_post['fax']);   
             $company = $func_strip($data_post['company']);
             $address_1 = $func_strip($data_post['address_1']);
-            $address_2 = $func_strip($data_post['address_2']);
             $city = $func_strip($data_post['city']);
             $postcode = $func_strip($data_post['postcode']);
             $country_id = $func_strip($data_post['country_id']);
@@ -57,7 +56,7 @@
             ##
             //запрос добавление в таблицу addres
             $sql_add = "INSERT INTO `adress_user` 
-            (company, `address`, city, country_id, region, post_code) VALUES ('$company', '$address_1', '$city', '$country_id', '$region_state', '$postcode')";
+            (company, `address`, city, country_id, region_id, post_code) VALUES ('$company', '$address_1', '$city', '$country_id', '$region_state', '$postcode')";
 
             //добавление в таблицу addres
             if(!checkStatus($this->statusRequest($sql_add))){
