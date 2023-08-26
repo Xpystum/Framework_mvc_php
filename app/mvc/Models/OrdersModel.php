@@ -59,6 +59,8 @@
 		}
 
 
+
+
 		public function createOrder($user_id = null){
 			// использовать патттерн состоние для получение в случае ошибки создание
 			// и выводить пользователю сообщение об ошибки добавление Ордера или продукта.
@@ -70,17 +72,29 @@
 			// 	$sql = "INSERT INTO `orders` (user_id, date) VALUES(".$user_id.", NOW())";
 			// 	if($this->statusRequest($sql)){
 			// 		return true;
-			// 	}
+			// 	} 	
 			// 	else{
 			// 		return false;
 			// 	}
 			// }
 			// return True;
 
-			$user_id == null ? false : "";
-
-			$sql = "INSERT INTO `orders` (user_id, date) VALUES(".$user_id.", NOW())";
+			//Payment
+			$sql = "INSERT INTO `payment_details` (status_id, amount, `date`) VALUES (DEFAULT , DEFAULT , DEFAULT)";
+			$this->statusRequest($sql);
+			if(!$this->statusRequest($sql)) return false;
+			$payment_id = $this->getLastElementTable('payment_details')['id'];
+			
+			//orders
+			$sql = "INSERT INTO `orders` (user_id, `date`, payment_id) VALUES($user_id , NOW() , $payment_id)";
 			return $this->statusRequest($sql);
+
+		}	
+
+		//создаём Payment(по умолчанию при заказе и соединяем orders <-> payment_id)
+		private function createPayment(){
+			
+			$sql = "INSERT INTO `payment_details`";
 
 		}
 
@@ -95,7 +109,7 @@
 
 		public function SelectOrderId($user_id){
 			//поиск заказа по юсеру
-			$sql = "SELECT id, `date` FROM `orders` WHERE user_id = ".$user_id;
+			$sql = "SELECT id, `date`, payment_id FROM `orders` WHERE user_id = ".$user_id;
 			$data = $this->getData($sql);
 			
 			if($data == null){

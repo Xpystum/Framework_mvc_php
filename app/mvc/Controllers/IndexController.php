@@ -20,6 +20,7 @@
 		private $nameLayout = 'default'; // Стандартный шаблон (можно поменять)
 		private $dataTitle = 'MySite'; // можно менять
 		
+		
 		public function pageAction(){
 			// обычная типовая страница	
 			$nameLayout = $this->nameLayout;
@@ -54,9 +55,9 @@
 		public function categoryAction(){
 			// категории товаров
 			$nameLayout = $this->nameLayout;
-			
+		
 
-			if(isset($_GET['id'])){
+			if(isset($_GET['id']) && !empty(self::$session->my_session_get('user'))){
 				// запрос к базе данных
 
 				$model = new CategoriesModel();
@@ -74,7 +75,8 @@
 				Controller::generation('category', $nameLayout , $data, ['имена виджетов тут']);
 			}
 			else{
-				$this->error404Action("404");
+				self::$session->my_session_flash_set('warning','Вход не выполнен');
+				$this->generation('404', $nameLayout);
 				die();
 			}
 			
@@ -121,14 +123,15 @@
 		public function cartAction(){
 			$nameLayout = $this->nameLayout;
 			$session = new session();
+			$user = $session->my_session_get('user');
 			
-			if(isset($_GET['order_id'])){
-				$data = null;
-				$model = new OrdersModel();
-				$data = $model->selectOrder($session->my_session_get('user'));
+		
+			$data = null;
+			$model = new OrdersModel();
+			$data = $model->selectOrder($user);
 
-				$this->generation('cart', $nameLayout  , $data);
-			}
+			$this->generation('cart', $nameLayout  , $data);
+		
 		}
 
 		public function orderAccountAction(){
