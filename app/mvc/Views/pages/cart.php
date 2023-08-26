@@ -115,7 +115,6 @@
     <div class="col-sm-4 col-sm-offset-8">
         <!-- Widget Total Table -->
         <?php  echo BasketContentWidget::render_table_total($data) ?>
-        123
     </div>
 </div>
 

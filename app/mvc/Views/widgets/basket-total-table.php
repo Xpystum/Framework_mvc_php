@@ -5,7 +5,7 @@
     }
 ?>
 
-
+<!-- Делать логику для дисконта в рублях* -->
 <table class="table table-bordered">
     <tbody>
         <tr>

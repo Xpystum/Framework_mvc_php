@@ -23,7 +23,6 @@
 		public function pageAction(){
 			// обычная типовая страница	
 			$nameLayout = $this->nameLayout;
-			
 
 			if(isset($_GET['id'])){
 				// запрос к базе данных
@@ -93,30 +92,42 @@
 		
 			if(isset($_POST['id_product'])){
 				$model = new OrdersModel();
+				
+				$session = new session();
+				$SessionUser = $session->my_session_get('user');
 				// $model->createOrder(1) //заглушка на пользователя (надо делать по сессиям)
-				if(!$model->createOrder(11)){
+
+				if(!$model->createOrder($SessionUser)){
 					echo "Ошибка Создание Order";
 				}
 				
-				$order_id = $model->SelectOrderId(1); //заглушка на пользователя (надо делать по сессиям)
+				
+				$order_id = $model->getLastOrderid(); //заглушка на пользователя (надо делать по сессиям)
+
 				if(!$model->addProductOrder($_POST['id_product'], $order_id)){
 					echo "ошибка добавление";
 				}
+
+				header("location:?route=index/cart&order_id=".$session->my_session_get('user'));
+				die();
+			}
+			else{
+				header("location:?route=index/index");
+				die();
 			}
 
-			header("location:?route=index/cart&order_id=".$order_id);
-			die();
 		}
 
 		public function cartAction(){
 			$nameLayout = $this->nameLayout;
+			$session = new session();
 			
 			if(isset($_GET['order_id'])){
 				$data = null;
 				$model = new OrdersModel();
-				$data = $model->selectOrder($_GET['order_id']);
+				$data = $model->selectOrder($session->my_session_get('user'));
 
-				$this->generation('cart', $nameLayout  ,$data);
+				$this->generation('cart', $nameLayout  , $data);
 			}
 		}
 
@@ -124,8 +135,8 @@
 			$nameLayout = $this->nameLayout;
 			$model = new OrdersModel();
 			$session = new Session();
-			// $data = $model->SelectOrderId($session->my_session_get('user'));
-			// new dd($data);
+			$data = $model->SelectOrderId($session->my_session_get('user'));
+			// dd::arr($data);
 
 			$this->generation('orderHistory', $nameLayout );
 		}

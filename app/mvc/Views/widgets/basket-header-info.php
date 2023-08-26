@@ -1,4 +1,3 @@
-
 <a data-loading-text="Loading... " class="btn-group top_cart dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
     <div class="shopcart">
         <span class="icon-c hidden">
@@ -48,13 +47,13 @@
         <div>
             <?php  echo BasketContentWidget::render_table_total($data) ?>
             <?php 
-                // $order_id = $data['basket'][end($data)]['order_id'];
-                if(!empty($data['basket'])){
-                    $order_id = $data['basket'][count($data) - 1]['order_id'];
-                }
-                
+                  require_once("app/Helpers/Session.php");
+                  $session = new session();
+                  if(!empty($data['basket'])){
+                      $select = $session->my_session_get('user');
+                  }
             ?>
-            <p class="text-center total-carts"> <a class="btn view-cart" href=<?php echo "http://localhost/diplom_framework_mvc_php/?route=index/cart&order_id=".$order_id?> ><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
+            <p class="text-center total-carts"> <a class="btn view-cart" href=<?php echo "http://localhost/diplom_framework_mvc_php/?route=index/cart&order_id=".$select?> ><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
             </p>
         </div>
     </li>
