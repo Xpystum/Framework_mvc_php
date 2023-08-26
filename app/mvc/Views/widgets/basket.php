@@ -1,8 +1,29 @@
-<?php foreach ($data as $info):?>
+<?php 
+require_once("app/Helpers/Session.php");
+require_once("app/Helpers/Cupon.php");
+
+$session = new Session();
+$sessionCupon = $session->my_session_flash_get('cupon');
+if(isset($sessionCupon)) {  $sessionCupon = array_shift($sessionCupon); };
+
+//загвоздка в проектировки БД (Нужно брать данные из order - а не из product и при скидочном купоне записывать сумму товара в order) <- придётся переделывать.
+foreach ($data as $info):
+
+    if(isset($sessionCupon)){
+
+        $cupon = new Cupon();
+        if($cupon->true_discont($sessionCupon, $info)){
+            if($cupon->calculate_discount($info['price'], $sessionCupon['precent_copun']) != '?'){
+                $info['price'] = $cupon->calculate_discount($info['price'], $sessionCupon['precent_copun']);
+            }
+        }
+    }
+?>
+   
     <tr>
     <td class="text-center">
         <a href="product.html"> 
-            <img width="70px" src="<?php echo $info['img']?>" alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop" class="img-thumbnail">
+            <img width="70px" src="<?php echo $info['img']?>" alt="<?php echo $info['name']?>" title="<?php echo $info['name']?>" class="img-thumbnail">
         </a>
     </td>
     <td class="text-left"><a href="product.html"><?php echo $info['name']?></a><br>

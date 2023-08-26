@@ -34,10 +34,12 @@
         <div id="collapse-coupon" class="panel-collapse collapse in" aria-expanded="true">
             <div class="panel-body">
                 <label class="col-sm-2 control-label" for="input-coupon">Enter your coupon here</label>
-                <div class="input-group">
-                    <input type="text" name="coupon" value="" placeholder="Enter your coupon here" id="input-coupon" class="form-control">
-                    <span class="input-group-btn"><input type="button" value="Apply Coupon" id="button-coupon" data-loading-text="Loading..." class="btn btn-primary"></span>
-                </div>
+                <form action="?route=index/cartCupon" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="cupon" value="" placeholder="Enter your coupon here" id="input-coupon" class="form-control">
+                        <span class="input-group-btn"><input type="submit" value="Apply Coupon" id="button-coupon" data-loading-text="Loading..." class="btn btn-primary"></span>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

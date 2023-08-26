@@ -41,7 +41,8 @@
 				order_products.order_id
 
 				product_id,
-	
+				
+				products.id as _product_id,
 				products.name,
 				products.img,
 				products.description,
@@ -52,7 +53,7 @@
 				FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
 				INNER JOIN products ON order_products.product_id = products.id
 				WHERE orders.user_id = $user_id)
-				SELECT `name` , COUNT(*) as count, img, price, old_price, `description` FROM info
+				SELECT _product_id, `name` , COUNT(*) as count, img, price, old_price, `description` FROM info
 				GROUP BY `name` ";
  
 			return $this->getMultyData($sql);
@@ -139,35 +140,7 @@
 			$sql_insert = "INSERT INTO `order_products` (order_id,	product_id) VALUES (".$order_id.", ".$product_id.")";
 			return $this->statusRequest($sql_insert);
 
-	
-			// $sql_select = "SELECT id, product_id, count FROM `order_products` 
-			// WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
-
-
-			
-			// if($this->getData($sql_select) == null){
-				
-				// $sql_insert = "INSERT INTO `order_products` (order_id,	product_id,	count) VALUES (".$order_id.", ".$product_id.", 1)";
-				// return $this->statusRequest($sql_insert);
-			// }
-			// else{
-				
-			// 	$sql = "SELECT order_id, product_id, count FROM `order_products`
-			// 	WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
-
-			// 	// получаем столбец из бд, получаем количество и инкреминтируем его
-			// 	$order_product = $this->getData($sql)['count'];
-			// 	$order_product++;
-
-			// 	// обновляем cout у столбца
-			// 	$sql = "UPDATE `order_products`
-			// 			SET count = $order_product
-			// 			WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
-
-			// 	return $this->statusRequest($sql);
-			// }
-
-			
 		}
+
 
 	}

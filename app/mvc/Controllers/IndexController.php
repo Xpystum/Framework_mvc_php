@@ -5,7 +5,8 @@
 	require_once("app/mvc/Models/CategoriesModel.php");
 	require_once("app/mvc/Models/ProductsModel.php");
 	require_once("app/mvc/Models/OrdersModel.php");
-
+	require_once("app/mvc/Models/CuponModel.php");
+	
 	require_once("app/Widgets/MenuWidget.php");
 
 	//session
@@ -120,6 +121,7 @@
 
 		}
 
+		//Карта заказа
 		public function cartAction(){
 			$nameLayout = $this->nameLayout;
 			$session = new session();
@@ -134,12 +136,34 @@
 		
 		}
 
+		public function cartCuponAction(){
+
+			//добавил купон в сессию
+			if(isset($_POST['cupon'])){
+				$model = new CuponModel();
+				$product_cupon = $model->getProductAndCupon($_POST['cupon']);
+				if(empty($product_cupon) && $product_cupon == null){
+					self::$session->my_session_flash_set('warning','Такого купона нету.');
+					header("location:?route=index/cart");
+				}
+				self::$session->my_session_flash_set('cupon', $product_cupon);
+
+				self::$session->my_session_flash_set('succes','Купон успешно активирован');
+				header("location:?route=index/cart");
+				die();
+			}else{
+				header("location:?route=index/cart");
+				die();
+			}
+
+		}
+
 		public function orderAccountAction(){
+			
 			$nameLayout = $this->nameLayout;
-			$model = new OrdersModel();
+			$model = new OrdersModel();	
 			$session = new Session();
 			$data = $model->SelectOrderId($session->my_session_get('user'));
-			// dd::arr($data);
 
 			$this->generation('orderHistory', $nameLayout );
 		}

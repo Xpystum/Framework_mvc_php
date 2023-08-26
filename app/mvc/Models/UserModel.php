@@ -291,7 +291,7 @@
 			//запрос на добавление в таблицу users_table (объединяет user с адрессом (оплаты) и (доставки))
             $sql_add = "INSERT INTO `users_table` 
             (users_id, adress_union_id) VALUES ('$user', '$AdressUnionId')";
-
+	
 			if(!$this->statusRequest($sql_add)){
 				return false;
 			}
