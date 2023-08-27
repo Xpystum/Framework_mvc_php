@@ -163,7 +163,10 @@
 			$nameLayout = $this->nameLayout;
 			$model = new OrdersModel();	
 			$session = new Session();
-			$data = $model->SelectOrderId($session->my_session_get('user'));
+			$data = $model->selectOrderFromHistory($session->my_session_get('user'));
+			dd::arrp($data);
+			
+			
 
 			$this->generation('orderHistory', $nameLayout );
 		}

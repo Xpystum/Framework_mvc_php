@@ -38,7 +38,7 @@
 
 			$sql = " WITH info AS(
 				SELECT 
-				order_products.order_id
+				order_products.order_id as order_id
 
 				product_id,
 				
@@ -53,9 +53,32 @@
 				FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
 				INNER JOIN products ON order_products.product_id = products.id
 				WHERE orders.user_id = $user_id)
-				SELECT _product_id, `name` , COUNT(*) as count, img, price, old_price, `description` FROM info
+				SELECT order_id , _product_id, `name` , COUNT(*) as count, img, price, old_price, `description` FROM info
 				GROUP BY `name` ";
  
+			return $this->getMultyData($sql);
+		}
+
+		public function selectOrderFromHistory($user_id){
+
+			$sql = "SELECT 
+
+			products.name as product_name,
+			products.img as product_img,
+
+			status.name as status_name,
+
+			orders.id as order_id,
+			orders.date as order_date,
+
+			order_products.quantity as count_products
+			
+			FROM `payment_details` INNER JOIN status ON payment_details.status_id = status.id
+			INNER JOIN orders ON orders.payment_id = payment_details.id
+			INNER JOIN order_products ON order_products.order_id = orders.id
+            INNER JOIN products ON order_products.product_id = products.id
+            WHERE orders.user_id = $user_id";
+
 			return $this->getMultyData($sql);
 		}
 
