@@ -595,8 +595,8 @@
                                             
                                             <?php  
 
-                                                include_once("app/Widgets/BasketContentWidget.php");
-                                                echo BasketContentWidget::render_basket_header_info(); 
+                                                // include_once("app/Widgets/BasketContentWidget.php");
+                                                // echo BasketContentWidget::render_basket_header_info(); 
                                                 
                                             ?>
 

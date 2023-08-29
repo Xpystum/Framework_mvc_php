@@ -93,19 +93,18 @@
 		public function cartaddAction(){
 
 		
-			if(isset($_POST['id_product'])){
+			if(isset($_POST['id_product']) && (!empty((new Session)->my_session_get('user')))){
 				$model = new OrdersModel();
 				
 				$session = new session();
-				$SessionUser = $session->my_session_get('user');
-				// $model->createOrder(1) //заглушка на пользователя (надо делать по сессиям)
+				$sessionUser = $session->my_session_get('user');
+				if($model->exisitsOrder($sessionUser)){
 
-				if(!$model->createOrder($SessionUser)){
-					echo "Ошибка Создание Order";
+				}else{
+					$model->createOrder($session->my_session_get('user'));
 				}
-				
-				
-				$order_id = $model->getLastOrderid(); //заглушка на пользователя (надо делать по сессиям)
+			
+				$order_id = $model->getLastOrderid($sessionUser); 
 
 				if(!$model->addProductOrder($_POST['id_product'], $order_id)){
 					echo "ошибка добавление";
@@ -115,7 +114,7 @@
 				die();
 			}
 			else{
-				header("location:?route=index/index");
+				
 				die();
 			}
 
@@ -123,16 +122,21 @@
 
 		//Карта заказа
 		public function cartAction(){
-			$nameLayout = $this->nameLayout;
 			$session = new session();
-			$user = $session->my_session_get('user');
+			if(!empty($session->my_session_get('user'))){
+				$nameLayout = $this->nameLayout;
+				$user = $session->my_session_get('user');
 			
-		
-			$data = null;
-			$model = new OrdersModel();
-			$data = $model->selectOrder($user);
+				$data = null;
+				$model = new OrdersModel();
+				$data = $model->selectOrder($user);
 
-			$this->generation('cart', $nameLayout  , $data);
+				$this->generation('cart', $nameLayout  , $data);
+			}else{
+				self::$session->my_session_flash_set('warning','Пожалуйста ввойдите в свой Аккаунт');
+				header("location:?route=auth/login");
+			}
+			
 		
 		}
 

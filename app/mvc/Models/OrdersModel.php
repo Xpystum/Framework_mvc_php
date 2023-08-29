@@ -36,7 +36,7 @@
 		// запрос на Order -> product Находит продукты связанные с заказом.
 		public function selectOrder($user_id){
 
-			$sql = " WITH info AS(
+			$sql = "WITH info AS(
 				SELECT 
 				order_products.order_id as order_id
 
@@ -83,51 +83,51 @@
 		}
 
 
+		public function exisitsOrder($user_id){
+			$sql = "SELECT id FROM orders 
+			WHERE EXISTS (SELECT id FROM orders WHERE `status` = 0 AND user_id = $user_id  )
+			";
+			if(empty($this->getMultyData($sql))){
+				return false;
+			}else{
+				return true;
+			}
+			
+		}
 
-
+		//Создаем Order, вешаем тригер на payment
 		public function createOrder($user_id = null){
 			// использовать патттерн состоние для получение в случае ошибки создание
 			// и выводить пользователю сообщение об ошибки добавление Ордера или продукта.
 
-			// Ошибка (orders должен создаваться каждый раз когда добавляются товары)
-			// $sql = "SELECT * FROM `orders` WHERE user_id = ".$user_id;
-			// $data = $this->getData($sql);
-			// if($data == null){
-			// 	$sql = "INSERT INTO `orders` (user_id, date) VALUES(".$user_id.", NOW())";
-			// 	if($this->statusRequest($sql)){
-			// 		return true;
-			// 	} 	
-			// 	else{
-			// 		return false;
-			// 	}
-			// }
-			// return True;
+			//вешаем триггер 
+			try{
 
-			//Payment
-			$sql = "INSERT INTO `payment_details` (status_id, amount, `date`) VALUES (DEFAULT , DEFAULT , DEFAULT)";
-			$this->statusRequest($sql);
-			if(!$this->statusRequest($sql)) return false;
-			$payment_id = $this->getLastElementTable('payment_details')['id'];
-			
-			//orders
-			$sql = "INSERT INTO `orders` (user_id, `date`, payment_id) VALUES($user_id , NOW() , $payment_id)";
-			return $this->statusRequest($sql);
+				$sql = "CREATE TRIGGER Payment_INSERT BEFORE INSERT ON orders
+				FOR EACH ROW
+				INSERT INTO `payment_details` (status_id, amount, `date`, order_id) 
+				VALUES(DEFAULT , DEFAULT, NOW(), (SELECT id FROM orders ORDER BY id DESC LIMIT 1) );
+	
+			  	INSERT INTO `orders` (user_id, `date`) VALUES($user_id , NOW() )";
+				$data = $this->statusRequest($sql);
+				return $data;
+				// dd::arrp($this->statusRequest($sql));
+
+			}catch(Exception $e){
+				//если триггер уже был повешан
+				$sql = "INSERT INTO `orders` (user_id, `date`) VALUES($user_id , NOW() )";
+				return $this->statusRequest($sql);
+			}
+
+
+
+
+
 
 		}	
 
-		//создаём Payment(по умолчанию при заказе и соединяем orders <-> payment_id)
-		private function createPayment(){
-			
-			$sql = "INSERT INTO `payment_details`";
-
-		}
-
-		public function getLastOrder(){
-			return $this->getLastElementTable("orders");
-		}
-
-		public function getLastOrderid(){
-			$data = $this->getLastElementTable("orders");
+		public function getLastOrderid($user_id){
+			$data = $this->getLastIDElementTable("orders", $user_id);
 			return $data['id'];
 		}
 

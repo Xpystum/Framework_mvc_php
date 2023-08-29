@@ -107,8 +107,9 @@
 		}
 
 
-		protected function getLastElementTable($name_table){
-			$sql = "SELECT * FROM $name_table
+		protected function getLastIDElementTable($name_table, $user_id){
+			$sql = "SELECT id FROM $name_table
+			WHERE user_id = $user_id
 			ORDER BY id DESC
 			LIMIT 1 ";
 		
