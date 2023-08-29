@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 24 2023 г., 15:11
+-- Время создания: Авг 29 2023 г., 14:11
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -145,6 +145,27 @@ INSERT INTO `country` (`id`, `country`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `discount`
+--
+
+CREATE TABLE `discount` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `disc` varchar(255) NOT NULL,
+  `discount_precent` decimal(3,1) NOT NULL,
+  `active` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `discount`
+--
+
+INSERT INTO `discount` (`id`, `name`, `disc`, `discount_precent`, `active`) VALUES
+(1, 'cupon', 'Надоедливый купон1', 5.5, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `menu`
 --
 
@@ -197,15 +218,25 @@ INSERT INTO `menu_items` (`id`, `href`, `name`, `menu_id`, `parrent_id`, `img`, 
 CREATE TABLE `orders` (
   `id` int(4) NOT NULL,
   `user_id` int(4) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Закрытый Ордер (Оплачен - получена доставка)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `date`) VALUES
-(8, 11, '2023-08-03 10:35:22');
+INSERT INTO `orders` (`id`, `user_id`, `date`, `status`) VALUES
+(8, 11, '2023-08-03 10:35:22', 0),
+(92, 10, '2023-08-29 13:36:07', 0);
+
+--
+-- Триггеры `orders`
+--
+DELIMITER $$
+CREATE TRIGGER `Payment_INSERT` AFTER INSERT ON `orders` FOR EACH ROW INSERT INTO `payment_details` (status_id, amount, `date`, order_id) VALUES(DEFAULT , DEFAULT, NOW(), (SELECT id FROM orders ORDER BY id DESC LIMIT 1) )
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -217,16 +248,19 @@ CREATE TABLE `order_products` (
   `id` int(4) NOT NULL,
   `order_id` int(4) NOT NULL,
   `product_id` int(4) NOT NULL,
-  `count` int(11) NOT NULL DEFAULT 1
+  `quantity` int(4) NOT NULL DEFAULT 1,
+  `price` int(11) NOT NULL COMMENT 'цена биз скидок и изменнений',
+  `total` int(11) NOT NULL COMMENT 'Цена со скидкой или изменениеями',
+  `discount_id` int(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `order_products`
 --
 
-INSERT INTO `order_products` (`id`, `order_id`, `product_id`, `count`) VALUES
-(13, 8, 4, 6),
-(14, 8, 5, 9);
+INSERT INTO `order_products` (`id`, `order_id`, `product_id`, `quantity`, `price`, `total`, `discount_id`) VALUES
+(60, 92, 4, 2, 60000, 60000, NULL),
+(61, 92, 5, 6, 210000, 210000, NULL);
 
 -- --------------------------------------------------------
 
@@ -251,6 +285,27 @@ INSERT INTO `pages` (`id`, `alias`, `title`, `name`, `content`) VALUES
 (2, 'contacts', 'Контакты', 'Как с нами связаться', '\r\n				\r\n				<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.8442639328655!2d-71.10008329902021!3d42.34584359264178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e379f63dc43ccb%3A0xa15d5aa87d0f0c12!2s4+Yawkey+Way%2C+Boston%2C+MA+02215!5e0!3m2!1sen!2s!4v1475081210943\" width=\"100%\" height=\"350\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"></iframe>\r\n				<div class=\"info-contact clearfix\">\r\n					<div class=\"col-lg-4 col-sm-4 col-xs-12 info-store\">\r\n						<div class=\"row\">\r\n							<div class=\"name-store\">\r\n								<h3>Your Store</h3>\r\n							</div>\r\n							<address>\r\n								<div class=\"address clearfix form-group\">\r\n									<div class=\"icon\">\r\n										<i class=\"fa fa-home\"></i>\r\n									</div>\r\n									<div class=\"text\">My Company, 42 avenue des Champs Elysées 75000 Paris France</div>\r\n								</div>\r\n								<div class=\"phone form-group\">\r\n									<div class=\"icon\">\r\n										<i class=\"fa fa-phone\"></i>\r\n									</div>\r\n									<div class=\"text\">Phone : 0123456789</div>\r\n								</div>\r\n								<div class=\"comment\">             \r\n								Maecenas euismod felis et purus consectetur, quis fermentum velition. Aenean egestas quis turpis vehicula.Maecenas euismod felis et purus consectetur, quis fermentum velition. \r\n								Aenean egestas quis turpis vehicula.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. \r\n								The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.\r\n								</div>\r\n							</address>\r\n						</div>\r\n					</div>\r\n					<div class=\"col-lg-8 col-sm-8 col-xs-12 contact-form\">\r\n						<form action=\"\" method=\"post\" enctype=\"multipart/form-data\" class=\"form-horizontal\">\r\n							<fieldset>\r\n								<legend>Contact Form</legend>\r\n								<div class=\"form-group required\">\r\n							<label class=\"col-sm-2 control-label\" for=\"input-name\">Your Name</label>\r\n							<div class=\"col-sm-10\">\r\n								<input type=\"text\" name=\"name\" value=\"\" id=\"input-name\" class=\"form-control\">\r\n								</div>\r\n							</div>\r\n							<div class=\"form-group required\">\r\n								<label class=\"col-sm-2 control-label\" for=\"input-email\">E-Mail Address</label>\r\n								<div class=\"col-sm-10\">\r\n									<input type=\"text\" name=\"email\" value=\"\" id=\"input-email\" class=\"form-control\">\r\n									</div>\r\n								</div>\r\n								<div class=\"form-group required\">\r\n									<label class=\"col-sm-2 control-label\" for=\"input-enquiry\">Enquiry</label>\r\n									<div class=\"col-sm-10\">\r\n										<textarea name=\"enquiry\" rows=\"10\" id=\"input-enquiry\" class=\"form-control\"></textarea>\r\n									</div>\r\n								</div>\r\n							</fieldset>\r\n							<div class=\"buttons\">\r\n								<div class=\"pull-right\">\r\n									<button class=\"btn btn-default buttonGray\" type=\"submit\">\r\n										<span>Submit</span>\r\n									</button>\r\n								</div>\r\n							</div>\r\n						</form>\r\n					</div>\r\n				</div>\r\n			'),
 (3, '404', '404', NULL, 'страница не найдена'),
 (4, 'index', 'Главная', NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `payment_details`
+--
+
+CREATE TABLE `payment_details` (
+  `id` int(4) NOT NULL,
+  `status_id` int(4) NOT NULL DEFAULT 5,
+  `amount` int(8) NOT NULL DEFAULT 0 COMMENT 'Сколько оплачено',
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `order_id` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `payment_details`
+--
+
+INSERT INTO `payment_details` (`id`, `status_id`, `amount`, `date`, `order_id`) VALUES
+(52, 5, 0, '2023-08-29 13:36:07', 92);
 
 -- --------------------------------------------------------
 
@@ -300,6 +355,28 @@ INSERT INTO `region` (`id`, `region`) VALUES
 (3517, 'Argyll and Bute'),
 (3518, 'Bedfordshire'),
 (3519, 'Berkshire');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(4) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `status`
+--
+
+INSERT INTO `status` (`id`, `name`) VALUES
+(1, 'Отменён'),
+(2, 'Доставлен'),
+(3, 'Оплачен'),
+(4, 'Готов к Отправке'),
+(5, 'В Обработке');
 
 -- --------------------------------------------------------
 
@@ -459,6 +536,12 @@ ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `discount`
+--
+ALTER TABLE `discount`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `menu`
 --
 ALTER TABLE `menu`
@@ -489,6 +572,12 @@ ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `payment_details`
+--
+ALTER TABLE `payment_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -498,6 +587,12 @@ ALTER TABLE `products`
 -- Индексы таблицы `region`
 --
 ALTER TABLE `region`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `status`
+--
+ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -565,6 +660,12 @@ ALTER TABLE `country`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT для таблицы `discount`
+--
+ALTER TABLE `discount`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT для таблицы `menu`
 --
 ALTER TABLE `menu`
@@ -580,19 +681,25 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT для таблицы `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT для таблицы `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `payment_details`
+--
+ALTER TABLE `payment_details`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
@@ -605,6 +712,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `region`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3520;
+
+--
+-- AUTO_INCREMENT для таблицы `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `test_user`
