@@ -110,11 +110,11 @@
 					echo "ошибка добавление";
 				}
 
-				header("location:?route=index/cart&order_id=".$session->my_session_get('user'));
+				header("location:?route=index/cart");
 				die();
 			}
 			else{
-				
+				header("location:?route=index/index");
 				die();
 			}
 
@@ -122,7 +122,8 @@
 
 		//Карта заказа
 		public function cartAction(){
-			$session = new session();
+
+			$session = new Session();
 			if(!empty($session->my_session_get('user'))){
 				$nameLayout = $this->nameLayout;
 				$user = $session->my_session_get('user');
@@ -136,7 +137,6 @@
 				self::$session->my_session_flash_set('warning','Пожалуйста ввойдите в свой Аккаунт');
 				header("location:?route=auth/login");
 			}
-			
 		
 		}
 

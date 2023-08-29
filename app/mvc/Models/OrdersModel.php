@@ -6,58 +6,61 @@
 
 	class OrdersModel extends Model{
 
-		// public function selectOrder($order_id){
-		// 	$sql = "SELECT 
-        //     orders.id as order_id,
-        //     user_id,
+		public function selectOrder($user_id){
+			$sql = "SELECT 
+            orders.id as order_id,
+            user_id,
 
-        //     order_products.id as orderproduct_id,	
-        //     order_id,
-        //     product_id,
-
-		// 	products.id	as `product`,
-		// 	products.name,
-		// 	products.img,
-		// 	products.description,
-		// 	products.category_id,
-		// 	products.price,
-		// 	products.old_price	
+            order_products.id as orderproduct_id,	
+            order_id,
+            product_id,
+			quantity as count,
+			total as total_product,
 
 
-       	//  	FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
-		// 	INNER JOIN products ON order_products.product_id = products.id
-        // 	WHERE order_id = ".$order_id;
+			products.id	as `product`,
+			products.name,
+			products.img,
+			products.description,
+			products.category_id,
+			products.price,
+			products.old_price	
 
-		// 	$data = $this->getMultyData($sql);
-		// 	return $data;
-		// }
+
+       	 	FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
+			INNER JOIN products ON order_products.product_id = products.id
+        	WHERE orders.user_id = ".$user_id;
+
+			$data = $this->getMultyData($sql);
+			return $data;
+		}
 
 		
 		// запрос на Order -> product Находит продукты связанные с заказом.
-		public function selectOrder($user_id){
+		// public function selectOrder($user_id){
 
-			$sql = "WITH info AS(
-				SELECT 
-				order_products.order_id as order_id
+		// 	$sql = "WITH info AS(
+		// 		SELECT 
+		// 		order_products.order_id as order_id
 
-				product_id,
+		// 		product_id,
 				
-				products.id as _product_id,
-				products.name,
-				products.img,
-				products.description,
-				products.category_id,
-				products.price,
-				products.old_price	
+		// 		products.id as _product_id,
+		// 		products.name,
+		// 		products.img,
+		// 		products.description,
+		// 		products.category_id,
+		// 		products.price,
+		// 		products.old_price	
 				
-				FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
-				INNER JOIN products ON order_products.product_id = products.id
-				WHERE orders.user_id = $user_id)
-				SELECT order_id , _product_id, `name` , COUNT(*) as count, img, price, old_price, `description` FROM info
-				GROUP BY `name` ";
+		// 		FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
+		// 		INNER JOIN products ON order_products.product_id = products.id
+		// 		WHERE orders.user_id = $user_id)
+		// 		SELECT order_id , _product_id, `name` , COUNT(*) as count, img, price, old_price, `description` FROM info
+		// 		GROUP BY `name` ";
  
-			return $this->getMultyData($sql);
-		}
+		// 	return $this->getMultyData($sql);
+		// }
 
 		public function selectOrderFromHistory($user_id){
 
@@ -120,10 +123,6 @@
 			}
 
 
-
-
-
-
 		}	
 
 		public function getLastOrderid($user_id){
@@ -158,12 +157,49 @@
 
 		}
 
+
+
+
+		//пересмотреть написание запроса.
 		public function addProductOrder($product_id = null, $order_id){
 
-			$sql_insert = "INSERT INTO `order_products` (order_id,	product_id) VALUES (".$order_id.", ".$product_id.")";
-			return $this->statusRequest($sql_insert);
+			// $sql = "INSERT INTO `order_products` (order_id,	product_id,	count) VALUES(".$order_id.", ".$product_id.", 1)";
+			$sql_select = "SELECT id, product_id, quantity FROM `order_products` 
+			WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
+			$data = $this->getData($sql_select);
 
+			require_once("app/mvc/Models/ProductsModel.php");
+			$product = new ProductsModel;
+			$data_product = $product->selectProductElement($product_id);
+
+			if( empty($data)  &&  ($data == null) ){
+				
+				$sql_insert = "INSERT INTO `order_products` (order_id,	product_id,	quantity, price , total) 
+				VALUES (".$order_id.", ".$product_id.", 1 , ".$data_product['price'].",".$data_product['price'].")";
+				return $this->statusRequest($sql_insert);
+			}
+			else{
+				
+				$sql = "SELECT order_id, product_id, quantity FROM `order_products`
+				WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
+
+				// получаем столбец из бд, получаем количество и инкреминтируем его
+				$order_product_count = $this->getData($sql)['quantity'];
+				$order_product_count++;
+				$price = $data_product['price'] * $order_product_count;
+
+				// обновляем cout у столбца
+				$sql = "UPDATE `order_products`
+						SET quantity = $order_product_count, price = $price, total = $price
+						WHERE order_products.order_id = ".$order_id." AND order_products.product_id =".$product_id;
+
+				return $this->statusRequest($sql);
+			}
+
+			
 		}
+
+		
 
 
 	}

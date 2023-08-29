@@ -12,4 +12,10 @@
 			return $data;
 		}
 
+
+		public function selectProductElement($products_id){
+			$sql_select = "SELECT id , `name` , img, `description` , category_id, price, old_price FROM `products` 
+			WHERE id = $products_id";
+			return $this->getData($sql_select);
+		}
 	}
