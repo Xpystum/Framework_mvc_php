@@ -8,7 +8,11 @@
         <!--Middle Part Start-->
         <div id="content" class="col-sm-9">
 
-        <!-- WIDGET CONTENT -->
+        <!--START WIDGET CONTENT -->
+
+        
+
+        <!-- END WIDGET CONTENT  -->
             
         </div>
         <!--Middle Part End-->

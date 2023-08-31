@@ -6,6 +6,7 @@
 	require_once("app/mvc/Models/ProductsModel.php");
 	require_once("app/mvc/Models/OrdersModel.php");
 	require_once("app/mvc/Models/CuponModel.php");
+	require_once("app/mvc/Models/OrderHistoryModel.php");
 	
 	require_once("app/Widgets/MenuWidget.php");
 
@@ -165,9 +166,9 @@
 		public function orderAccountAction(){
 			
 			$nameLayout = $this->nameLayout;
-			$model = new OrdersModel();	
+			$model = new OrderHistoryModel();	
 			$session = new Session();
-			$data = $model->selectOrderFromHistory($session->my_session_get('user'));
+			$data = $model->selectOrderHistory($session->my_session_get('user'));
 			dd::arrp($data);
 			
 			

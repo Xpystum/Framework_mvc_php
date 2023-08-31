@@ -160,7 +160,7 @@
 
 
 
-		//пересмотреть написание запроса.
+		//пересмотреть написание запроса. (Постараться сделать всё в один запрос)
 		public function addProductOrder($product_id = null, $order_id){
 
 			// $sql = "INSERT INTO `order_products` (order_id,	product_id,	count) VALUES(".$order_id.", ".$product_id.", 1)";
@@ -195,6 +195,8 @@
 
 				return $this->statusRequest($sql);
 			}
+
+			
 
 			
 		}
