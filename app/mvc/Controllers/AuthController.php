@@ -217,10 +217,14 @@
 
 			//если вход выполнен
 			private function renderFromSessionInput($pathFile){
-
+				
 				if(self::$session->my_session_get('user') != null){
+					echo $pathFile;
+					die();
 					header("location:?route=auth/".$pathFile);
 				}else{
+					echo 2;
+					die();
 					self::$session->my_session_flash_set('warning','Вход не выполнен');
 					header("location:?route=auth/login");
 					die();

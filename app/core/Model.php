@@ -84,7 +84,7 @@
 
 		protected function getMultyData($sql){
 			$result = mysqli_query(self::$link, $sql);
-			$data = [];
+			$data = null;
 
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			    $data[] = $row;

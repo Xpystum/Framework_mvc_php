@@ -137,6 +137,7 @@
 			}else{
 				self::$session->my_session_flash_set('warning','Пожалуйста ввойдите в свой Аккаунт');
 				header("location:?route=auth/login");
+				die();
 			}
 		
 		}
@@ -163,17 +164,35 @@
 
 		}
 
+		public function sessionClearAction(){
+			//очистка сессии + куки
+			self::$session->full_clear_session();
+
+			self::$session->my_session_flash_set('succes','Вы успешно вышли из своего Аккаунта');
+			header("location:?route=index/index&succesacc=true");
+			die();
+		}
+
 		public function orderAccountAction(){
 			
+			function separate_order($orders){
+				$dataOrder = null;
+				foreach($orders as $order['id']){
+					$dataOrder[] = array_shift($order['id']);
+				}
+				return $dataOrder;
+			}
+
 			$nameLayout = $this->nameLayout;
 			$model = new OrderHistoryModel();	
 			$session = new Session();
-			$data = $model->selectOrderHistory($session->my_session_get('user'));
-			dd::arrp($data);
-			
-			
+			$orders = (new OrdersModel())->SelectOrderId($session->my_session_get('user'));
+			$orders = separate_order($orders);
+			foreach($orders as $order){
+				$dataOrder[$order] = $model->selectOrderHistory($order);
+			}
 
-			$this->generation('orderHistory', $nameLayout );
+			$this->generation('orderHistory', $nameLayout, $dataOrder);
 		}
 
 		#region Служебные приватные методы

@@ -154,7 +154,7 @@
                 <div class="row">
                     <!-- Logo -->
                     <div class="navbar-logo col-md-2 col-sm-3 col-xs-10">
-                        <div class="logo"><a href="index.html"><img src="app/resources/image/catalog/logo.png" title="Your Store" alt="Your Store" /></a></div>
+                        <div class="logo"><a href="?route=index/index   "><img src="app/resources/image/catalog/logo.png" title="Your Store" alt="Your Store" /></a></div>
                     </div>
                     <!-- //end Logo -->
 
@@ -1415,17 +1415,28 @@
 
     <!-- Modal Status register or login -->
     <?php 
-    if($_SESSION['_flash'] != null){
+        if($_GET['succesacc'] == 'true' || array_key_exists('_flash', $_SESSION) && $_SESSION['_flash'] != null){
+           echo 1;
+            include_once("app/Widgets/AlertStatusWidget.php");
+            if(array_key_exists('_flash', $_SESSION)){
+                if(array_key_exists('warning', $_SESSION['_flash'])) {
+                    echo AlertStatusWidget::renderStatusWarningModal($session->my_session_flash_get('warning'));
+                }
+            }
 
-        include_once("app/Widgets/AlertStatusWidget.php");
-        if(array_key_exists('warning', $_SESSION['_flash'])){
-            echo AlertStatusWidget::renderStatusWarningModal($session->my_session_flash_get('warning'));
-        }
+            if(array_key_exists('_flash', $_SESSION)){
+                if(array_key_exists('succes', $_SESSION['_flash']) || $_GET['succes'] == true){
+                    echo AlertStatusWidget::renderStatusSuccesModal($session->my_session_flash_get('succes'));
+                }
+             
+            }
 
-        if(array_key_exists('succes', $_SESSION['_flash'])){
-            echo AlertStatusWidget::renderStatusSuccesModal($session->my_session_flash_get('succes'));
+            if($_GET['succesacc'] == 'true'){
+                
+                $session->my_session_flash_set('succes','Вы успешно вышли из своего Аккаунта');
+                echo AlertStatusWidget::renderStatusSuccesModal($session->my_session_flash_get('succes'));
+            }
         }
-    }
     ?>
    
     <!-- Modal alert Logic -->

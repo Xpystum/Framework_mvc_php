@@ -32,7 +32,8 @@ class Session
 
     //Удалить сессию полностью + куки
     public function full_clear_session(){
-        $_SESSION = array();
+        
+        $_SESSION = [];
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
             setcookie(session_name(), '', time() - 42000,
@@ -45,6 +46,7 @@ class Session
      
     // добавить во flash-сессию
     public function my_session_flash_set($key, $value) {
+        
         $_SESSION['_flash'][$key] = $value;
     }
      

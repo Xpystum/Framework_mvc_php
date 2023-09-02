@@ -132,15 +132,10 @@
 
 		public function SelectOrderId($user_id){
 			//поиск заказа по юсеру
-			$sql = "SELECT id, `date`, payment_id FROM `orders` WHERE user_id = ".$user_id;
-			$data = $this->getData($sql);
+			$sql = "SELECT id FROM `orders` WHERE user_id = $user_id";
+			$data = $this->getMultyData($sql);
 			
-			if($data == null){
-				return null;
-			}
-			else{
-				return $data['id'];
-			}
+			return $data;
 		}
 
 		public function SelectAllOrderId($user_id){
