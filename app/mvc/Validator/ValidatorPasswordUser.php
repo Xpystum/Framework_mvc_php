@@ -6,7 +6,11 @@
             //$value введённый пароль
             //$user - пароль в бд
 
+            
+            $data = password_verify($value, $user['password']);
+            
             if(password_verify($value, $user['password'])){
+                
                 if (password_needs_rehash($user['password'], PASSWORD_DEFAULT)) {
                     $newHash = password_hash($value, PASSWORD_DEFAULT);
                     $DataBase = new UserModel();
@@ -14,6 +18,7 @@
                 }
                 return true;
             }
+           
             return false;
         }   
 

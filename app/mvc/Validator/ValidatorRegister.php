@@ -69,6 +69,7 @@
         public function validate_register($post){
            
             try{
+                
                 // получаем статусы проверок от значений введёным пользователем по полям
                 $this->status['firstname'] = $this->valid_name($post['firstname']);
                 $this->status['lastname'] = $this->valid_surname($post['lastname']);
@@ -108,7 +109,7 @@
         }
 
         private function valid_passwordReapeat($pass,$pass_confirm){
-            
+          
             if($pass != null){
 
                 if(!(strcmp($pass, $pass_confirm))){

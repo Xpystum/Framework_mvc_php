@@ -8,7 +8,6 @@ if(isset($sessionCupon)) {  $sessionCupon = array_shift($sessionCupon); };
 
 //загвоздка в проектировки БД (Нужно брать данные из order - а не из product и при скидочном купоне записывать сумму товара в order) <- придётся переделывать.
 foreach ($data as $info):
-
     if(isset($sessionCupon)){
 
         $cupon = new Cupon();
@@ -16,7 +15,7 @@ foreach ($data as $info):
             if($cupon->calculate_discount($info['price'], $sessionCupon['precent_copun']) != '?'){
                 $info['price'] = $cupon->calculate_discount($info['price'], $sessionCupon['precent_copun']);
             }
-        }
+        }   
     }
 ?>
    
@@ -39,8 +38,7 @@ foreach ($data as $info):
     <td class="text-right">
         <?php 
             try{
-                $count_price = (int)$info['count'] * $info['price'];
-                echo $count_price;
+                echo $info['total_product'];
             }
             catch(Exception $e){
                 echo 'Caught exception: ',  $e->getMessage(), "\n";

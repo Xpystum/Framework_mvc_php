@@ -29,7 +29,7 @@
                     <td class="text-left"> <a class="cart_product_name" href="product.html"><?php echo $info['name'];?></a> 
                     </td>
                     <td class="text-center">x<?php echo $info['count'];?></td>
-                    <td class="text-center"><?php echo $info['price'];?></td>
+                    <td class="text-center"><?php echo $info['total'];?></td>
                     <td class="text-right">
                         <a href="product.html" class="fa fa-edit"></a>
                     </td>

@@ -12,7 +12,7 @@
         </li>
         <li><a href="#">Address Books</a>
         </li>
-        <li><a href="wishlist.html">Wish List</a>
+        <li><a href="?route=index/cart">Wish List</a>
         </li>
         <li><a href="?route=index/orderAccount">Order History</a>
         </li>

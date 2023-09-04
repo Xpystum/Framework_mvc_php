@@ -36,9 +36,7 @@
         }
 
         private function get_status_false(){
-            // new_password
-            // confirm_password
-
+            
             //Пользователь
             $this->status['user']['status'] = "false";
             $this->status['user']['firstname'] = 'false';
@@ -120,7 +118,7 @@
                 $this->status['user']['status'] = 'true';
                 $this->status['user']['firstname'] = $this->valid_name($dataAreaUser['firstname']);
                 $this->status['user']['lastname'] = $this->valid_surname($dataAreaUser['lastname']);
-                echo 1;
+
                 $this->status['user']['new_password'] = $this->valid_password($dataAreaUser['new_password']);
                 $this->status['user']['confirm_password'] = $this->valid_passwordReapeat($dataAreaUser['new_password'], $dataAreaUser['confirm_password']);
                 $this->status['user']['email'] = $this->valid_email($dataAreaUser['email']);
@@ -173,11 +171,9 @@
         }
 
         private function valid_passwordReapeat($pass, $pass_confirm){
-
-            if(empty($pass_confirm) && empty($pass)){
-                return 'true';
-            }
-            elseif((!empty($pass_confirm)  &&  empty($pass)) || (empty($pass_confirm) &&  !empty($pass))){
+            
+            if(!empty($pass_confirm) && !empty($pass)){
+                 
                 if($pass != null){
 
                     if(!(strcmp($pass, $pass_confirm))){
@@ -187,7 +183,13 @@
                         return 'false';
                     }
                 }
+                            
+                return 'true';
             }
+            elseif(empty($pass_confirm) && empty($pass)){
+               return 'true';
+            }
+            
             return 'false';
         }   
 

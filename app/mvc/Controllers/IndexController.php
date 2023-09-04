@@ -99,11 +99,10 @@
 				
 				$session = new session();
 				$sessionUser = $session->my_session_get('user');
-				if($model->exisitsOrder($sessionUser)){
-
-				}else{
+				if(!$model->exisitsOrder($sessionUser)){
 					$model->createOrder($session->my_session_get('user'));
 				}
+
 			
 				$order_id = $model->getLastOrderid($sessionUser); 
 
@@ -140,23 +139,41 @@
 				die();
 			}
 		
-		}
+		} 
 
 		public function cartCuponAction(){
 
-			//добавил купон в сессию
+			//логика купона
 			if(isset($_POST['cupon'])){
 				$model = new CuponModel();
-				$product_cupon = $model->getProductAndCupon($_POST['cupon']);
-				if(empty($product_cupon) && $product_cupon == null){
+				$orders = (new OrdersModel())->SelectOrderId(self::$session->my_session_get('user'));
+				
+				$cupon = $model->getProductAndCupon($_POST['cupon']);
+				if(!isset($cupon) && empty($cupon)){
 					self::$session->my_session_flash_set('warning','Такого купона нету.');
 					header("location:?route=index/cart");
+					die();
 				}
-				self::$session->my_session_flash_set('cupon', $product_cupon);
 
-				self::$session->my_session_flash_set('succes','Купон успешно активирован');
-				header("location:?route=index/cart");
-				die();
+				//подогнать массив id в строку.
+				$orederStr = null;
+				foreach($orders as $value){
+					$orederStr .= ",".$value['id'];
+				}
+				$orederStr = trim($orederStr, ',');
+
+				if($model->exisitsCuponFromOrder($cupon['id'], $orederStr) ){
+					self::$session->my_session_flash_set('warning','Купон уже активирован.');
+					header("location:?route=index/cart");
+					die();
+				}else{
+					$model->addCuponFromOrder($cupon['id'], $orederStr);
+					self::$session->my_session_flash_set('cupon', $cupon);
+					self::$session->my_session_flash_set('succes','Купон успешно активирован');
+					header("location:?route=index/cart");
+					die();
+				}
+				
 			}else{
 				header("location:?route=index/cart");
 				die();
@@ -188,10 +205,10 @@
 			$session = new Session();
 			$orders = (new OrdersModel())->SelectOrderId($session->my_session_get('user'));
 			$orders = separate_order($orders);
+			//есть проблема со статосом из-за верстки (нужно статус вешать на весь ордер)
 			foreach($orders as $order){
 				$dataOrder[$order] = $model->selectOrderHistory($order);
 			}
-
 			$this->generation('orderHistory', $nameLayout, $dataOrder);
 		}
 

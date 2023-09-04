@@ -126,7 +126,7 @@
 			}
 
 			if(count($dataMass) <= 1){
-				//СТРАШНЫЙ ЗАПРОС - переделать))
+				//СТРАШНЫЙ ЗАПРОС - переделать)) 
 				$sql = "SELECT 
 				company,
 				`address`,
@@ -211,20 +211,39 @@
 		public function UpdateUserInput($value, $user){
 			//$value - значение user
 			////$user - id user "из сессии"
-			$email = $value['email'];
-			$new_password = password_hash((SecurityRegister::strip_tags_html($value['new_password'])), PASSWORD_DEFAULT);
-
-
-			$sql = "SELECT 
-			users_input_id as id
-			FROM users WHERE id = '$user' ";
-			$UsersInputId = current($this->getData($sql));
-
-			$sql = "UPDATE `users_input`
-			SET email = '$email' , `password` = '$new_password'
-			WHERE id = '$UsersInputId' ";
 			
-			return $this->statusRequestUpdate($sql);
+			if($value['new_password'] == null || $value['new_password'] == ""){
+				//если пароль не пришёл (человек меняет данные - но не пароль)
+				$email = $value['email'];
+	
+				$sql = "SELECT 
+				users_input_id as id
+				FROM users WHERE id = '$user' ";
+				$UsersInputId = current($this->getData($sql));
+	
+				$sql = "UPDATE `users_input`
+				SET email = '$email' 
+				WHERE id = '$UsersInputId' ";
+				
+				return $this->statusRequestUpdate($sql);
+				
+			}else{
+				$email = $value['email'];
+				$new_password = password_hash((SecurityRegister::strip_tags_html($value['new_password'])), PASSWORD_DEFAULT);
+	
+	
+				$sql = "SELECT 
+				users_input_id as id
+				FROM users WHERE id = '$user' ";
+				$UsersInputId = current($this->getData($sql));
+	
+				$sql = "UPDATE `users_input`
+				SET email = '$email' , `password` = '$new_password'
+				WHERE id = '$UsersInputId' ";
+				
+				return $this->statusRequestUpdate($sql);
+			}
+
 		}
 
 		//Обновление Адресса $type - тип адресса (payment,shipping)

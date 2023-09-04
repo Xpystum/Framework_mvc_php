@@ -49,7 +49,7 @@
 		public function myaccountAction(){
 
 
-			$this->renderFromSessionInput('myaccountsystem','Ошибка входа в аккаунт');
+			$this->renderFromSessionInput('myaccountsystem');
 		}	
 
 		//служебный метод для обработки аккаунта
@@ -69,8 +69,8 @@
 		//отправка POST запроса для обновление данных из аккаунта
 		public function updateAccountAction(){
 			
-			//ошибка проектирование БД shipping - относится к заказу.
-			// POST надо приниматиь через xmlhttprequest (доделать потом)
+			//ошибка проектирование БД shipping - относится к заказу. - *исправил БД
+			// POST можно приниматиь через xmlhttprequest (доделать потом)
 			if(isset($_POST)){
 
 				$userId = (new Session)->my_session_get('user');
@@ -81,16 +81,22 @@
 
 				$UserInput = $userModel->SelectUsersInputId(($userModel->SelectUsersInputFromUser($userId)));
 				$pass = new ValidatorPasswordUser;
-				
+
+				// $data = password_hash($_POST['password'], PASSWORD_DEFAULT);
+				// var_dump($data);
+				// die();
+
+				// var_dump($validator->get_status_valid());
+				// die();
 
 				if($pass->checkPasswordUser($_POST['password'], $UserInput) && $validator->get_status_valid()){
 					
-			
+					
 					$dataArea = (new AreaMyAccount($_POST))->getAreaData();
 					
-					$userModel->UpdateUserInput($dataArea['user'], $userId);
-					$userModel->UpdateUser($dataArea['user'], $userId);
-					$userModel->UpdateAddress($dataArea['address_payment'], $userId, 1);	
+					// $userModel->UpdateUserInput($dataArea['user'], $userId);
+					// $userModel->UpdateUser($dataArea['user'], $userId);
+					// $userModel->UpdateAddress($dataArea['address_payment'], $userId, 1);	
 					
 
 					if(empty($userModel->SelectAdressTypeUser($userId, 2))){
@@ -98,7 +104,7 @@
 						$userModel->insertAddressShipping($dataArea['address_shipping'], $userId);
 					}else{
 						//update
-						$userModel->UpdateAddress($dataArea['address_payment'], $userId, 2);
+						$userModel->UpdateAddress($dataArea['address_shipping'], $userId, 2);
 					}
 
 
@@ -219,12 +225,10 @@
 			private function renderFromSessionInput($pathFile){
 				
 				if(self::$session->my_session_get('user') != null){
-					echo $pathFile;
-					die();
+					
 					header("location:?route=auth/".$pathFile);
-				}else{
-					echo 2;
 					die();
+				}else{
 					self::$session->my_session_flash_set('warning','Вход не выполнен');
 					header("location:?route=auth/login");
 					die();

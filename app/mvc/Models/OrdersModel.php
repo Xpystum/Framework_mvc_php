@@ -88,7 +88,7 @@
 
 		public function exisitsOrder($user_id){
 			$sql = "SELECT id FROM orders 
-			WHERE EXISTS (SELECT id FROM orders WHERE `status` = 0 AND user_id = $user_id  )
+			WHERE EXISTS (SELECT id FROM orders WHERE user_id = $user_id  )
 			";
 			if(empty($this->getMultyData($sql))){
 				return false;
