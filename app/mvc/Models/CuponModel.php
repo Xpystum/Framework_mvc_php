@@ -16,7 +16,7 @@
 			return null;
 		}	
 
-		public function addCuponFromOrder($id_cupon, $id_order_string){
+		public function addCuponFromOrder($id_cupon, $id_order){
 			// добавление скидочного купона + сразу высчитывание скидки 
 			
 			$sql = "UPDATE `order_products`
@@ -24,16 +24,16 @@
 			total = price * (1 - ( 
 				(SELECT discount_precent 
 				FROM `discount` WHERE discount.id = '$id_cupon')  / 100) )
-			WHERE discount_id IS NULL AND order_id IN ($id_order_string)";
+			WHERE discount_id IS NULL AND order_id = '$id_order' ";
 
 			return $this->statusRequest($sql);
 		}
 
-		public function exisitsCuponFromOrder($id_cupon, $id_orders_string){
+		public function exisitsCuponFromOrder($id_cupon, $id_orders){
 
 			$sql = "SELECT COUNT(*) as count
 			FROM `order_products` 
-			WHERE order_id IN ($id_orders_string) AND (discount_id = $id_cupon OR discount_id IS NOT NULL)";
+			WHERE order_id = '$id_orders' AND (discount_id = $id_cupon OR discount_id IS NOT NULL)";
 			$count = $this->getData($sql);
 			
 			if($count['count'] > 0){

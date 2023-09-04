@@ -595,14 +595,14 @@
                                             
                                             <?php  
 
-                                                // include_once("app/Widgets/BasketContentWidget.php");
-                                                // echo BasketContentWidget::render_basket_header_info(); 
+                                                include_once("app/Widgets/BasketContentWidget.php");
+                                                echo BasketContentWidget::render_basket_header_info(); 
                                                 
                                             ?>
 
                                             <!-- END Widget Basket -->
-                                        </div>
-                                </div>
+                                    </div>
+                                    </div>
                                 </div>
                                 <!--//cart-->
                                 <div class="header_custom_link">

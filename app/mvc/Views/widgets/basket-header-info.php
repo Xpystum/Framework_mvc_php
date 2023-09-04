@@ -19,7 +19,18 @@
     <li>
         <table class="table table-striped">
             <tbody>
-                <?php foreach ($data['basket'] as $info): ?>
+                
+                <?php 
+                    // $sum = 0;
+                    // foreach ($data['basket'] as $info):
+                    //     // print_r($info);
+                    //     $sum += $info['total_product'];
+                    // endforeach;
+                    // print_r($sum);
+                    // die();
+                
+                    foreach ($data['basket'] as $info): 
+                ?>
                 <tr>
                     <td class="text-center" style="width:70px">
                         <a href="product.html">
@@ -29,7 +40,7 @@
                     <td class="text-left"> <a class="cart_product_name" href="product.html"><?php echo $info['name'];?></a> 
                     </td>
                     <td class="text-center">x<?php echo $info['count'];?></td>
-                    <td class="text-center"><?php echo $info['total'];?></td>
+                    <td class="text-center"><?php  echo ($info['total_product'] * $info['count']);?></td>
                     <td class="text-right">
                         <a href="product.html" class="fa fa-edit"></a>
                     </td>

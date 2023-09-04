@@ -147,27 +147,18 @@
 			if(isset($_POST['cupon'])){
 				$model = new CuponModel();
 				$orders = (new OrdersModel())->SelectOrderId(self::$session->my_session_get('user'));
-				
 				$cupon = $model->getProductAndCupon($_POST['cupon']);
 				if(!isset($cupon) && empty($cupon)){
 					self::$session->my_session_flash_set('warning','Такого купона нету.');
 					header("location:?route=index/cart");
 					die();
 				}
-
-				//подогнать массив id в строку.
-				$orederStr = null;
-				foreach($orders as $value){
-					$orederStr .= ",".$value['id'];
-				}
-				$orederStr = trim($orederStr, ',');
-
-				if($model->exisitsCuponFromOrder($cupon['id'], $orederStr) ){
+				if($model->exisitsCuponFromOrder($cupon['id'],  $orders['id']) ){
 					self::$session->my_session_flash_set('warning','Купон уже активирован.');
 					header("location:?route=index/cart");
 					die();
 				}else{
-					$model->addCuponFromOrder($cupon['id'], $orederStr);
+					$model->addCuponFromOrder($cupon['id'], $orders['id']);
 					self::$session->my_session_flash_set('cupon', $cupon);
 					self::$session->my_session_flash_set('succes','Купон успешно активирован');
 					header("location:?route=index/cart");
@@ -203,7 +194,7 @@
 			$nameLayout = $this->nameLayout;
 			$model = new OrderHistoryModel();	
 			$session = new Session();
-			$orders = (new OrdersModel())->SelectOrderId($session->my_session_get('user'));
+			$orders = (new OrdersModel())->SelectsOrderId($session->my_session_get('user'));
 			$orders = separate_order($orders);
 			//есть проблема со статосом из-за верстки (нужно статус вешать на весь ордер)
 			foreach($orders as $order){

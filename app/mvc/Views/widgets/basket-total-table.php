@@ -1,4 +1,5 @@
 <!-- для правильного расположение -->
+
 <?php 
     if(isset($data['info']['flag'])){
         $class = ($data['info']['flag'] == true) ? 'text-left': 'text-right';
@@ -18,15 +19,15 @@
                     if(isset($data['info']['flag'])){
                         $sum = 0;
                         foreach ($data['basket'] as $info):
-                            $sum += $info['price'];
+                            $sum += $info['total_product'] * $info['count'];
                         endforeach;
                         echo $sum.' Rub';
                     }
                     else{
                         
                         $sum = 0;
-                        foreach ($data as $info):
-                            $sum += $info['price'];
+                        foreach ($data as $info):     
+                            $sum += $info['total_product'] * $info['count'];
                         endforeach;
                         echo $sum.' Rub';
                     }

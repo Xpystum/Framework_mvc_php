@@ -8,16 +8,16 @@
 
 		public function selectOrder($user_id){
 			$sql = "SELECT 
-            orders.id as order_id,
-            user_id,
-
-            order_products.id as orderproduct_id,	
-            order_id,
-            product_id,
+			orders.id as order_id,
+			user_id,
+			
+			order_products.id as orderproduct_id,	
+			order_id,
+			product_id,
 			quantity as count,
 			total as total_product,
-
-
+			
+			
 			products.id	as `product`,
 			products.name,
 			products.img,
@@ -25,11 +25,11 @@
 			products.category_id,
 			products.price,
 			products.old_price	
-
-
-       	 	FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
+			
+			
+			FROM orders INNER JOIN order_products ON orders.id = order_products.order_id
 			INNER JOIN products ON order_products.product_id = products.id
-        	WHERE orders.user_id = ".$user_id;
+			WHERE orders.date = (SELECT MAX(date) FROM orders) AND orders.user_id = ".$user_id;
 
 			$data = $this->getMultyData($sql);
 			return $data;
@@ -130,10 +130,18 @@
 			return $data['id'];
 		}
 
-		public function SelectOrderId($user_id){
-			//поиск заказа по юсеру
+		public function SelectsOrderId($user_id){
+			//поиск заказа по юсеру (вернуть множество)
 			$sql = "SELECT id FROM `orders` WHERE user_id = $user_id";
 			$data = $this->getMultyData($sql);
+			
+			return $data;
+		}
+
+		public function SelectOrderId($user_id){
+			//поиск заказа по юсеру (вернуть в единичном экземпляре)
+			$sql = "SELECT id FROM `orders` WHERE user_id = $user_id";
+			$data = $this->getData($sql);
 			
 			return $data;
 		}
