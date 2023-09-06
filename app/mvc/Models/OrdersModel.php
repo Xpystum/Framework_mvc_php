@@ -32,6 +32,7 @@
 			WHERE orders.date = (SELECT MAX(date) FROM orders) AND orders.user_id = ".$user_id;
 
 			$data = $this->getMultyData($sql);
+
 			return $data;
 		}
 

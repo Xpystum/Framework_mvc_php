@@ -74,7 +74,10 @@
 </head>
 
 <body class="res layout-1">
-
+    <?php 
+        echo 1;
+        MenuWidget::render("departament_menu", "departament"); 
+    ?>
     <!-- Modal -->
 
     <!-- Header Container  -->
@@ -538,7 +541,13 @@
                                                 </div>
                                             </div>
 
-                                            <?php echo MenuWidget::render("departament_menu", "departament");?>
+                                            <?php 
+
+                                            
+                                                // echo MenuWidget::render("departament_menu", "departament");
+
+                                            
+                                            ?>
 
                                         </div>
                                     </nav>
@@ -595,8 +604,10 @@
                                             
                                             <?php  
 
-                                                include_once("app/Widgets/BasketContentWidget.php");
-                                                echo BasketContentWidget::render_basket_header_info(); 
+                                                if($session->my_session_get('user') !== null ){
+                                                    include_once("app/Widgets/BasketContentWidget.php");
+                                                    echo BasketContentWidget::render_basket_header_info($data); 
+                                                }
                                                 
                                             ?>
 

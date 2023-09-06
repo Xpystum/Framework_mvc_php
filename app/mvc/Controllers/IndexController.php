@@ -47,9 +47,12 @@
 		
 		public function indexAction(){
 			// главная страница
-			$nameLayout = 'index';
+			$nameLayout = 'index'; 
 			$model = new PagesModel();
 			$data = $model->selectPageId(4);
+
+			// $modeMenu = new MenuModel();
+			// dd::arrp($modeMenu->selectItemMenuParant('departament_menu'));
 			
 			$this->generation('index', $nameLayout , $data);	
 		}
@@ -131,6 +134,8 @@
 				$data = null;
 				$model = new OrdersModel();
 				$data = $model->selectOrder($user);
+
+				// dd::arrv($data);
 
 				$this->generation('cart', $nameLayout  , $data);
 			}else{

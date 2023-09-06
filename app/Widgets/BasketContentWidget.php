@@ -21,6 +21,7 @@
 			$session = new Session();
 			$model = new OrdersModel();
 
+			
 			$data['basket'] = $model->selectOrder($session->my_session_get('user'));
 
 
