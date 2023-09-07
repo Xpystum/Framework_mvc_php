@@ -61,9 +61,18 @@
 		}
 
 
-		public function test(){
-			$sql = "SELECT * 
-			FROM test_cat";
+		public function selectFullMenuParant($alias){
+			$sql = "SELECT 
+
+			id,
+			parrent_id,
+			`name`,
+			is_title as title,
+			img as img, 
+			icon as icon
+			
+			FROM menu_items
+			WHERE menu_id = (SELECT id FROM `menu` WHERE alias = '$alias');";
 
 			$data = $this->getMultyData($sql);
 			return $data;
