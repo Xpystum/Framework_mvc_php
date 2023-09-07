@@ -60,4 +60,13 @@
 			return $data;
 		}
 
+
+		public function test(){
+			$sql = "SELECT * 
+			FROM test_cat";
+
+			$data = $this->getMultyData($sql);
+			return $data;
+		}
+
 	}

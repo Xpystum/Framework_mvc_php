@@ -10,7 +10,8 @@
 
 			$model = new MenuModel();
 			
-			$data = $model->selectItemMenuParant($alias);
+			// $data = $model->selectItemMenuParant($alias);
+			$data = $model->test();
 
 			Widget::pathIncludeView($menu_name, $data);
 
