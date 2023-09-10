@@ -17,5 +17,28 @@
 
 		} 
 
+		static function switchMenu($name, $data){
+			switch($name){
+				
+				case('Fashion'):{
+					MenuWidget::rendRecursion('menu/Fashion', $data);
+					break;
+				}
+		
+				default:{
+					return 0;
+					break;
+				}
+			}
+		}
+
+		//вызываем этот метод при рекурсивном выводе меню
+		static function rendRecursion($menu_name, $data){
+			// $menu_name - какой файл отрендерить
+			// $data - данные child
+
+			Widget::pathIncludeView($menu_name, $data);
+		} 
+
 	}
 

@@ -523,32 +523,9 @@
                                 <div class="so-vertical-menu ">
                                     <nav class="navbar-default">    
                                         
-                                        <div class="container-megamenu vertical">
-                                            <div id="menuHeading">
-                                                <div class="megamenuToogle-wrapper">
-                                                    <div class="megamenuToogle-pattern">
-                                                        <div class="container">
-                                                            <div>
-                                                                <span></span>
-                                                                <span></span>
-                                                                <span></span>
-                                                            </div>
-                                                            <span class="title-mega">All Departments</span>              
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                         
-                                            <div class="navbar-header">
-                                                <button type="button" id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle">
-                                                    <span class="icon-bar"></span>
-                                                    <span class="icon-bar"></span>
-                                                    <span class="icon-bar"></span>
-                                                </button>
-                                            </div>
-                                            
-                                            <?php MenuWidget::render("departament_menu", "departament"); ?>
-                                        </div>
+
+                                        <?php MenuWidget::render("departament_menu", "departament"); ?>
+
                                     </nav>
                                 </div>
                             </div>
