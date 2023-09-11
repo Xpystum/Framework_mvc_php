@@ -2,63 +2,147 @@
 <?php 
 	require_once("app/Helpers/ArrayPreparation.php");
     include_once("app/Widgets/MenuWidget.php");
-    $constMenu = [
-        'Fashion' => 'Fashion',
-        'Computer' => 'Computer',
-        'Flower & Gift' => 'Flower & Gift',
-        'Smartphone' => 'Smartphone',
-        'Health & Beauty' => 'Health & Beauty',
-        'Sport Clothing' => 'Sport Clothing',
-        'Watch & Jewelry' => 'Fashion',
-        'Kitchen' => 'Kitchen',
-        'Accessories' => 'Accessories',
-    ];
-    
+   
+    function selectClassMenu($dataName){
 
+        $constMenu = [
+            'Fashion' => 'Fashion',
+            'Computer' => 'Computer',
+            'Flower & Gift' => 'Flower & Gift',
+            'Smartphone' => 'Smartphone',
+            'Health & Beauty' => 'Health & Beauty',
+            'Sport Clothing' => 'Sport Clothing',
+            'Watch & Jewelry' => 'Watch & Jewelry',
+            'Kitchen' => 'Kitchen',
+            'Accessories' => 'Accessories',
+        ];
 
-    //групировка массива
-    // function createThree($datas){
-    //     $parent_arr = array();
+        switch($dataName){
+            case $constMenu['Fashion']:{
+                return "item-vertical  with-sub-menu hover";
+                break;
+            }
 
-    //     //[$item['parent_id']] - будет ссылкой (или индификатором родителя)
-    //     //[[$item['id']] - номер элемента
-    //     foreach($datas as $key => $item){
-    //         $parent_arr[$item['parrent_id']][$item['id']] = $item;
-    //     }
-    //     // работаем от главных родителей (0 уровень вложенности)
-    //     $threeElem = $parent_arr[0];
+            case $constMenu['Computer']:{
+                return "item-vertical";
+                break;
+            }
 
-    //     //передача параметра по ссылке 
-    //     generateElemThree($threeElem, $parent_arr);
+            case $constMenu['Flower & Gift']:{
+                return "item-vertical  style1 with-sub-menu hover";
+                break;
+            }
 
-    //     //возваращем сгрупированный массив
-    //     return $threeElem;
-    // }
-    
-    // //рекурсивная функция
-    // function generateElemThree(&$threeElem, $parent_arr){
+            case $constMenu['Smartphone']:{
+                return "item-vertical with-sub-menu hover";
+                break;
+            }
 
-    //     foreach($threeElem as $key => $item){
-    //         //создаем ветку ['children']
-    //         if(!isset($item['children'])){
-    //             $threeElem[$key]['children'] = array();
-    //         }
+            case $constMenu['Health & Beauty']:{
+                return "item-vertical css-menu with-sub-menu hover";
+                break;
+            }
 
-    //         //записываем производный массив от родителя в ['children'] - если такой есть и запускаем рекурсию по этому children
-    //         if(array_key_exists($key, $parent_arr)){
-    //             $threeElem[$key]['children'] = $parent_arr[$key];
-    //             generateElemThree($threeElem[$key]['children'], $parent_arr);
-    //         }
-    //     }
+            case $constMenu['Sport Clothing']:{
+                return "item-vertical";
+                break;
+            }
 
-    // }
+            case $constMenu['Watch & Jewelry']:{
+                return "item-vertical";
+                break;
+            }
 
-    
+            case $constMenu['Kitchen']:{
+                return "item-vertical";
+                break;
+            }
+
+            case $constMenu['Accessories']:{
+                return "item-vertical";
+                break;
+            }
+
+            default:{
+                return "";
+                break;
+            }
+        }
+                
+    }
+
+    function selectClassMenuTag($dataName){
+
+        $constMenu = [
+            'Fashion' => 'Fashion',
+            'Computer' => 'Computer',
+            'Flower & Gift' => 'Flower & Gift',
+            'Smartphone' => 'Smartphone',
+            'Health & Beauty' => 'Health & Beauty',
+            'Sport Clothing' => 'Sport Clothing',
+            'Watch & Jewelry' => 'Fashion',
+            'Kitchen' => 'Kitchen',
+            'Accessories' => 'Accessories',
+        ];
+
+        switch($dataName){
+            case $constMenu['Fashion']:{
+                return '<b class="fa fa-angle-right"></b>';
+                break;
+            }
+
+            case $constMenu['Computer']:{
+                return "";
+                break;
+            }
+
+            case $constMenu['Flower & Gift']:{
+                return '<b class="fa fa-angle-right"></b>';
+                break;
+            }
+
+            case $constMenu['Smartphone']:{
+                return '<b class="fa fa-angle-right"></b>';
+                break;
+            }
+            
+
+            case $constMenu['Health & Beauty']:{
+                return '<b class="fa fa-angle-right"></b>';
+                break;
+            }
+
+            case $constMenu['Sport Clothing']:{
+                return '';
+                break;
+            }
+
+            case $constMenu['Watch & Jewelry']:{
+                return '';
+                break;
+            }
+
+            case $constMenu['Kitchen']:{
+                return '';
+                break;
+            }
+
+            case $constMenu['Accessories']:{
+                return '';
+                break;
+            }
+
+            default:{
+                return "";
+                break;
+            }
+        }
+                
+    }
+
     
     $data = ArrayPreparation::array_preparation($data);
-    // dd::arrp($data[4]);
 
-    // dd::arrp(createThree($data)); 
 ?>
 
 
@@ -95,20 +179,22 @@
                 <ul class="megamenu">
 
                 <?php  foreach($data as $value): ?>
-                    <li class="item-vertical  with-sub-menu hover">
+                    <li class="<?php echo selectClassMenu($value['name']); ?>">
                         <p class="close-menu"></p>
                         <a href="#" class="clearfix">
                             <span>
                                 <img src="<?php echo $value['icon'] ?>" alt="icon">
                                 <strong><?php echo $value['name'] ?></strong>
                             </span>
-                                
-                            <b class="fa fa-angle-right"></b>
+
+                            <?php 
+                                echo selectClassMenuTag($value['name']);
+                            ?>
                         </a>
                         <?php 
                             
                             if(count($value['children']) > 0){
-                                MenuWidget::switchMenu($value['name'], $value['children']); 
+                                MenuWidget::switchMenu($value['name'], $value['children'], $value); 
                             }
                         ?>
                     </li>

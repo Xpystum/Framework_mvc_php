@@ -1,25 +1,6 @@
 <?php  
 
-
-
-// foreach($data as $value){
-    
-//     dd::arrp($value);
-//     die();
-//     // if($value['children'] != null){
-//     //     foreach($value['children'] as $name){
-//     //         var_dump($name['name']);
-//     //     }
-//     // }
-// }
-
-// die();
-
-
 include_once ("app/Widgets/MenuWidget.php"); 
-
-
-
 
 ?>
 <div class="sub-menu" data-subwidth="80"  >

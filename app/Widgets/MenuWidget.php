@@ -17,13 +17,38 @@
 
 		} 
 
-		static function switchMenu($name, $data){
+		static function switchMenu($name, $dataValue, $parent){
 			switch($name){
 				
 				case('Fashion'):{
-					MenuWidget::rendRecursion('menu/Fashion', $data);
+					MenuWidget::rendRecursion('menu/fashion', $dataValue);
 					break;
 				}
+
+				case('Flower & Gift'):{
+					$data['children'] = $dataValue;
+					$data['parent'] = $parent;
+					MenuWidget::rendRecursion('menu/flower_gift', $data);
+					break;
+				}
+
+				case('Health & Beauty'):{
+					MenuWidget::rendRecursion('menu/health_beauty', $dataValue);
+					break;
+				}
+
+				case('Smartphone'):{
+					
+					// dd::arrp($parent);
+					$data['children'] = $dataValue;
+					$data['parent'] = $parent;
+
+					MenuWidget::rendRecursion('menu/smartphone', $data);
+					break;
+				}
+
+				
+				
 		
 				default:{
 					return 0;
@@ -33,11 +58,11 @@
 		}
 
 		//вызываем этот метод при рекурсивном выводе меню
-		static function rendRecursion($menu_name, $dataValue, $Parent = null){
+		static function rendRecursion($menu_name, $dataValue, $parent = null){
 			
-			if($Parent != null){
+			if($parent != null){
 				$data['children'] = $dataValue;
-				$data['parent'] = $Parent;
+				$data['parent'] = $parent;
 
 			}else{
 				$data = $dataValue;
