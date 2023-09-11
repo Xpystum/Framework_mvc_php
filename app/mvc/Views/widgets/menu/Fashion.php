@@ -2,16 +2,18 @@
 
 
 
-foreach($data as $value){
+// foreach($data as $value){
     
-    if($value['children'] != null){
-        foreach($value['children'] as $name){
-            var_dump($name['name']);
-        }
-    }
-}
+//     dd::arrp($value);
+//     die();
+//     // if($value['children'] != null){
+//     //     foreach($value['children'] as $name){
+//     //         var_dump($name['name']);
+//     //     }
+//     // }
+// }
 
-die();
+// die();
 
 
 include_once ("app/Widgets/MenuWidget.php"); 
@@ -29,7 +31,7 @@ include_once ("app/Widgets/MenuWidget.php");
                         <div class="col-md-4 static-menu">
                             <div class="menu">
                                 <?php 
-                                    // MenuWidget::rendRecursion('department_recurs_UL', $value['children']); 
+                                    MenuWidget::rendRecursion('department_recurs_UL', $value['children'], $value); 
                                     // var_dump($data);
                                 ?>
                             </div>

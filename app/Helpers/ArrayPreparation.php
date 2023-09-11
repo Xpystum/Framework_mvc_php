@@ -1,6 +1,6 @@
 <?php 
 
-	class ArraPreparation{
+	class ArrayPreparation{
 		public static function array_preparation($dataValue){
 
             //групировка массива

@@ -1,26 +1,24 @@
 
 <?php 
 
-// var_dump(2123);
 
 
 ?>
 <ul>
     <li>
-    <?php foreach($data as $value): ?>
+    <?php //foreach($data['children'] as $value): ?>
         <?php 
-            if($data['title'] == 1): ?>
-            <a href="#" class="main-menu"><?php echo  $value['name'] ?></a>
+            if($data['parent']['title'] == 1 && $data['parent'] != null): ?>
+                <a href="#" class="main-menu"><?php echo $data['parent']['name']; $data['parent']['title'] = ""; ?></a>
             <li>
                 <?php 
-             
-                    if(count($value['children']) > 0) {
-                        MenuWidget::rendRecursion('department_recurs_LI', $value['children']);
-                        continue;
+                    if($data['children'] != null) {
+                        MenuWidget::rendRecursion('department_recurs_LI', $data['children']);
+                        // continue;
                     }
                 ?>
             </li>
         <?php endif; ?>
-    <?php endforeach ?>
+    <?php //endforeach ?>
     </li>
 </ul>

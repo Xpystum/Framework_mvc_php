@@ -75,7 +75,7 @@
 
 <body class="common-home res layout-1" style="padding-right: 5px;">
     <?php 
-        MenuWidget::render("departament_menu", "departament"); 
+        // MenuWidget::render("departament_menu", "departament"); 
     ?>
     <div id="wrapper" class="wrapper-fluid banners-effect-7">
     <!-- Header Container  -->

@@ -33,7 +33,16 @@
 		}
 
 		//вызываем этот метод при рекурсивном выводе меню
-		static function rendRecursion($menu_name, $data){
+		static function rendRecursion($menu_name, $dataValue, $Parent = null){
+			
+			if($Parent != null){
+				$data['children'] = $dataValue;
+				$data['parent'] = $Parent;
+
+			}else{
+				$data = $dataValue;
+			}
+			
 			// $menu_name - какой файл отрендерить
 			// $data - данные child
 
