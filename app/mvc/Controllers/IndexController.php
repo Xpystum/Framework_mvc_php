@@ -15,6 +15,10 @@
 
 	//helper
 	require_once("app/Helpers/dd.php");
+	
+
+	//Api
+	require_once("app/API/ApiСurrency.php");
 
 
 	class IndexController extends Controller{
@@ -46,6 +50,9 @@
 		}
 		
 		public function indexAction(){
+
+
+
 			// главная страница
 			$nameLayout = 'index'; 
 			$model = new PagesModel();
@@ -149,7 +156,7 @@
 		public function cartCuponAction(){
 
 			//логика купона
-			if(isset($_POST['cupon'])){
+			if(isset($_POST['cupon']) && !empty(self::$session->my_session_get('user')) ){
 				$model = new CuponModel();
 				$orders = (new OrdersModel())->SelectOrderId(self::$session->my_session_get('user'));
 				$cupon = $model->getProductAndCupon($_POST['cupon']);
@@ -188,24 +195,32 @@
 
 		public function orderAccountAction(){
 			
-			function separate_order($orders){
-				$dataOrder = null;
-				foreach($orders as $order['id']){
-					$dataOrder[] = array_shift($order['id']);
+			if(!empty(self::$session->my_session_get('user')))
+			{
+				function separate_order($orders){
+					$dataOrder = null;
+					foreach($orders as $order['id']){
+						$dataOrder[] = array_shift($order['id']);
+					}
+					return $dataOrder;
 				}
-				return $dataOrder;
+	
+				$nameLayout = $this->nameLayout;
+				$model = new OrderHistoryModel();	
+				$session = new Session();
+				$orders = (new OrdersModel())->SelectsOrderId($session->my_session_get('user'));
+				$orders = separate_order($orders);
+				//есть проблема со статосом из-за верстки (нужно статус вешать на весь ордер)
+				foreach($orders as $order){
+					$dataOrder[$order] = $model->selectOrderHistory($order);
+				}
+				$this->generation('orderHistory', $nameLayout, $dataOrder);
+			}else{
+				self::$session->my_session_flash_set('warning','Войдите в свой аккаунт');
+				header("location:?route=index/index");
+				die();
 			}
-
-			$nameLayout = $this->nameLayout;
-			$model = new OrderHistoryModel();	
-			$session = new Session();
-			$orders = (new OrdersModel())->SelectsOrderId($session->my_session_get('user'));
-			$orders = separate_order($orders);
-			//есть проблема со статосом из-за верстки (нужно статус вешать на весь ордер)
-			foreach($orders as $order){
-				$dataOrder[$order] = $model->selectOrderHistory($order);
-			}
-			$this->generation('orderHistory', $nameLayout, $dataOrder);
+			
 		}
 
 		#region Служебные приватные методы

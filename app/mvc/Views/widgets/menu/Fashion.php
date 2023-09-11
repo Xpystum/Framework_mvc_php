@@ -3,7 +3,7 @@
 include_once ("app/Widgets/MenuWidget.php"); 
 
 ?>
-<div class="sub-menu" data-subwidth="80"  >
+<div class="sub-menu" data-subwidth="80"  style="width: 720px; display: none; right: 0px;">
     <div class="content" >
         <div class="row">
             <div class="col-sm-12">

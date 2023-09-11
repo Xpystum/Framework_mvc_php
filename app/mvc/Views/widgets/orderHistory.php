@@ -1,5 +1,8 @@
 <?php 
 
+require_once("app/API/ApiСurrency.php");
+$usd_relatively_ruble = ApiСurrency::returnСurrencyFromRuble();
+
 function renderName($name, $data){
     echo $data[$name];
 }
@@ -45,7 +48,7 @@ function renderName($name, $data){
                     //  Статус нужно весить на весь Заказ.
                     $status = $value['status'];
                     $price_for_one = $value['product_price'];
-                    $total = $value['total_product'];
+                    $total = $value['total_product'] ;
                     $date = $value['date'];
                     $order_id = $value['id_orders'];
                 ?>
@@ -61,8 +64,8 @@ function renderName($name, $data){
                         </td>
                         <td class="text-center"><?php echo $qua ?></td>
                         <td class="text-center"><?php echo $status ?></td>
-                        <td class="text-center"><?php echo $price_for_one ?></td>
-                        <td class="text-center"><?php echo $total ?></td>
+                        <td class="text-center"><?php echo (int)($price_for_one / $usd_relatively_ruble)." $" ?></td>
+                        <td class="text-center"><?php echo (int)($total / $usd_relatively_ruble)." $" ?></td>
                         <td class="text-right"><?php echo $date ?></td>
                         <td class="text-center"><a class="btn btn-info" title="" data-toggle="tooltip" href="order-information.html" data-original-title="View"><i class="fa fa-eye"></i></a>
                         </td>

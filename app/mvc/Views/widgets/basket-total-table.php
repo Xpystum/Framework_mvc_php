@@ -1,5 +1,7 @@
 <!-- для правильного расположение -->
 
+
+
 <?php 
     if(isset($data['info']['flag'])){
         $class = ($data['info']['flag'] == true) ? 'text-left': 'text-right';
@@ -7,6 +9,16 @@
 ?>
 
 <!-- Делать логику для дисконта в рублях* -->
+<?php 
+
+//Api
+require_once("app/API/ApiСurrency.php");
+$usd_relatively_ruble = ApiСurrency::returnСurrencyFromRuble();
+
+
+?>
+
+
 <table class="table table-bordered">
     <tbody>
         <tr>
@@ -21,7 +33,8 @@
                         foreach ($data['basket'] as $info):
                             $sum += $info['total_product'] * $info['count'];
                         endforeach;
-                        echo $sum.' Rub';
+                        $sum /= $usd_relatively_ruble;
+                        echo (int)$sum.' $';
                     }
                     else{
                         
@@ -29,9 +42,10 @@
                         foreach ($data as $info):     
                             $sum += $info['total_product'] * $info['count'];
                         endforeach;
-                        echo $sum.' Rub';
+                        $sum /= $usd_relatively_ruble;
+                        echo $sum.' $';
                     }
-                   
+                    
                 ?>
             </td>
         </tr>
@@ -56,7 +70,7 @@
 
             
                 <?php  
-                    echo ($sum * 0.2)." Rub";   
+                    echo (int)($sum * 0.2)  ." $";   
                 ?>
 
             </td>

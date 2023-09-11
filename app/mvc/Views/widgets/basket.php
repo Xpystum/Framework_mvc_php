@@ -1,6 +1,9 @@
 <?php 
 require_once("app/Helpers/Session.php");
 require_once("app/Helpers/Cupon.php");
+//Api
+require_once("app/API/ApiСurrency.php");
+$usd_relatively_ruble = ApiСurrency::returnСurrencyFromRuble();
 
 $session = new Session();
 $sessionCupon = $session->my_session_flash_get('cupon');
@@ -34,11 +37,11 @@ foreach ($data as $info):
         <button type="submit" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Update"><i class="fa fa-clone"></i></button>
         <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="" data-original-title="Remove"><i class="fa fa-times-circle"></i></button>
         </span></div></td>
-    <td class="text-right">₽<?php echo $info['price']?></td>
+    <td class="text-right">$<?php echo (int)($info['price']/$usd_relatively_ruble) ?></td>
     <td class="text-right">
         <?php 
             try{
-                echo $info['total_product'];
+                echo "$".(int)($info['total_product']/$usd_relatively_ruble);
             }
             catch(Exception $e){
                 echo 'Caught exception: ',  $e->getMessage(), "\n";

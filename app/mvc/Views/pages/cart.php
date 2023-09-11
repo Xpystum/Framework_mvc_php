@@ -1,4 +1,10 @@
-<?php include_once("app/Widgets/BasketContentWidget.php"); ?>
+<?php 
+
+include_once("app/Widgets/BasketContentWidget.php"); 
+
+
+
+?>
 <h2 class="title">Shopping Cart</h2>
 <div class="table-responsive form-group">
     <table class="table table-bordered">

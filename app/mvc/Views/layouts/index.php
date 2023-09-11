@@ -1,5 +1,6 @@
 <?php 
 	require_once("app/Helpers/Session.php");
+
 	$session = new Session();
 ?>
 <!DOCTYPE html>
@@ -112,7 +113,7 @@
                               
                             <li class="language">
                                 <div class="btn-group languages-block ">
-                                    <form action="index.html" method="post" enctype="multipart/form-data" id="bt-language">
+                                    <form action="index.html" method="post" enctype="multipart/form-data" id="bt-language" style="margin-bottom: 4px;">
                                         <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                                             <img src="app/resources/image/catalog/flags/gb.png" alt="English" title="English">
                                             <span class="">English</span>
@@ -128,7 +129,7 @@
                             </li>
                             <li class="currency">
                                 <div class="btn-group currencies-block">
-                                    <form action="index.html" method="post" enctype="multipart/form-data" id="currency">
+                                    <form action="index.html" method="post" enctype="multipart/form-data" id="currency" style="margin-bottom: 4px;">
                                         <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                                             <span class="icon icon-credit "></span> $ US Dollar  <span class="fa fa-angle-down"></span>
                                         </a>
